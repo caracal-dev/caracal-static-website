@@ -1,0 +1,15 @@
+{
+  "name": "caracal-static-website",
+  "private": true,
+  "scripts": {
+    "build": "hugo",
+    "serve": "hugo server",
+    "create": "hugo new"
+  },
+  "devDependencies": {
+    "hugo-bin": "^0.147.0"
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
+  }
+}
