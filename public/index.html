@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.160.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Caracal OS</title>
+<meta name="description" content="A studio-ready Linux workstation for music producers and sound engineers, built on Fedora Kinoite and tuned for audio from first boot.">
+<link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
+
+      <link rel="stylesheet" href="/css/main.css">
+
+
+      <script src="/js/main.js"></script>
+
+
+</head>
+<body class="">
+  <div class="page-shell">
+    
+<header class="site-header">
+  <a class="brand" href="#top" aria-label="Caracal OS home">
+    <img src="/assets/images/logos/icon-grey-with-text.svg" alt="Caracal OS">
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    
+      <a href="#why">Why Caracal</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#catalog">Stack</a>
+      <a href="#install">Install</a>
+      <a href="/wiki/">Wiki</a>
+    
+  </nav>
+</header>
+
+    <main>
+      
+  
+  <div id="top"></div>
+  <section class="hero">
+    <div class="hero-copy reveal reveal-1">
+      <p class="eyebrow">For producers, beatmakers, composers, and mix engineers</p>
+      <h1>Boot into a studio-ready Linux desktop instead of spending the weekend assembling one.</h1>
+      <p class="hero-lede">
+        A studio-ready Linux workstation for music producers and sound engineers, built on Fedora Kinoite and tuned for audio from first boot.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#install">Install Caracal</a>
+        <a class="button button-secondary" href="#workflow">See the workflow</a>
+      </div>
+
+      <div class="command-strip" aria-label="Install command">
+        <span class="command-label">switch</span>
+        <code>sudo bootc switch ghcr.io/caracal-dev/caracal:latest</code>
+      </div>
+
+      <ul class="fact-list" aria-label="Key highlights">
+        
+          <li>Immutable Fedora Kinoite base with bootc updates</li>
+        
+          <li>Realtime audio groups and performance tuning ready on first boot</li>
+        
+          <li>Ardour, Carla, plugins, and Windows VST support baked into the workflow</li>
+        
+      </ul>
+    </div>
+
+    <div class="hero-stage reveal reveal-2" aria-hidden="true">
+      <div class="hero-backdrop">
+        <img src="/assets/images/backdrops/caracal-sunset.png" alt="">
+      </div>
+      <div class="hero-panel hero-panel-glass">
+        <p class="panel-kicker">Signal path</p>
+        <h2>Immutable base. Musical workflow.</h2>
+        <div class="signal-grid">
+          <span>bootc</span>
+          <span>Kinoite</span>
+          <span>JACK</span>
+          <span>PipeWire</span>
+          <span>Ardour</span>
+          <span>Carla</span>
+          <span>Yabridge</span>
+          <span>CLAP</span>
+        </div>
+      </div>
+      <div class="hero-panel hero-panel-screen">
+        <img src="/assets/images/screenshots/Reaper-MesaBoogie-Plugin.png" alt="Caracal Software Installer screenshot">
+      </div>
+    </div>
+  </section>
+
+  <section class="tape">
+    <div class="tape-track">
+      <span>Fedora Kinoite base</span>
+      <span>Bazzite kernel</span>
+      <span>Realtime tuning</span>
+      <span>Windows VST support</span>
+      <span>DAWs, synths, effects, utilities</span>
+      <span>Atomic workflow for actual sessions</span>
+    </div>
+  </section>
+
+  <section class="section section-features" id="why">
+    <div class="section-heading">
+      <p class="eyebrow">Why Caracal</p>
+      <h2>Designed around session flow, not generic distro bragging.</h2>
+      <p>
+        The goal is simple: remove setup drag, keep the base clean, and make Linux audio feel credible from the
+        first boot through real production work.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      
+        <article class="feature-card reveal reveal-3">
+          <p class="card-eyebrow">Realtime first</p>
+          <h3>Low-latency defaults without the post-install ritual.</h3>
+          <p>Caracal ships with audio and realtime groups configured, rtprio 95, unlimited memlock, and a performance CPU governor so sessions start from a tuned baseline.</p>
+        </article>
+      
+        <article class="feature-card reveal reveal-3">
+          <p class="card-eyebrow">Studio core</p>
+          <h3>Boot into a workstation with real DAWs and patch tools already there.</h3>
+          <p>Ardour 9, Qtractor, and Carla are included out of the box, with REAPER, Renoise, and Bitwig available through simple post-install commands or the bundled installer.</p>
+        </article>
+      
+        <article class="feature-card reveal reveal-3">
+          <p class="card-eyebrow">Plugin depth</p>
+          <h3>The stock stack actually covers writing, mixing, sound design, and guitar.</h3>
+          <p>LSP, Dragonfly Reverb, Calf, BYOD, x42, Dexed, Odin2, AIDA-X, Neural Amp Modeler, and more are ready in LV2, VST3, and CLAP formats where available.</p>
+        </article>
+      
+        <article class="feature-card reveal reveal-3">
+          <p class="card-eyebrow">Hybrid workflows</p>
+          <h3>Run Linux-native audio software and bridge in Windows VSTs when needed.</h3>
+          <p>Wine TKG plus Yabridge are part of the story, so producers moving from Windows-heavy sessions are not boxed into a thin plugin ecosystem.</p>
+        </article>
+      
+    </div>
+  </section>
+
+  <section class="section section-workflow" id="workflow">
+    <div class="section-heading">
+      <p class="eyebrow">Workflow</p>
+      <h2>From recording to synthesis to plugin-heavy mixes.</h2>
+      <p>
+        The supplied screenshots lean into the actual target audience: track builders, engineers, guitar-focused workflows,
+        and anyone who needs both native Linux tools and a path for cross-platform plugins.
+      </p>
+    </div>
+
+    <div class="workflow-grid">
+      
+        <figure class="shot-card reveal reveal-4">
+          <img src="/assets/images/screenshots/Ardour-Project-Mixer.png" alt="Mixer view that stays out of your way">
+          <figcaption>
+            <h3>Mixer view that stays out of your way</h3>
+            <p>Large Ardour sessions stay readable, with the low-level tuning already handled underneath.</p>
+            
+          </figcaption>
+        </figure>
+      
+        <figure class="shot-card reveal reveal-4">
+          <img src="/assets/images/screenshots/Ardour-Project.png" alt="Track production on native Linux tools">
+          <figcaption>
+            <h3>Track production on native Linux tools</h3>
+            <p>Compose, record, and arrange with the included stack instead of chasing the basics after install day.</p>
+            
+          </figcaption>
+        </figure>
+      
+        <figure class="shot-card reveal reveal-4">
+          <img src="/assets/images/screenshots/Reaper-Project.png" alt="Commercial DAWs still fit">
+          <figcaption>
+            <h3>Commercial DAWs still fit</h3>
+            <p>REAPER and Bitwig land cleanly in the workflow when you want familiar production environments.</p>
+            
+          </figcaption>
+        </figure>
+      
+        <figure class="shot-card reveal reveal-4">
+          <img src="/assets/images/screenshots/Arturia-Pigments-in-Bitwig.png" alt="Windows VST compatibility without the guesswork">
+          <figcaption>
+            <h3>Windows VST compatibility without the guesswork</h3>
+            <p>Caracal OS uses Wine TKG and Yabridge for low-latency compatibility with many Windows plugins.</p>
+            
+              <a class="caption-link" href="/wiki/">See our compatibility wiki</a>
+            
+          </figcaption>
+        </figure>
+      
+    </div>
+  </section>
+
+  <section class="section section-catalog" id="catalog">
+    <div class="section-heading">
+      <p class="eyebrow">Stack</p>
+      <h2>A deep stock setup with room to expand when the session asks for it.</h2>
+      <p>
+        Caracal is opinionated about the baseline but not restrictive about the ceiling. Keep the included stack,
+        add commercial DAWs later, or bridge in Windows plugins when a project depends on them.
+      </p>
+    </div>
+
+    <div class="catalog-layout">
+      <aside class="catalog-callout reveal reveal-2">
+        <p class="card-eyebrow">Bundled installer</p>
+        <h3>Optional software feels curated instead of improvised.</h3>
+        <p>
+          The Caracal Software Installer presents DAWs, instruments, effects, and utilities in a guided catalog so
+          the distro can stay lean while still covering serious production needs.
+        </p>
+        <img src="/assets/images/screenshots/caracal-installer.png" alt="Caracal Software Installer catalog">
+      </aside>
+
+      <div class="stack-grid">
+        
+          <article class="stack-card reveal reveal-3">
+            <h3>Included DAWs</h3>
+            <ul>
+              
+                <li>Ardour 9</li>
+              
+                <li>Qtractor</li>
+              
+                <li>Carla</li>
+              
+            </ul>
+          </article>
+        
+          <article class="stack-card reveal reveal-3">
+            <h3>Included plugins and instruments</h3>
+            <ul>
+              
+                <li>LSP Plugins</li>
+              
+                <li>Dragonfly Reverb</li>
+              
+                <li>Calf</li>
+              
+                <li>BYOD</li>
+              
+                <li>Dexed</li>
+              
+                <li>Odin2</li>
+              
+                <li>OB-Xf</li>
+              
+                <li>AIDA-X</li>
+              
+                <li>Neural Amp Modeler</li>
+              
+                <li>x42</li>
+              
+                <li>SWH LV2</li>
+              
+            </ul>
+          </article>
+        
+          <article class="stack-card reveal reveal-3">
+            <h3>Optional installs</h3>
+            <ul>
+              
+                <li>REAPER</li>
+              
+                <li>Renoise</li>
+              
+                <li>Bitwig Studio</li>
+              
+                <li>Cardinal</li>
+              
+                <li>Surge XT</li>
+              
+                <li>Decent Sampler</li>
+              
+                <li>Loopino</li>
+              
+                <li>SunVox</li>
+              
+                <li>Virtual ANS</li>
+              
+                <li>RTCQS</li>
+              
+            </ul>
+          </article>
+        
+          <article class="stack-card reveal reveal-3">
+            <h3>Audio and shell tooling</h3>
+            <ul>
+              
+                <li>JACK</li>
+              
+                <li>PipeWire</li>
+              
+                <li>QSynth</li>
+              
+                <li>FluidSynth</li>
+              
+                <li>VMPK</li>
+              
+                <li>QMidiArp</li>
+              
+                <li>Zsh</li>
+              
+                <li>oh-my-posh</li>
+              
+                <li>ripgrep</li>
+              
+                <li>fzf</li>
+              
+                <li>Neovim</li>
+              
+            </ul>
+          </article>
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-install" id="install">
+    <div class="section-heading">
+      <p class="eyebrow">Install</p>
+      <h2>Three clean moves to get from atomic desktop to audio workstation.</h2>
+      <p>
+        The install story is intentionally compact: switch the image, run the first-boot helper, then add anything
+        extra through the software catalog.
+      </p>
+    </div>
+
+    <div class="step-grid">
+      
+        <article class="step-card reveal reveal-4">
+          <span class="step-number">01</span>
+          <h3>Switch your atomic base</h3>
+          <p>Move to the published bootc image from any compatible atomic desktop.</p>
+          <code>sudo bootc switch ghcr.io/caracal-dev/caracal:latest</code>
+        </article>
+      
+        <article class="step-card reveal reveal-4">
+          <span class="step-number">02</span>
+          <h3>Run first boot setup</h3>
+          <p>Add the audio and realtime group setup, shell extras, and yabridge integration.</p>
+          <code>ujust first-run</code>
+        </article>
+      
+        <article class="step-card reveal reveal-4">
+          <span class="step-number">03</span>
+          <h3>Expand the studio as needed</h3>
+          <p>Use the installer or the focused helpers when you want commercial DAWs or more instruments.</p>
+          <code>ujust software-installer</code>
+        </article>
+      
+    </div>
+
+    <div class="verification-card reveal reveal-2">
+      <p class="card-eyebrow">Verification</p>
+      <h3>Published images are signed.</h3>
+      <p>Verify the image signature before deployment if you want a tighter chain of trust.</p>
+      <code>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest</code>
+    </div>
+  </section>
+
+    </main>
+    <footer class="site-footer">
+  
+    <p>Caracal OS blends an immutable desktop base with a workflow that actually respects music production.</p>
+    <a href="#top">Back to top</a>
+  
+</footer>
+
+  </div>
+</body>
+</html>

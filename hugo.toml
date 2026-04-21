@@ -1,0 +1,8 @@
+baseURL = 'https://caracal-os.org/'
+languageCode = 'en-us'
+title = 'Caracal OS'
+theme = 'caracal-os'
+disableKinds = ['rss', 'section', 'taxonomy', 'term']
+
+[params]
+  description = 'A studio-ready Linux workstation for music producers and sound engineers, built on Fedora Kinoite and tuned for audio from first boot.'

@@ -1,0 +1,7 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<meta name="description" content="{{ .Description | default site.Params.description }}">
+<link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}

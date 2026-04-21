@@ -1,0 +1,175 @@
+{{ define "main" }}
+  {{ $siteData := hugo.Data.site }}
+  <div id="top"></div>
+  <section class="hero">
+    <div class="hero-copy reveal reveal-1">
+      <p class="eyebrow">For producers, beatmakers, composers, and mix engineers</p>
+      <h1>Boot into a studio-ready Linux desktop instead of spending the weekend assembling one.</h1>
+      <p class="hero-lede">
+        {{ .Description | default site.Params.description }}
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#install">Install Caracal</a>
+        <a class="button button-secondary" href="#workflow">See the workflow</a>
+      </div>
+
+      <div class="command-strip" aria-label="Install command">
+        <span class="command-label">switch</span>
+        <code>sudo bootc switch ghcr.io/caracal-dev/caracal:latest</code>
+      </div>
+
+      <ul class="fact-list" aria-label="Key highlights">
+        {{ range $siteData.quickfacts }}
+          <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <div class="hero-stage reveal reveal-2" aria-hidden="true">
+      <div class="hero-backdrop">
+        <img src="/assets/images/backdrops/caracal-sunset.png" alt="">
+      </div>
+      <div class="hero-panel hero-panel-glass">
+        <p class="panel-kicker">Signal path</p>
+        <h2>Immutable base. Musical workflow.</h2>
+        <div class="signal-grid">
+          <span>bootc</span>
+          <span>Kinoite</span>
+          <span>JACK</span>
+          <span>PipeWire</span>
+          <span>Ardour</span>
+          <span>Carla</span>
+          <span>Yabridge</span>
+          <span>CLAP</span>
+        </div>
+      </div>
+      <div class="hero-panel hero-panel-screen">
+        <img src="/assets/images/screenshots/Reaper-MesaBoogie-Plugin.png" alt="Caracal Software Installer screenshot">
+      </div>
+    </div>
+  </section>
+
+  <section class="tape">
+    <div class="tape-track">
+      <span>Fedora Kinoite base</span>
+      <span>Bazzite kernel</span>
+      <span>Realtime tuning</span>
+      <span>Windows VST support</span>
+      <span>DAWs, synths, effects, utilities</span>
+      <span>Atomic workflow for actual sessions</span>
+    </div>
+  </section>
+
+  <section class="section section-features" id="why">
+    <div class="section-heading">
+      <p class="eyebrow">Why Caracal</p>
+      <h2>Designed around session flow, not generic distro bragging.</h2>
+      <p>
+        The goal is simple: remove setup drag, keep the base clean, and make Linux audio feel credible from the
+        first boot through real production work.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      {{ range $siteData.features }}
+        <article class="feature-card reveal reveal-3">
+          <p class="card-eyebrow">{{ .eyebrow }}</p>
+          <h3>{{ .title }}</h3>
+          <p>{{ .body }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section section-workflow" id="workflow">
+    <div class="section-heading">
+      <p class="eyebrow">Workflow</p>
+      <h2>From recording to synthesis to plugin-heavy mixes.</h2>
+      <p>
+        The supplied screenshots lean into the actual target audience: track builders, engineers, guitar-focused workflows,
+        and anyone who needs both native Linux tools and a path for cross-platform plugins.
+      </p>
+    </div>
+
+    <div class="workflow-grid">
+      {{ range $item := $siteData.workflow }}
+        <figure class="shot-card reveal reveal-4">
+          <img src="{{ $item.image }}" alt="{{ $item.title }}">
+          <figcaption>
+            <h3>{{ $item.title }}</h3>
+            <p>{{ $item.caption }}</p>
+            {{ with $item.linkurl }}
+              <a class="caption-link" href="{{ . }}">{{ $item.linkcta }}</a>
+            {{ end }}
+          </figcaption>
+        </figure>
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section section-catalog" id="catalog">
+    <div class="section-heading">
+      <p class="eyebrow">Stack</p>
+      <h2>A deep stock setup with room to expand when the session asks for it.</h2>
+      <p>
+        Caracal is opinionated about the baseline but not restrictive about the ceiling. Keep the included stack,
+        add commercial DAWs later, or bridge in Windows plugins when a project depends on them.
+      </p>
+    </div>
+
+    <div class="catalog-layout">
+      <aside class="catalog-callout reveal reveal-2">
+        <p class="card-eyebrow">Bundled installer</p>
+        <h3>Optional software feels curated instead of improvised.</h3>
+        <p>
+          The Caracal Software Installer presents DAWs, instruments, effects, and utilities in a guided catalog so
+          the distro can stay lean while still covering serious production needs.
+        </p>
+        <img src="/assets/images/screenshots/caracal-installer.png" alt="Caracal Software Installer catalog">
+      </aside>
+
+      <div class="stack-grid">
+        {{ range $siteData.stackgroups }}
+          <article class="stack-card reveal reveal-3">
+            <h3>{{ .title }}</h3>
+            <ul>
+              {{ range .items }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-install" id="install">
+    <div class="section-heading">
+      <p class="eyebrow">Install</p>
+      <h2>Three clean moves to get from atomic desktop to audio workstation.</h2>
+      <p>
+        The install story is intentionally compact: switch the image, run the first-boot helper, then add anything
+        extra through the software catalog.
+      </p>
+    </div>
+
+    <div class="step-grid">
+      {{ range $siteData.installsteps }}
+        <article class="step-card reveal reveal-4">
+          <span class="step-number">{{ .number }}</span>
+          <h3>{{ .title }}</h3>
+          <p>{{ .detail }}</p>
+          <code>{{ .command }}</code>
+        </article>
+      {{ end }}
+    </div>
+
+    <div class="verification-card reveal reveal-2">
+      <p class="card-eyebrow">Verification</p>
+      <h3>Published images are signed.</h3>
+      <p>Verify the image signature before deployment if you want a tighter chain of trust.</p>
+      <code>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest</code>
+    </div>
+  </section>
+{{ end }}

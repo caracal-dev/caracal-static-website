@@ -1,0 +1,15 @@
+{{- $out := newScratch -}}
+{{- $parts := split . "[[" -}}
+{{- $out.Set "text" (index $parts 0) -}}
+{{- range after 1 $parts -}}
+  {{- $segments := split . "]]" -}}
+  {{- if gt (len $segments) 1 -}}
+    {{- $label := index $segments 0 -}}
+    {{- $slug := replace $label " " "-" | urlquery -}}
+    {{- $rest := delimit (after 1 $segments) "]]" -}}
+    {{- $out.Add "text" (printf "[%s](https://github.com/caracal-dev/caracal/wiki/%s)%s" $label $slug $rest) -}}
+  {{- else -}}
+    {{- $out.Add "text" (print "[[" .) -}}
+  {{- end -}}
+{{- end -}}
+{{- $out.Get "text" -}}

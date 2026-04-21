@@ -1,0 +1,35 @@
+{{ define "body_class" }}wiki-page{{ end }}
+
+{{ define "main" }}
+  {{ $raw := "" }}
+  {{ if fileExists "wiki-source/Home.md" }}
+    {{ $raw = readFile "wiki-source/Home.md" }}
+  {{ end }}
+  {{ $rendered := "" }}
+  {{ if $raw }}
+    {{ $rendered = partial "wiki/wikilinks-to-markdown.html" $raw | markdownify }}
+  {{ end }}
+
+  <section class="wiki-main">
+    <section class="wiki-hero reveal reveal-1">
+      <p class="eyebrow">Compatibility Reference</p>
+      <h1>{{ .Title }}</h1>
+      <p class="hero-lede">
+        Snapshot of the current compatibility notes for DAWs, plugins, and hardware on Caracal.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ .Params.source_url }}" target="_blank" rel="noreferrer">Open GitHub Wiki</a>
+        <a class="button button-secondary" href="/">Back to site</a>
+      </div>
+      <p class="wiki-meta">{{ .Params.last_sync_label }}</p>
+    </section>
+
+    <article class="wiki-article reveal reveal-2">
+      {{ if $rendered }}
+        {{ $rendered }}
+      {{ else }}
+        <p>Wiki snapshot not found.</p>
+      {{ end }}
+    </article>
+  </section>
+{{ end }}

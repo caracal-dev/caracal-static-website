@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Caracal Wiki | Caracal OS</title>
+<meta name="description" content="Compatibility notes for DAWs, plugins, and hardware on Caracal OS.">
+<link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
+
+      <link rel="stylesheet" href="/css/main.css">
+
+
+      <script src="/js/main.js"></script>
+
+
+</head>
+<body class="wiki-page">
+  <div class="page-shell">
+    
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Caracal OS home">
+    <img src="/assets/images/logos/icon-grey-with-text.svg" alt="Caracal OS">
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    
+      <a href="/">Home</a>
+      <a href="/#workflow">Workflow</a>
+      <a href="/#catalog">Stack</a>
+      <a href="/wiki/">Wiki</a>
+    
+  </nav>
+</header>
+
+    <main>
+      
+  
+  
+    
+  
+  
+  
+    
+  
+
+  <section class="wiki-main">
+    <section class="wiki-hero reveal reveal-1">
+      <p class="eyebrow">Compatibility Reference</p>
+      <h1>Caracal Wiki</h1>
+      <p class="hero-lede">
+        Snapshot of the current compatibility notes for DAWs, plugins, and hardware on Caracal.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="https://github.com/caracal-dev/caracal/wiki" target="_blank" rel="noreferrer">Open GitHub Wiki</a>
+        <a class="button button-secondary" href="/">Back to site</a>
+      </div>
+      <p class="wiki-meta">Snapshot sourced from the Caracal GitHub wiki.</p>
+    </section>
+
+    <article class="wiki-article reveal reveal-2">
+      
+        <h1 id="caracal-wiki">Caracal Wiki</h1>
+<p>Caracal is a Fedora Atomic image tuned for audio production, with native Linux DAWs, Wine TKG, and yabridge support for Windows plugins where practical.</p>
+<p>This page tracks common DAWs and plugins people are likely to ask about. Individual pages can be added later for setup notes, known issues, workarounds, and screenshots. For now, item names are written in wiki-link form so they are ready to become dedicated pages.</p>
+<h2 id="status-legend">Status Legend</h2>
+<ul>
+<li>🟢 <code>Works</code> means expected to be usable on Caracal without a major blocker.</li>
+<li>🟡 <code>Partial</code> means it may work with caveats, reduced functionality, or extra setup.</li>
+<li>🟠 <code>Not Yet Supported</code> means Linux support may exist, but Caracal does not currently ship it in the image or provide an integrated installer/build-script path for it yet.</li>
+<li>🔴 <code>No</code> means it is generally not a good fit for Caracal/Wine workflows.</li>
+<li>🔵 <code>Native</code> means a Linux-native version exists and is the preferred path on Caracal.</li>
+<li>⚪ <code>Unknown</code> means it has not been confirmed in the wiki yet.</li>
+</ul>
+<h2 id="daw-and-plugin-compatibility">DAW And Plugin Compatibility</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Product</th>
+          <th>Type</th>
+          <th>Tested On Caracal</th>
+          <th>Status</th>
+          <th>Native Linux Version</th>
+          <th>Open-Source Alternative</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/REAPER">REAPER</a></td>
+          <td>DAW</td>
+          <td>Yes</td>
+          <td>🔵 Native</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>Caracal ships an installer script for REAPER and it is one of the clearest supported commercial DAW paths.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Bitwig-Studio">Bitwig Studio</a></td>
+          <td>DAW</td>
+          <td>Yes</td>
+          <td>🔵 Native</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>Caracal ships an installer script for Bitwig. Native Linux build is preferred over Wine.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Renoise">Renoise</a></td>
+          <td>DAW</td>
+          <td>Yes</td>
+          <td>🔵 Native</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Qtractor">Qtractor</a></td>
+          <td>Caracal ships an installer script for the Renoise demo/native build.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>DAW</td>
+          <td>Yes</td>
+          <td>🔵 Native</td>
+          <td>Yes</td>
+          <td>N/A</td>
+          <td>Included by default in Caracal and the baseline open-source DAW reference point.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Qtractor">Qtractor</a></td>
+          <td>DAW</td>
+          <td>Yes</td>
+          <td>🔵 Native</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>Included by default; lightweight native Linux DAW and sequencer.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Carla">Carla</a></td>
+          <td>Host / Patchbay</td>
+          <td>Yes</td>
+          <td>🔵 Native</td>
+          <td>Yes</td>
+          <td>N/A</td>
+          <td>Included by default and useful as both a host and compatibility troubleshooting tool.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/FL-Studio">FL Studio</a></td>
+          <td>DAW</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>Often reported as possible under Wine, but plugin bridging, ASIO routing, and updates can be fragile.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ableton-Live">Ableton Live</a></td>
+          <td>DAW</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>Possible to get it running under Wine/yabridge, but it should be treated as experimental until tested on Caracal directly.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Studio-One">Studio One</a></td>
+          <td>DAW</td>
+          <td>No</td>
+          <td>🟠 Not Yet Supported</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>PreSonus now provides a native Linux Flatpak, but Caracal does not currently support it as a recommended path because Flatpak packaging limits practical use with external plugins.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Cubase">Cubase</a></td>
+          <td>DAW</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>Steinberg tooling and copy protection make it a bad fit for Linux Wine-based setups.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Pro-Tools">Pro Tools</a></td>
+          <td>DAW</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>iLok and driver expectations make this effectively unsupported on Caracal.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/FabFilter-Pro-Q-3">FabFilter Pro-Q 3</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/LSP-Plugins">LSP Plugins</a></td>
+          <td>A common yabridge target and one of the more realistic modern Windows plugin use cases on Linux.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/FabFilter-Pro-L-2">FabFilter Pro-L 2</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/x42-Plugins">x42 Plugins</a></td>
+          <td>Usually a better candidate than heavily protected instrument suites.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/FabFilter-Saturn-2">FabFilter Saturn 2</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Guitarix">Guitarix</a></td>
+          <td>Expected to behave similarly to other standard FabFilter effects under yabridge.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Xfer-Serum">Xfer Serum</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Surge-XT">Surge XT</a></td>
+          <td>Frequently attempted on Linux, but GPU/UI behavior and installer flow can vary.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Vital">Vital</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🟠 Not Yet Supported</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Surge-XT">Surge XT</a></td>
+          <td>Native Linux builds exist, but Caracal does not yet ship it in the image or provide an integrated installer flow for it.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Kontakt-7">Kontakt 7</a></td>
+          <td>Sampler</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Decent-Sampler">Decent Sampler</a></td>
+          <td>Native Access and library management are the usual blockers.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Superior-Drummer-3">Superior Drummer 3</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Hydrogen">Hydrogen</a></td>
+          <td>Some users report partial success under Wine, but large content installs and authorization are pain points.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Addictive-Drums-2">Addictive Drums 2</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Hydrogen">Hydrogen</a></td>
+          <td>Possible in some Wine setups, but not something Caracal should promise yet.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/EZdrummer-3">EZdrummer 3</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Hydrogen">Hydrogen</a></td>
+          <td>Similar caveats to Superior Drummer, with content-management overhead.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Valhalla-VintageVerb">Valhalla VintageVerb</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Dragonfly-Reverb">Dragonfly Reverb</a></td>
+          <td>A strong candidate for yabridge use because it is comparatively simple and lightweight.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Valhalla-Delay">Valhalla Delay</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Dragonfly-Reverb">Dragonfly Reverb</a></td>
+          <td>Expected to be one of the safer proprietary effects under Wine/yabridge.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/iZotope-Ozone">iZotope Ozone</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/LSP-Plugins">LSP Plugins</a></td>
+          <td>Heavy DRM, installer complexity, and UI acceleration make the Ozone suite a poor Linux target.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/iZotope-RX">iZotope RX</a></td>
+          <td>Plugin / Suite</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Tenacity">Tenacity</a></td>
+          <td>RX standalone and plugin flows are not a realistic Caracal target at the moment.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Native-Instruments-Massive">Native Instruments Massive</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Surge-XT">Surge XT</a></td>
+          <td>Older NI plugins can be more realistic than Kontakt, but Native Access remains a limitation.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Native-Instruments-Reaktor">Native Instruments Reaktor</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/VCV-Rack">VCV Rack</a></td>
+          <td>Activation and runtime complexity make it a weak Wine candidate.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Omnisphere">Omnisphere</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Surge-XT">Surge XT</a></td>
+          <td>Large libraries and authorization complexity make this an unrealistic Caracal target.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Keyscape">Keyscape</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/LostAndFoundPiano">LostAndFoundPiano</a></td>
+          <td>Same general Spectrasonics constraints as Omnisphere.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Spitfire-LABS">Spitfire LABS</a></td>
+          <td>Instrument</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Decent-Sampler">Decent Sampler</a></td>
+          <td>Possible in some setups, but library delivery and account tooling are the risk areas.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Helix-Native">Helix Native</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Guitarix">Guitarix</a></td>
+          <td>Usable in theory with Wine/yabridge, but licensing and UI testing need direct confirmation.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Neural-DSP-Plugins">Neural DSP Plugins</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/AIDA-X">AIDA-X</a></td>
+          <td>Possible but plugin-specific authorization behavior varies enough that they should remain provisional here.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Melodyne">Melodyne</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Tenacity">Tenacity</a></td>
+          <td>Deep DAW integration and licensing friction make this a poor Linux recommendation.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Waves-Plugins">Waves Plugins</a></td>
+          <td>Plugin Suite</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/LSP-Plugins">LSP Plugins</a></td>
+          <td>Waves Central is the main blocker; may work but not a practical target for a curated Caracal workflow.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/OTT-%28Xfer%29">OTT (Xfer)</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/LSP-Plugins">LSP Plugins</a></td>
+          <td>Small, simple effects like OTT are usually much more realistic than complex suites.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/SPAN">SPAN</a></td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/x42-Plugins">x42 Plugins</a></td>
+          <td>Utility plugins tend to be among the safest Windows-plugin bridge candidates.</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="suggested-next-pages">Suggested Next Pages</h2>
+<ul>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Studio-One">Studio One</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Vital">Vital</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Hardware-Compatibility">Hardware Compatibility</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/REAPER">REAPER</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Bitwig-Studio">Bitwig Studio</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Renoise">Renoise</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/FL-Studio">FL Studio</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Ableton-Live">Ableton Live</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/FabFilter-Pro-Q-3">FabFilter Pro-Q 3</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Xfer-Serum">Xfer Serum</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Kontakt-7">Kontakt 7</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Valhalla-VintageVerb">Valhalla VintageVerb</a></p>
+</li>
+<li>
+<p><a href="https://github.com/caracal-dev/caracal/wiki/Neural-DSP-Plugins">Neural DSP Plugins</a></p>
+</li>
+</ul>
+<h2 id="hardware-compatibility">Hardware Compatibility</h2>
+<p>This section is intentionally broad and practical. It is meant to give users a quick sense of what classes of audio hardware are likely to behave well on Caracal before there are model-specific pages.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Hardware</th>
+          <th>Category</th>
+          <th>Tested On Caracal</th>
+          <th>Status</th>
+          <th>Recommended On Caracal</th>
+          <th>Open-Source Tooling / Fallback</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/USB-Audio-Interfaces-%28Class-Compliant%29">USB Audio Interfaces (Class Compliant)</a></td>
+          <td>Audio Interface</td>
+          <td>Yes</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QjackCtl">QjackCtl</a>, <a href="https://github.com/caracal-dev/caracal/wiki/Carla">Carla</a></td>
+          <td>The safest general recommendation on Linux. Most modern class-compliant USB interfaces should work well without vendor software.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Focusrite-Scarlett-2nd%2F3rd%2F4th-Gen">Focusrite Scarlett 2nd/3rd/4th Gen</a></td>
+          <td>Audio Interface</td>
+          <td>Yes</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QjackCtl">QjackCtl</a></td>
+          <td>Common Linux choice. Core I/O is usually fine, though advanced vendor-control features may vary by generation.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Behringer-UMC-Series">Behringer UMC Series</a></td>
+          <td>Audio Interface</td>
+          <td>Yes</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QjackCtl">QjackCtl</a></td>
+          <td>Widely used as straightforward class-compliant interfaces.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/MOTU-M-Series">MOTU M Series</a></td>
+          <td>Audio Interface</td>
+          <td>Yes</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QjackCtl">QjackCtl</a></td>
+          <td>Generally regarded as Linux-friendly USB interfaces for basic recording and playback.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PreSonus-AudioBox-Series">PreSonus AudioBox Series</a></td>
+          <td>Audio Interface</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QjackCtl">QjackCtl</a></td>
+          <td>Usually fine as standard USB interfaces; ignore expectations around proprietary control software.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/RME-USB-Interfaces">RME USB Interfaces</a></td>
+          <td>Audio Interface</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QjackCtl">QjackCtl</a></td>
+          <td>Core audio may work, but TotalMix-style vendor workflows are not the Linux story users should expect.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Universal-Audio-Apollo">Universal Audio Apollo</a></td>
+          <td>Audio Interface</td>
+          <td>No</td>
+          <td>🔴 No</td>
+          <td>No</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a></td>
+          <td>Vendor DSP control and software integration make Apollo a poor recommendation for Caracal.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Thunderbolt-Audio-Interfaces">Thunderbolt Audio Interfaces</a></td>
+          <td>Audio Interface</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>Maybe</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QjackCtl">QjackCtl</a></td>
+          <td>Possible, but controller, firmware, and device-specific behavior can make this inconsistent compared with USB class-compliant gear.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/FireWire-Interfaces">FireWire Interfaces</a></td>
+          <td>Audio Interface</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>Maybe</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/FFADO">FFADO</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QjackCtl">QjackCtl</a></td>
+          <td>Caracal includes <code>ffado</code>, but FireWire support depends heavily on chipset, kernel behavior, and older hardware quirks.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/MIDI-Keyboards-%28Class-Compliant-USB%29">MIDI Keyboards (Class Compliant USB)</a></td>
+          <td>MIDI Controller</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/VMPK">VMPK</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QSynth">QSynth</a>, <a href="https://github.com/caracal-dev/caracal/wiki/QMidiArp">QMidiArp</a></td>
+          <td>One of the easiest hardware classes on Linux. Standard note/control input is usually uneventful.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ableton-Push-2">Ableton Push 2</a></td>
+          <td>MIDI Controller</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>Maybe</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Carla">Carla</a>, <a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a></td>
+          <td>Can be used as a controller, but deep scripted integration is not the same story as on Ableton Live.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Novation-Launchkey-%2F-Launchpad">Novation Launchkey / Launchpad</a></td>
+          <td>MIDI Controller</td>
+          <td>Yes</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a>, <a href="https://github.com/caracal-dev/caracal/wiki/Qtractor">Qtractor</a></td>
+          <td>Standard MIDI behavior is usually fine; advanced DAW scripts vary by application.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Arturia-Minilab-%2F-KeyLab">Arturia Minilab / KeyLab</a></td>
+          <td>MIDI Controller</td>
+          <td>Yes</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a>, <a href="https://github.com/caracal-dev/caracal/wiki/Qtractor">Qtractor</a></td>
+          <td>Good fit when used as standard MIDI devices rather than with vendor control-center expectations.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Native-Instruments-Komplete-Kontrol-Keyboards">Native Instruments Komplete Kontrol Keyboards</a></td>
+          <td>MIDI Controller</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>Maybe</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a>, <a href="https://github.com/caracal-dev/caracal/wiki/Qtractor">Qtractor</a></td>
+          <td>Basic MIDI input is realistic; proprietary deep integration and browser workflows are not.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Control-Surfaces-%28Mackie-Control-Compatible%29">Control Surfaces (Mackie Control Compatible)</a></td>
+          <td>Control Surface</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/Ardour">Ardour</a>, <a href="https://github.com/caracal-dev/caracal/wiki/Qtractor">Qtractor</a></td>
+          <td>Mackie Control style devices are usually the safest bet for transport and mixer integration.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/NVIDIA-GPUs">NVIDIA GPUs</a></td>
+          <td>Graphics</td>
+          <td>No</td>
+          <td>🟡 Partial</td>
+          <td>Maybe</td>
+          <td>N/A</td>
+          <td>Adding an image for this in near future.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/AMD-GPUs">AMD GPUs</a></td>
+          <td>Graphics</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td>N/A</td>
+          <td>Typically the smoother Linux graphics path for a production workstation.</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/USB-DACs-%2F-Headphone-Interfaces">USB DACs / Headphone Interfaces</a></td>
+          <td>Monitoring</td>
+          <td>No</td>
+          <td>🟢 Works</td>
+          <td>Yes</td>
+          <td><a href="https://github.com/caracal-dev/caracal/wiki/PipeWire">PipeWire</a></td>
+          <td>Usually simple and reliable when class compliant.</td>
+      </tr>
+  </tbody>
+</table>
+
+      
+    </article>
+  </section>
+
+    </main>
+    <footer class="site-footer">
+  
+    <p>The website serves a local snapshot so this page still works even if the cloned wiki folder is removed.</p>
+    <a href="/">Back to home</a>
+  
+</footer>
+
+  </div>
+</body>
+</html>
