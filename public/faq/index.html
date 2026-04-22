@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Caracal FAQ | Caracal OS</title>
+<meta name="description" content="Common questions about Caracal — what it is, whether your existing plugins and DAWs will work, and how to get started.">
+<link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+    <script src="/js/main.js"></script>
+
+
+</head>
+<body class="info-page">
+  <div class="page-shell">
+    
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Caracal OS home">
+    <img src="/assets/images/logos/icon-grey-with-text.svg" alt="Caracal OS">
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    
+      <a href="/">Home</a>
+      <a href="/#workflow">Workflow</a>
+      <a href="/#catalog">Stack</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/wiki/">Wiki</a>
+    
+  </nav>
+</header>
+
+    <main>
+      
+  <section class="info-main">
+    <section class="info-hero reveal reveal-1">
+      <p class="eyebrow">Common Questions</p>
+      <h1>Caracal FAQ</h1>
+      <p class="hero-lede">
+        Common questions about Caracal — what it is, whether your existing plugins and DAWs will work, and how to get started.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/">Back to home</a>
+        <a class="button button-secondary" href="/wiki/">Open compatibility wiki</a>
+      </div>
+    </section>
+
+    <article class="info-article reveal reveal-2">
+      <h2 id="what-is-caracal">What is Caracal?</h2>
+<p>Caracal is a version of Linux built specifically for music production. Where a standard Linux system leaves you to figure out audio configuration, drivers, and which software to install, Caracal arrives with all of that already sorted. You get a working studio — DAW, plugins, and audio routing — from the first boot.</p>
+<h2 id="is-this-linux-ive-heard-linux-audio-is-a-nightmare">Is this Linux? I&rsquo;ve heard Linux audio is a nightmare.</h2>
+<p>That reputation was earned, and for most Linux systems it&rsquo;s still fair. Caracal exists to fix that specific problem. The audio system is pre-configured, your audio interface should work immediately, and low-latency settings are already in place. You shouldn&rsquo;t need to follow a forum guide just to get a signal going.</p>
+<h2 id="who-is-caracal-for">Who is Caracal for?</h2>
+<p>Anyone making music on a computer who wants a system that just works. It&rsquo;s especially relevant if you&rsquo;re moving away from Windows — whether because Windows 10 is losing support, Windows 11 has been unreliable, or you&rsquo;re tired of forced updates, bloat, and things breaking after patches. Caracal gives you a clean, stable alternative without having to abandon your DAWs or plugin library.</p>
+<h2 id="what-desktop-environment-does-it-use">What desktop environment does it use?</h2>
+<p>KDE Plasma. Caracal is built on Fedora Kinoite, which uses KDE as its desktop. If you&rsquo;re coming from Windows, KDE will feel reasonably familiar — a taskbar, a start-menu-style launcher, and a windowed app layout. It&rsquo;s also highly customisable if you want to change how it looks or behaves.</p>
+<h2 id="what-is-fedora-kinoite-whats-the-base-system">What is Fedora Kinoite? What&rsquo;s the base system?</h2>
+<p>Fedora Kinoite is an official Fedora variant that uses KDE Plasma and an immutable (image-based) system model. Caracal is built on top of it using <code>bootc</code>, which is a tool for managing and updating image-based Linux systems. You don&rsquo;t need to understand any of this to use Caracal, but if you&rsquo;re already a Linux user, this is the technical answer: it&rsquo;s a <code>bootc</code>-managed OCI container image derived from Fedora Kinoite.</p>
+<h2 id="what-is-ujust">What is <code>ujust</code>?</h2>
+<p><code>ujust</code> is a command runner that comes with Fedora Atomic systems. Think of it as a collection of shortcut commands the project has defined for common tasks — installing specific software, running setup steps, and so on. When you see <code>ujust something</code>, it&rsquo;s running a pre-written script that the Caracal team has set up for that task. You don&rsquo;t need to know how it works internally; it&rsquo;s just a convenient way to run complex operations with a short command.</p>
+<h2 id="will-my-windows-vst-plugins-work">Will my Windows VST plugins work?</h2>
+<p>Most of them, yes. Caracal includes built-in support for running Windows VST2 and VST3 plugins on Linux. The first-time setup handles the compatibility layer (Wine and Yabridge) automatically — you don&rsquo;t need to install or configure anything extra.</p>
+<p>Plugin compatibility does vary. Some plugins work perfectly, some have minor quirks, and a small number don&rsquo;t load at all. The <a href="/wiki/">compatibility wiki</a> has notes on specific plugins so you can check before you commit.</p>
+<h2 id="can-i-use-reaper-bitwig-or-renoise">Can I use REAPER, Bitwig, or Renoise?</h2>
+<p>Yes. These are popular with producers coming from Windows and they all install cleanly on Caracal. They aren&rsquo;t included in the base system to keep things lean, but the bundled software installer puts them one click away. You can also install them individually:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ujust install-reaper
+</span></span><span style="display:flex;"><span>ujust install-renoise
+</span></span><span style="display:flex;"><span>ujust install-bitwig
+</span></span></code></pre></div><h2 id="whats-included-out-of-the-box">What&rsquo;s included out of the box?</h2>
+<p><strong>DAWs:</strong> Ardour 9 and Qtractor are ready to open on first boot. Carla is also included as a standalone plugin host if you want to run instruments or effects outside a full session.</p>
+<p><strong>Effects and instruments:</strong> a full working set including reverbs, EQs, compressors, a guitar amp modeler (AIDA-X and Neural Amp Modeler), and synths including Dexed, Odin2, and OB-Xf.</p>
+<p><strong>Audio system:</strong> PipeWire and JACK are already configured and routing audio correctly — you don&rsquo;t need to set them up.</p>
+<h2 id="does-it-work-with-my-audio-interface">Does it work with my audio interface?</h2>
+<p>Probably. Most USB and Thunderbolt audio interfaces that work on Linux will work on Caracal. Class-compliant interfaces (ones that don&rsquo;t require a custom driver) work without any setup at all. Interfaces that need proprietary drivers — which is relatively rare on Linux — may need extra steps or may not be supported.</p>
+<p>If your interface has worked on other Linux systems, it will work here. If you&rsquo;re not sure, the <a href="/wiki/">compatibility wiki</a> is a good starting point, and the project community can help with specific hardware questions.</p>
+<h2 id="what-about-pipewire-and-jack--whats-the-difference">What about PipeWire and JACK — what&rsquo;s the difference?</h2>
+<p>PipeWire is the main audio system on modern Linux — it handles everything from system sounds to music applications. JACK is an older professional audio protocol that many DAWs and audio tools use for low-latency routing between applications.</p>
+<p>On Caracal, PipeWire runs JACK compatibility underneath, so applications that expect JACK will work without you needing to run a separate JACK server. In practice this means you can open Ardour, connect your hardware, and record — the routing just works.</p>
+<h2 id="is-there-an-iso-i-can-just-download-and-install">Is there an ISO I can just download and install?</h2>
+<p>Not yet. Caracal is currently in early access. Right now the supported path is to start from an existing Fedora-based Linux desktop and switch to Caracal with a single command. A standalone ISO installer is planned.</p>
+<h2 id="can-i-try-it-in-a-virtual-machine-first">Can I try it in a virtual machine first?</h2>
+<p>Yes, and it&rsquo;s a sensible way to get a feel for it before switching your main machine. The project supports local VM builds for testing. Alternatively, you can install Fedora Kinoite in a VM and switch it to Caracal using the same <code>bootc switch</code> command you&rsquo;d use on a real machine — the process is identical.</p>
+<h2 id="which-linux-systems-can-i-switch-from">Which Linux systems can I switch from?</h2>
+<p>Any <code>bootc</code>-compatible Fedora Atomic system. That includes Fedora Kinoite, Bazzite, Bluefin, Aurora, and similar Fedora Atomic variants. If you&rsquo;re not sure whether your current system qualifies, check whether it uses <code>rpm-ostree</code> or <code>bootc</code> for system updates — if it does, the switch command should work.</p>
+<h2 id="will-switching-to-caracal-erase-my-files">Will switching to Caracal erase my files?</h2>
+<p>No. The <code>bootc switch</code> command replaces the system image, not your home directory. Your documents, projects, and personal files stay in place. That said, it&rsquo;s always good practice to back up anything important before making major system changes.</p>
+<h2 id="how-do-i-get-started-right-now">How do I get started right now?</h2>
+<p>Switch to Caracal from a compatible Fedora Atomic desktop:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc switch ghcr.io/caracal-dev/caracal:latest
+</span></span></code></pre></div><p>After rebooting, run the one-time setup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ujust first-run
+</span></span></code></pre></div><p>That adds your user account to the groups needed for low-latency audio, sets up Windows plugin compatibility, and applies the first-boot configuration. Then open the software installer to add any extra DAWs or tools you want.</p>
+<h2 id="what-does-ujust-first-run-do">What does <code>ujust first-run</code> do?</h2>
+<p>It handles the guided post-install setup in one step: adds your user to the <code>audio</code> and <code>realtime</code> groups (needed for low-latency audio access), installs shell extras, and sets up Yabridge for Windows plugin compatibility. You only need to run it once, and you&rsquo;ll need to log out and back in afterward for the group changes to take effect.</p>
+<h2 id="how-do-i-roll-back-if-an-update-causes-problems">How do I roll back if an update causes problems?</h2>
+<p>Reboot and select the previous deployment from the boot menu (it appears as an older entry in the GRUB bootloader list). Your previous working system is kept alongside the new one and is always available to boot into. Once you&rsquo;ve confirmed an update is working correctly, the old deployment is cleaned up automatically over time.</p>
+<p>If you want to roll back from within the running system:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc rollback
+</span></span></code></pre></div><p>Then reboot.</p>
+<h2 id="do-i-need-to-configure-low-latency-audio-settings-manually">Do I need to configure low-latency audio settings manually?</h2>
+<p>No. The settings that reduce audio delay are already configured — CPU performance mode, priority access to audio hardware, the works. Plug in your interface, open your DAW, and record. You shouldn&rsquo;t need to touch any system settings to get a clean, low-latency signal.</p>
+<h2 id="why-does-the-site-say-updates-cant-break-my-system">Why does the site say updates can&rsquo;t break my system?</h2>
+<p>On a traditional system — Windows or Linux — updates modify the running system in place. A bad update can silently break things that were working fine, and rolling back is painful or impossible.</p>
+<p>Caracal uses an image-based model. Updates are applied as a complete new system snapshot alongside your current setup. If an update causes a problem, you can boot back into the previous version in seconds. Your home directory and personal files are always separate from the system image and are never touched by a system update.</p>
+<h2 id="can-i-install-software-that-isnt-in-the-bundled-installer">Can I install software that isn&rsquo;t in the bundled installer?</h2>
+<p>Yes. The two main paths are:</p>
+<ul>
+<li><strong>Flatpak</strong> for GUI apps — it&rsquo;s already set up and most major desktop applications are available this way.</li>
+<li><strong>Homebrew</strong> for command-line tools and utilities — the same package manager many macOS users already know, and it works well on Linux. Everything Homebrew installs goes into your home directory, so it&rsquo;s completely unaffected by system updates.</li>
+</ul>
+<p>One thing to be aware of: because Caracal uses a <code>bootc</code>-managed image, packages layered with <code>rpm-ostree</code> will be wiped when the system image updates. Stick to Flatpak and Homebrew for anything you want to keep long-term.</p>
+<h2 id="what-kernel-does-caracal-use">What kernel does Caracal use?</h2>
+<p>Caracal ships with a real-time (RT) patched kernel tuned for low-latency audio. The RT kernel gives audio applications more reliable, consistent access to the CPU, which directly reduces the chance of audio glitches under load. This is the kernel configuration professional audio Linux setups have traditionally required a lot of manual work to achieve — Caracal ships it by default.</p>
+<h2 id="how-do-i-verify-the-caracal-image-with-cosign">How do I verify the Caracal image with Cosign?</h2>
+<p>Published Caracal images are signed with Cosign, which lets you confirm the image you&rsquo;re downloading is genuine and hasn&rsquo;t been tampered with. If you want to verify before switching:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest
+</span></span></code></pre></div><p>The public key (<code>cosign.pub</code>) is available in the project&rsquo;s GitHub repository. This is optional — most users won&rsquo;t need it — but it&rsquo;s there if you want a verifiable chain of trust before deploying on a machine you care about.</p>
+<h2 id="can-i-use-caracal-alongside-windows-as-a-dual-boot">Can I use Caracal alongside Windows as a dual boot?</h2>
+<p>Yes, dual booting is possible. Linux and Windows can coexist on the same machine with each system on its own partition. If you&rsquo;re setting this up from scratch, install Windows first, then install your Fedora Atomic base system alongside it, and switch to Caracal from there. Most modern machines handle dual booting without issues, though the exact steps depend on your hardware and whether you have Secure Boot enabled.</p>
+<h2 id="where-do-i-find-compatibility-notes-for-specific-plugins-or-hardware">Where do I find compatibility notes for specific plugins or hardware?</h2>
+<p>The <a href="/wiki/">compatibility wiki</a> is the right place — it covers DAWs, specific plugins, and hardware. The FAQ is for general orientation. For anything not covered there, the project has a community space where you can ask.</p>
+
+    </article>
+  </section>
+
+    </main>
+    <footer class="site-footer">
+  
+    <p>The FAQ covers the common setup questions. Use the wiki when you need compatibility notes for specific DAWs, plugins, or hardware.</p>
+    <a href="/wiki/">Open wiki</a>
+  
+</footer>
+
+  </div>
+</body>
+</html>

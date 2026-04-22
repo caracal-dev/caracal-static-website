@@ -2,8 +2,11 @@
   {{ if .IsHome }}
     <p>Caracal OS blends an immutable desktop base with a workflow that actually respects music production.</p>
     <a href="#top">Back to top</a>
+  {{ else if eq .RelPermalink "/faq/" }}
+    <p>The FAQ covers the common setup questions. Use the wiki when you need compatibility notes for specific DAWs, plugins, or hardware.</p>
+    <a href="/wiki/">Open wiki</a>
   {{ else }}
     <p>The website serves a local snapshot so this page still works even if the cloned wiki folder is removed.</p>
-    <a href="/">Back to home</a>
+    <a href="/faq/">Read FAQ</a>
   {{ end }}
 </footer>

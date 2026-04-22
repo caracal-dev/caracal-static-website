@@ -1,0 +1,21 @@
+{{ define "body_class" }}info-page{{ end }}
+
+{{ define "main" }}
+  <section class="info-main">
+    <section class="info-hero reveal reveal-1">
+      <p class="eyebrow">{{ .Params.eyebrow | default "Answers for New Users" }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="hero-lede">
+        {{ .Description | default site.Params.description }}
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/">Back to home</a>
+        <a class="button button-secondary" href="/wiki/">Open compatibility wiki</a>
+      </div>
+    </section>
+
+    <article class="info-article reveal reveal-2">
+      {{ .Content }}
+    </article>
+  </section>
+{{ end }}
