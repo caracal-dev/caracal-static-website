@@ -1,81 +1,86 @@
 quickfacts = [
-  "Immutable Fedora Kinoite base with bootc updates",
-  "Realtime audio groups and performance tuning ready on first boot",
-  "Ardour, Carla, plugins, and Windows VST support baked into the workflow",
+  "Your Windows VST plugins still work — bring your whole library",
+  "Audio is ready the moment you boot up, no setup required",
+  "Updates can't break your system — roll back if anything goes wrong",
 ]
 
 [[features]]
-eyebrow = "Realtime first"
-title = "Low-latency defaults without the post-install ritual."
-body = "Caracal ships with audio and realtime groups configured, rtprio 95, unlimited memlock, and a performance CPU governor so sessions start from a tuned baseline."
+eyebrow = "Ready on day one"
+title = "Plug in and record. No configuration rabbit holes."
+body = "On Windows, getting low-latency audio often means fighting ASIO drivers, buffer settings, and background processes. Caracal arrives already configured for music production — your audio interface works, your latency is low, and you can start a session without touching a single setting."
 
 [[features]]
-eyebrow = "Studio core"
-title = "Boot into a workstation with real DAWs and patch tools already there."
-body = "Ardour 9, Qtractor, and Carla are included out of the box, with REAPER, Renoise, and Bitwig available through simple post-install commands or the bundled installer."
+eyebrow = "A real studio toolkit, included"
+title = "Professional DAWs and plugins are already installed."
+body = "Ardour and Qtractor are included out of the box and ready to open. REAPER, Renoise, and Bitwig — popular with producers coming from Windows — are one click away in the bundled software installer."
 
 [[features]]
-eyebrow = "Plugin depth"
-title = "The stock stack actually covers writing, mixing, sound design, and guitar."
-body = "LSP, Dragonfly Reverb, Calf, BYOD, x42, Dexed, Odin2, AIDA-X, Neural Amp Modeler, and more are ready in LV2, VST3, and CLAP formats where available."
+eyebrow = "Plugins included"
+title = "A full set of production-quality effects and instruments, ready to use."
+body = "Reverbs, EQs, compressors, a guitar amp modeler, synths, and more come pre-installed and organized. You get a working signal chain from day one without hunting down free plugins across the web."
 
 [[features]]
-eyebrow = "Hybrid workflows"
-title = "Run Linux-native audio software and bridge in Windows VSTs when needed."
-body = "Wine TKG plus Yabridge are part of the story, so producers moving from Windows-heavy sessions are not boxed into a thin plugin ecosystem."
+eyebrow = "Your Windows plugins come with you"
+title = "Run your existing VST library, not just Linux alternatives."
+body = "Caracal includes built-in support for running Windows VST plugins on Linux. If you have a plugin library from your Windows setup, you don't have to leave it behind — most plugins load and run without any extra steps."
+
+[[features]]
+eyebrow = "A system that stays stable"
+title = "Updates can't break your studio setup."
+body = "Unlike a traditional Windows or Linux install, Caracal's system files are locked — apps and updates can't quietly corrupt the foundation your studio runs on. Every system update is applied as a clean snapshot, and if an update causes problems, you can boot back into the previous version in seconds."
 
 [[workflow]]
-title = "Mixer view that stays out of your way"
-caption = "Large Ardour sessions stay readable, with the low-level tuning already handled underneath."
+title = "A mixer that gets out of your way"
+caption = "Large sessions with lots of tracks stay clean and readable. The performance work happens underneath, so you can focus on the music."
 image = "/assets/images/screenshots/Ardour-Project-Mixer.png"
 
 [[workflow]]
-title = "Track production on native Linux tools"
-caption = "Compose, record, and arrange with the included stack instead of chasing the basics after install day."
+title = "Record, arrange, and produce natively"
+caption = "Everything you need to write and record is included from day one — no chasing downloads, no driver setup, no compatibility headaches."
 image = "/assets/images/screenshots/Ardour-Project.png"
 
 [[workflow]]
-title = "Commercial DAWs still fit"
-caption = "REAPER and Bitwig land cleanly in the workflow when you want familiar production environments."
+title = "Use the DAW you already know"
+caption = "If you're coming from REAPER or Bitwig on Windows, they install cleanly and work exactly as you'd expect."
 image = "/assets/images/screenshots/Reaper-Project.png"
 
 [[workflow]]
-title = "Windows VST compatibility without the guesswork"
-caption = "Caracal OS uses Wine TKG and Yabridge for low-latency compatibility with many Windows plugins."
+title = "Your Windows plugins, running on Linux"
+caption = "Caracal includes built-in tools to run most Windows VST plugins. Your existing library doesn't have to collect dust."
 image = "/assets/images/screenshots/Arturia-Pigments-in-Bitwig.png"
 linkurl = "/wiki/"
-linkcta = "See our compatibility wiki"
+linkcta = "Check plugin compatibility"
 
 [[stackgroups]]
 title = "Included DAWs"
-items = ["Ardour 9", "Qtractor", "Carla"]
+items = ["Ardour 9", "Qtractor", "Carla (plugin host)"]
 
 [[stackgroups]]
 title = "Included plugins and instruments"
-items = ["LSP Plugins", "Dragonfly Reverb", "Calf", "BYOD", "Dexed", "Odin2", "OB-Xf", "AIDA-X", "Neural Amp Modeler", "x42", "SWH LV2"]
+items = ["LSP Plugins", "Dragonfly Reverb", "Calf", "BYOD (guitar amp sim)", "Dexed", "Odin2", "OB-Xf", "AIDA-X", "Neural Amp Modeler", "x42", "SWH LV2"]
 
 [[stackgroups]]
-title = "Optional installs"
+title = "One-click installs"
 items = ["REAPER", "Renoise", "Bitwig Studio", "Cardinal", "Surge XT", "Decent Sampler", "Loopino", "SunVox", "Virtual ANS", "RTCQS"]
 
 [[stackgroups]]
-title = "Audio and shell tooling"
+title = "Audio system"
 items = ["JACK", "PipeWire", "QSynth", "FluidSynth", "VMPK", "QMidiArp", "Zsh", "oh-my-posh", "ripgrep", "fzf", "Neovim"]
 
 [[installsteps]]
 number = "01"
-title = "Switch your atomic base"
-detail = "Move to the published bootc image from any compatible atomic desktop."
+title = "Switch to Caracal"
+detail = "If you're already on a compatible Linux desktop, one command switches you over to Caracal. Alternatively, install any Fedora Atomic image first, then switch."
 command = "sudo bootc switch ghcr.io/caracal-dev/caracal:latest"
 
 [[installsteps]]
 number = "02"
-title = "Run first boot setup"
-detail = "Add the audio and realtime group setup, shell extras, and yabridge integration."
+title = "Run the first-time setup"
+detail = "A single command sets up everything your audio interface needs — low-latency permissions, Windows plugin support, and a few quality-of-life tweaks."
 command = "ujust first-run"
 
 [[installsteps]]
 number = "03"
-title = "Expand the studio as needed"
-detail = "Use the installer or the focused helpers when you want commercial DAWs or more instruments."
+title = "Add your software"
+detail = "Open the bundled software installer to browse and install DAWs, instruments, and effects. Or install individual apps with the focused helpers."
 command = "ujust software-installer"

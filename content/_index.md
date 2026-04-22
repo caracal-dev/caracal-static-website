@@ -1,4 +1,4 @@
 +++
 title = "Caracal OS"
-description = "A studio-ready Linux workstation for music producers and sound engineers, built on Fedora Kinoite and tuned for audio from first boot."
+description = "A music production system for Linux — your audio interface, DAWs, plugins, and Windows VSTs all working from the moment you boot up, on a system that stays stable over time."
 +++

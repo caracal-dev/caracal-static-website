@@ -1,10 +1,16 @@
 {{ define "main" }}
   {{ $siteData := site.Data.site }}
   <div id="top"></div>
+
+  <div class="prerelease-banner">
+    <span class="prerelease-badge">Early access</span>
+    Caracal is currently pre-release. A standalone ISO installer is on the way — for now, switching from an existing Fedora Atomic desktop is the supported path.
+  </div>
+
   <section class="hero">
     <div class="hero-copy reveal reveal-1">
       <p class="eyebrow">For producers, beatmakers, composers, and mix engineers</p>
-      <h1>Boot into a stable studio-ready Linux desktop.</h1>
+      <h1>A music production system that works from the moment you boot it.</h1>
       <p class="hero-lede">
         {{ .Description | default site.Params.description }}
       </p>
@@ -31,17 +37,17 @@
         <img src="/assets/images/backdrops/caracal-sunset.png" alt="">
       </div>
       <div class="hero-panel hero-panel-glass">
-        <p class="panel-kicker">Signal path</p>
-        <h2>Immutable base. Musical workflow.</h2>
+        <p class="panel-kicker">Included in the box</p>
+        <h2>Stable system. Professional workflow.</h2>
         <div class="signal-grid">
-          <span>bootc</span>
-          <span>Kinoite</span>
-          <span>JACK</span>
-          <span>PipeWire</span>
           <span>Ardour</span>
+          <span>REAPER</span>
+          <span>Bitwig</span>
+          <span>PipeWire</span>
           <span>Carla</span>
-          <span>Yabridge</span>
-          <span>CLAP</span>
+          <span>Windows VSTs</span>
+          <span>Synths</span>
+          <span>Effects</span>
         </div>
       </div>
       <div class="hero-panel hero-panel-screen">
@@ -52,22 +58,21 @@
 
   <section class="tape">
     <div class="tape-track">
-      <span>Fedora Kinoite base</span>
-      <span>Bazzite kernel</span>
-      <span>Realtime tuning</span>
-      <span>Windows VST support</span>
+      <span>Works out of the box</span>
+      <span>Low-latency audio ready on boot</span>
+      <span>Run your Windows VST plugins</span>
       <span>DAWs, synths, effects, utilities</span>
-      <span>Atomic workflow for actual sessions</span>
+      <span>Updates that can't break your setup</span>
+      <span>Built on Fedora — stable and secure</span>
     </div>
   </section>
 
   <section class="section section-features" id="why">
     <div class="section-heading">
       <p class="eyebrow">Why Caracal</p>
-      <h2>Designed around session flow, not generic distro bragging.</h2>
+      <h2>Linux audio that actually works, without a week of configuration.</h2>
       <p>
-        The goal is simple: remove setup drag, keep the base clean, and make Linux audio feel credible from the
-        first boot through real production work.
+        Moving from Windows shouldn't mean trading one set of headaches for another. Caracal is built so your audio interface, plugins, and DAW are ready on day one — and the system itself stays reliable over time.
       </p>
     </div>
 
@@ -85,10 +90,9 @@
   <section class="section section-workflow" id="workflow">
     <div class="section-heading">
       <p class="eyebrow">Workflow</p>
-      <h2>From recording to synthesis to plugin-heavy mixes.</h2>
+      <h2>From a blank session to a finished mix, without leaving Linux.</h2>
       <p>
-        The supplied screenshots lean into the actual target audience: track builders, engineers, guitar-focused workflows,
-        and anyone who needs both native Linux tools and a path for cross-platform plugins.
+        Whether you're building tracks, recording live instruments, or running a plugin-heavy mix, Caracal covers the whole workflow — including the Windows VST plugins you already own.
       </p>
     </div>
 
@@ -110,21 +114,19 @@
 
   <section class="section section-catalog" id="catalog">
     <div class="section-heading">
-      <p class="eyebrow">Stack</p>
-      <h2>A deep stock setup with room to expand when the session asks for it.</h2>
+      <p class="eyebrow">What's included</p>
+      <h2>A full production toolkit out of the box, with room to add more.</h2>
       <p>
-        Caracal is opinionated about the baseline but not restrictive about the ceiling. Keep the included stack,
-        add commercial DAWs later, or bridge in Windows plugins when a project depends on them.
+        Caracal comes with a real set of DAWs, instruments, and effects — not just a base system with a browser. Keep the included tools, add the commercial DAWs you already use, or bring in your Windows plugins when a project calls for them.
       </p>
     </div>
 
     <div class="catalog-layout">
       <aside class="catalog-callout reveal reveal-2">
-        <p class="card-eyebrow">Bundled installer</p>
-        <h3>Optional software feels curated instead of improvised.</h3>
+        <p class="card-eyebrow">Software installer</p>
+        <h3>Add more software without hunting the internet for it.</h3>
         <p>
-          The Caracal Software Installer presents DAWs, instruments, effects, and utilities in a guided catalog so
-          the distro can stay lean while still covering serious production needs.
+          The Caracal Software Installer gives you a curated catalog of DAWs, instruments, effects, and utilities — all verified to work. No digging through forums to figure out what's compatible.
         </p>
         <img src="/assets/images/screenshots/caracal-installer.png" alt="Caracal Software Installer catalog">
       </aside>
@@ -146,11 +148,10 @@
 
   <section class="section section-install" id="install">
     <div class="section-heading">
-      <p class="eyebrow">Install</p>
-      <h2>Three clean moves to get from atomic desktop to audio workstation.</h2>
+      <p class="eyebrow">Get started — early access</p>
+      <h2>Three steps from a standard Linux desktop to a working studio.</h2>
       <p>
-        The install story is intentionally compact: switch the image, run the first-boot helper, then add anything
-        extra through the software catalog.
+        A standalone ISO installer is coming. In the meantime, you can switch to Caracal from any Fedora Atomic desktop in three steps — run a one-time setup, and you're ready to record.
       </p>
     </div>
 
@@ -167,8 +168,8 @@
 
     <div class="verification-card reveal reveal-2">
       <p class="card-eyebrow">Verification</p>
-      <h3>Published images are signed.</h3>
-      <p>Verify the image signature before deployment if you want a tighter chain of trust.</p>
+      <h3>Every release is cryptographically signed.</h3>
+      <p>You can verify that the image you're installing is genuine and hasn't been tampered with — the same way app stores verify software before it reaches your device.</p>
       <code>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest</code>
     </div>
   </section>
