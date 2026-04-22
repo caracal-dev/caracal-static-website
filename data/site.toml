@@ -30,8 +30,8 @@ title = "Updates can't break your studio setup."
 body = "Unlike a traditional Windows or Linux install, Caracal's system files are locked — apps and updates can't quietly corrupt the foundation your studio runs on. Every system update is applied as a clean snapshot, and if an update causes problems, you can boot back into the previous version in seconds."
 
 [[workflow]]
-title = "A mixer that gets out of your way"
-caption = "Large sessions with lots of tracks stay clean and readable. The performance work happens underneath, so you can focus on the music."
+title = "Mix in Ardour without fighting the software"
+caption = "Ardour's mixer handles large sessions cleanly — all your channels, sends, and plugins in one view, without the clutter."
 image = "/assets/images/screenshots/Ardour-Project-Mixer.png"
 
 [[workflow]]
