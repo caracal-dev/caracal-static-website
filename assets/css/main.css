@@ -546,6 +546,114 @@ code {
   padding: 1.5rem;
 }
 
+.download-selector {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.2rem;
+  align-items: start;
+  margin-bottom: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(24, 30, 47, 0.92), rgba(12, 17, 29, 0.9)),
+    linear-gradient(145deg, rgba(127, 180, 202, 0.08), transparent 42%);
+  box-shadow: var(--shadow);
+}
+
+.download-selector-copy h3,
+.download-selector-copy p,
+.download-selector-panel {
+  margin: 0;
+}
+
+.download-selector-copy p + p {
+  margin-top: 0.9rem;
+}
+
+.image-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.image-choice {
+  appearance: none;
+  min-height: 3rem;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.image-choice:hover,
+.image-choice:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--kanagawa-blue);
+}
+
+.image-choice.is-active {
+  border-color: rgba(246, 193, 119, 0.55);
+  background: linear-gradient(135deg, rgba(246, 193, 119, 0.18), rgba(196, 167, 231, 0.16));
+}
+
+.download-output {
+  margin-top: 1rem;
+  padding: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 22px;
+  background: rgba(6, 9, 17, 0.5);
+}
+
+.download-target {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.download-status,
+.download-note,
+.install-path-note {
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.download-status,
+.download-unavailable,
+.download-note {
+  margin: 0.75rem 0 0;
+}
+
+.download-output .button {
+  margin-top: 1rem;
+}
+
+.download-checksum-link {
+  display: inline-flex;
+  margin-top: 0.85rem;
+  color: var(--kanagawa-gold);
+  font-weight: 700;
+}
+
+.download-unavailable {
+  color: var(--kanagawa-gold);
+  font-weight: 700;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.install-path-note {
+  margin: 0 0 1rem;
+}
+
 .setup-wizard-callout {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
@@ -820,6 +928,7 @@ code {
 @media (max-width: 1100px) {
   .hero,
   .catalog-layout,
+  .download-selector,
   .setup-wizard-callout {
     grid-template-columns: 1fr;
   }

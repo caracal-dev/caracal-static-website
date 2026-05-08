@@ -1,10 +1,11 @@
 {{ define "main" }}
   {{ $siteData := site.Data.site }}
+  {{ $downloads := $siteData.downloads }}
   <div id="top"></div>
 
   <div class="prerelease-banner">
     <span class="prerelease-badge">Early access</span>
-    Caracal is currently pre-release. A standalone ISO installer is on the way — for now, switching from an existing Fedora Atomic desktop is the supported path.
+    Caracal is currently in early access. The AMD / Intel installer image is available now, and a dedicated NVIDIA image is still on the way.
   </div>
 
   <section class="hero">
@@ -149,11 +150,59 @@
   <section class="section section-install" id="install">
     <div class="section-heading">
       <p class="eyebrow">Get started — early access</p>
-      <h2>Three steps from a standard Linux desktop to a working studio.</h2>
+      <h2>Download the ISO, or switch from an existing Fedora Atomic desktop.</h2>
       <p>
-        A standalone ISO installer is coming. In the meantime, you can switch to Caracal from any Fedora Atomic desktop in three steps — run a one-time setup, and you're ready to record.
+        If your system uses AMD or Intel graphics, you can install Caracal directly with the early access ISO below. If you're already on a compatible Fedora Atomic desktop, you can still switch in place with the three-step path that follows.
       </p>
     </div>
+
+    <article class="download-selector reveal reveal-3" data-download-selector>
+      <div class="download-selector-copy">
+        <p class="card-eyebrow">Choose your image</p>
+        <h3>Pick the installer that matches your graphics hardware.</h3>
+        <p>
+          AMD and Intel systems use the same image. NVIDIA will get its own installer image later, but it is not published yet.
+        </p>
+      </div>
+
+      <div class="download-selector-panel">
+        <div class="image-choice-group" role="group" aria-label="Choose graphics hardware">
+          <button
+            class="image-choice is-active"
+            type="button"
+            aria-pressed="true"
+            data-image-choice
+            data-download-available="true"
+            data-download-title="{{ $downloads.amdintel_title }}"
+            data-download-description="{{ $downloads.amdintel_description }}"
+            data-download-url="{{ $downloads.amdintel_url }}"
+            data-download-checksum-url="{{ $downloads.amdintel_checksum_url }}">
+            AMD / Intel
+          </button>
+          <button
+            class="image-choice"
+            type="button"
+            aria-pressed="false"
+            data-image-choice
+            data-download-available="false"
+            data-download-title="{{ $downloads.nvidia_title }}"
+            data-download-description="{{ $downloads.nvidia_description }}">
+            NVIDIA
+          </button>
+        </div>
+
+        <div class="download-output">
+          <p class="download-target" data-download-title-output>{{ $downloads.amdintel_title }}</p>
+          <p class="download-status" data-download-description-output>{{ $downloads.amdintel_description }}</p>
+          <a class="button button-primary" data-download-link href="{{ $downloads.amdintel_url }}">Download AMD / Intel ISO</a>
+          <a class="download-checksum-link" data-download-checksum-link href="{{ $downloads.amdintel_checksum_url }}">Download checksum file</a>
+          <p class="download-unavailable is-hidden" data-download-unavailable>NVIDIA image isn't currently available. For now, use the Fedora Atomic switch path below if you're setting up a NVIDIA system.</p>
+          <p class="download-note">If you're already on Fedora Atomic, you can skip the ISO and switch directly.</p>
+        </div>
+      </div>
+    </article>
+
+    <p class="install-path-note">Already on Fedora Atomic? Switch in place:</p>
 
     <div class="step-grid">
       {{ range $siteData.installsteps }}
@@ -184,8 +233,10 @@
 
     <div class="verification-card reveal reveal-2">
       <p class="card-eyebrow">Verification</p>
-      <h3>Every release is cryptographically signed.</h3>
-      <p>You can verify that the image you're installing is genuine and hasn't been tampered with — the same way app stores verify software before it reaches your device.</p>
+      <h3>Verify the ISO before you install it.</h3>
+      <p>Download the ISO and the checksum file into the same folder, then run this command to confirm the file you downloaded matches the published checksum.</p>
+      <code>sha256sum -c caracal-latest-amd64.iso-CHECKSUM</code>
+      <p>If you're switching with `bootc` instead of using the ISO, advanced users can still verify the published container image with Cosign.</p>
       <code>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest</code>
     </div>
   </section>

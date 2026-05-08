@@ -66,7 +66,13 @@ On Caracal, PipeWire runs JACK compatibility underneath, so applications that ex
 
 ## Is there an ISO I can just download and install?
 
-Not yet. Caracal is currently in early access. Right now the supported path is to start from an existing Fedora-based Linux desktop and switch to Caracal with a single command. A standalone ISO installer is planned.
+Yes, for AMD and Intel systems. Caracal now has an early access ISO you can download from the homepage. A dedicated NVIDIA image is not currently available yet.
+
+If you're already on a compatible Fedora Atomic desktop, the in-place switch path is still fully supported:
+
+```bash
+sudo bootc switch ghcr.io/caracal-dev/caracal:latest
+```
 
 ## Can I try it in a virtual machine first?
 
@@ -135,9 +141,19 @@ One thing to be aware of: because Caracal uses a `bootc`-managed image, packages
 
 Caracal ships with a real-time (RT) patched kernel tuned for low-latency audio. The RT kernel gives audio applications more reliable, consistent access to the CPU, which directly reduces the chance of audio glitches under load. This is the kernel configuration professional audio Linux setups have traditionally required a lot of manual work to achieve — Caracal ships it by default.
 
+## How do I verify the ISO download?
+
+Download the ISO and its checksum file from the homepage into the same folder, then run:
+
+```bash
+sha256sum -c caracal-latest-amd64.iso-CHECKSUM
+```
+
+If the checksum matches, your ISO download is intact.
+
 ## How do I verify the Caracal image with Cosign?
 
-Published Caracal images are signed with Cosign, which lets you confirm the image you're downloading is genuine and hasn't been tampered with. If you want to verify before switching:
+Published Caracal container images are signed with Cosign, which lets you confirm the image you're switching to is genuine and hasn't been tampered with. If you want to verify before switching:
 
 ```bash
 cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest

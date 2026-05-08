@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>Caracal FAQ | Caracal OS</title>
 <meta name="description" content="Common questions about Caracal — what it is, whether your existing plugins and DAWs will work, and how to get started.">
 <link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
 
-    <link rel="stylesheet" href="/css/main.css">
+      <link rel="stylesheet" href="/css/main.min.903bbc0a4907b7a49d16517c0c0ba5e4cd190a589247e07d368b0312f7eeb437.css" integrity="sha256-kDu8CkkHt6SdFlF8DAul5M0ZCliSR&#43;B9NosDEvfutDc=" crossorigin="anonymous">
 
 
-    <script src="/js/main.js"></script>
+      <script src="/js/main.min.945288cc7d3d4a8248c7d4fe4db5d9b48ccb572a1d59f2b301d539ce2166c7e7.js" integrity="sha256-lFKIzH09SoJIx9T&#43;TbXZtIzLVyodWfKzAdU5ziFmx&#43;c=" crossorigin="anonymous"></script>
 
 
 </head>
@@ -79,8 +79,10 @@
 <p>PipeWire is the main audio system on modern Linux — it handles everything from system sounds to music applications. JACK is an older professional audio protocol that many DAWs and audio tools use for low-latency routing between applications.</p>
 <p>On Caracal, PipeWire runs JACK compatibility underneath, so applications that expect JACK will work without you needing to run a separate JACK server. In practice this means you can open Ardour, connect your hardware, and record — the routing just works.</p>
 <h2 id="is-there-an-iso-i-can-just-download-and-install">Is there an ISO I can just download and install?</h2>
-<p>Not yet. Caracal is currently in early access. Right now the supported path is to start from an existing Fedora-based Linux desktop and switch to Caracal with a single command. A standalone ISO installer is planned.</p>
-<h2 id="can-i-try-it-in-a-virtual-machine-first">Can I try it in a virtual machine first?</h2>
+<p>Yes, for AMD and Intel systems. Caracal now has an early access ISO you can download from the homepage. A dedicated NVIDIA image is not currently available yet.</p>
+<p>If you&rsquo;re already on a compatible Fedora Atomic desktop, the in-place switch path is still fully supported:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc switch ghcr.io/caracal-dev/caracal:latest
+</span></span></code></pre></div><h2 id="can-i-try-it-in-a-virtual-machine-first">Can I try it in a virtual machine first?</h2>
 <p>Yes, and it&rsquo;s a sensible way to get a feel for it before switching your main machine. The project supports local VM builds for testing. Alternatively, you can install Fedora Kinoite in a VM and switch it to Caracal using the same <code>bootc switch</code> command you&rsquo;d use on a real machine — the process is identical.</p>
 <h2 id="which-linux-systems-can-i-switch-from">Which Linux systems can I switch from?</h2>
 <p>Any <code>bootc</code>-compatible Fedora Atomic system. That includes Fedora Kinoite, Bazzite, Bluefin, Aurora, and similar Fedora Atomic variants. If you&rsquo;re not sure whether your current system qualifies, check whether it uses <code>rpm-ostree</code> or <code>bootc</code> for system updates — if it does, the switch command should work.</p>
@@ -113,8 +115,12 @@
 <p>One thing to be aware of: because Caracal uses a <code>bootc</code>-managed image, packages layered with <code>rpm-ostree</code> will be wiped when the system image updates. Stick to Flatpak and Homebrew for anything you want to keep long-term.</p>
 <h2 id="what-kernel-does-caracal-use">What kernel does Caracal use?</h2>
 <p>Caracal ships with a real-time (RT) patched kernel tuned for low-latency audio. The RT kernel gives audio applications more reliable, consistent access to the CPU, which directly reduces the chance of audio glitches under load. This is the kernel configuration professional audio Linux setups have traditionally required a lot of manual work to achieve — Caracal ships it by default.</p>
+<h2 id="how-do-i-verify-the-iso-download">How do I verify the ISO download?</h2>
+<p>Download the ISO and its checksum file from the homepage into the same folder, then run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sha256sum -c caracal-latest-amd64.iso-CHECKSUM
+</span></span></code></pre></div><p>If the checksum matches, your ISO download is intact.</p>
 <h2 id="how-do-i-verify-the-caracal-image-with-cosign">How do I verify the Caracal image with Cosign?</h2>
-<p>Published Caracal images are signed with Cosign, which lets you confirm the image you&rsquo;re downloading is genuine and hasn&rsquo;t been tampered with. If you want to verify before switching:</p>
+<p>Published Caracal container images are signed with Cosign, which lets you confirm the image you&rsquo;re switching to is genuine and hasn&rsquo;t been tampered with. If you want to verify before switching:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest
 </span></span></code></pre></div><p>The public key (<code>cosign.pub</code>) is available in the project&rsquo;s GitHub repository. This is optional — most users won&rsquo;t need it — but it&rsquo;s there if you want a verifiable chain of trust before deploying on a machine you care about.</p>
 <h2 id="can-i-use-caracal-alongside-windows-as-a-dual-boot">Can I use Caracal alongside Windows as a dual boot?</h2>

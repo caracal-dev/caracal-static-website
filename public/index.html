@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.161.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.161.1">
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>Caracal OS</title>
 <meta name="description" content="A music production system for Linux — your audio interface, DAWs, plugins, and Windows VSTs all working from the moment you boot up, on a system that stays stable over time.">
 <link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
 
-    <link rel="stylesheet" href="/css/main.css">
+      <link rel="stylesheet" href="/css/main.min.903bbc0a4907b7a49d16517c0c0ba5e4cd190a589247e07d368b0312f7eeb437.css" integrity="sha256-kDu8CkkHt6SdFlF8DAul5M0ZCliSR&#43;B9NosDEvfutDc=" crossorigin="anonymous">
 
 
-    <script src="/js/main.js"></script>
+      <script src="/js/main.min.945288cc7d3d4a8248c7d4fe4db5d9b48ccb572a1d59f2b301d539ce2166c7e7.js" integrity="sha256-lFKIzH09SoJIx9T&#43;TbXZtIzLVyodWfKzAdU5ziFmx&#43;c=" crossorigin="anonymous"></script>
 
 
 </head>
@@ -37,11 +37,12 @@
     <main>
       
   
+  
   <div id="top"></div>
 
   <div class="prerelease-banner">
     <span class="prerelease-badge">Early access</span>
-    Caracal is currently pre-release. A standalone ISO installer is on the way — for now, switching from an existing Fedora Atomic desktop is the supported path.
+    Caracal is currently in early access. The AMD / Intel installer image is available now, and a dedicated NVIDIA image is still on the way.
   </div>
 
   <section class="hero">
@@ -330,18 +331,66 @@
   <section class="section section-install" id="install">
     <div class="section-heading">
       <p class="eyebrow">Get started — early access</p>
-      <h2>Three steps from a standard Linux desktop to a working studio.</h2>
+      <h2>Download the ISO, or switch from an existing Fedora Atomic desktop.</h2>
       <p>
-        A standalone ISO installer is coming. In the meantime, you can switch to Caracal from any Fedora Atomic desktop in three steps — run a one-time setup, and you're ready to record.
+        If your system uses AMD or Intel graphics, you can install Caracal directly with the early access ISO below. If you're already on a compatible Fedora Atomic desktop, you can still switch in place with the three-step path that follows.
       </p>
     </div>
+
+    <article class="download-selector reveal reveal-3" data-download-selector>
+      <div class="download-selector-copy">
+        <p class="card-eyebrow">Choose your image</p>
+        <h3>Pick the installer that matches your graphics hardware.</h3>
+        <p>
+          AMD and Intel systems use the same image. NVIDIA will get its own installer image later, but it is not published yet.
+        </p>
+      </div>
+
+      <div class="download-selector-panel">
+        <div class="image-choice-group" role="group" aria-label="Choose graphics hardware">
+          <button
+            class="image-choice is-active"
+            type="button"
+            aria-pressed="true"
+            data-image-choice
+            data-download-available="true"
+            data-download-title="AMD / Intel installer image"
+            data-download-description="Use this early access ISO on systems with AMD or Intel graphics."
+            data-download-url="https://downloads.caracal-os.org/caracal-latest-amd64.iso"
+            data-download-checksum-url="https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM">
+            AMD / Intel
+          </button>
+          <button
+            class="image-choice"
+            type="button"
+            aria-pressed="false"
+            data-image-choice
+            data-download-available="false"
+            data-download-title="NVIDIA installer image"
+            data-download-description="A dedicated NVIDIA image is not currently available.">
+            NVIDIA
+          </button>
+        </div>
+
+        <div class="download-output">
+          <p class="download-target" data-download-title-output>AMD / Intel installer image</p>
+          <p class="download-status" data-download-description-output>Use this early access ISO on systems with AMD or Intel graphics.</p>
+          <a class="button button-primary" data-download-link href="https://downloads.caracal-os.org/caracal-latest-amd64.iso">Download AMD / Intel ISO</a>
+          <a class="download-checksum-link" data-download-checksum-link href="https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM">Download checksum file</a>
+          <p class="download-unavailable is-hidden" data-download-unavailable>NVIDIA image isn't currently available. For now, use the Fedora Atomic switch path below if you're setting up a NVIDIA system.</p>
+          <p class="download-note">If you're already on Fedora Atomic, you can skip the ISO and switch directly.</p>
+        </div>
+      </div>
+    </article>
+
+    <p class="install-path-note">Already on Fedora Atomic? Switch in place:</p>
 
     <div class="step-grid">
       
         <article class="step-card reveal reveal-4">
           <span class="step-number">01</span>
           <h3>Switch to Caracal</h3>
-          <p>If you&#39;re already on a compatible Linux desktop, one command switches you over to Caracal. Alternatively, install any Fedora Atomic image first, then switch.</p>
+          <p>If you&#39;re already on a compatible Fedora Atomic desktop, one command switches you over to Caracal. Alternatively, install a Fedora Atomic image first, then switch.</p>
           <code>sudo bootc switch ghcr.io/caracal-dev/caracal:latest</code>
         </article>
       
@@ -379,8 +428,10 @@
 
     <div class="verification-card reveal reveal-2">
       <p class="card-eyebrow">Verification</p>
-      <h3>Every release is cryptographically signed.</h3>
-      <p>You can verify that the image you're installing is genuine and hasn't been tampered with — the same way app stores verify software before it reaches your device.</p>
+      <h3>Verify the ISO before you install it.</h3>
+      <p>Download the ISO and the checksum file into the same folder, then run this command to confirm the file you downloaded matches the published checksum.</p>
+      <code>sha256sum -c caracal-latest-amd64.iso-CHECKSUM</code>
+      <p>If you're switching with `bootc` instead of using the ISO, advanced users can still verify the published container image with Cosign.</p>
       <code>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest</code>
     </div>
   </section>

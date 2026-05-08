@@ -4,6 +4,14 @@ quickfacts = [
   "Updates can't break your system — roll back if anything goes wrong",
 ]
 
+[downloads]
+amdintel_url = "https://downloads.caracal-os.org/caracal-latest-amd64.iso"
+amdintel_checksum_url = "https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM"
+amdintel_title = "AMD / Intel installer image"
+amdintel_description = "Use this early access ISO on systems with AMD or Intel graphics."
+nvidia_title = "NVIDIA installer image"
+nvidia_description = "A dedicated NVIDIA image is not currently available."
+
 [[features]]
 eyebrow = "Ready on day one"
 title = "Plug in and record. No configuration rabbit holes."
@@ -70,7 +78,7 @@ items = ["JACK", "PipeWire", "QSynth", "FluidSynth", "VMPK", "QMidiArp", "Zsh", 
 [[installsteps]]
 number = "01"
 title = "Switch to Caracal"
-detail = "If you're already on a compatible Linux desktop, one command switches you over to Caracal. Alternatively, install any Fedora Atomic image first, then switch."
+detail = "If you're already on a compatible Fedora Atomic desktop, one command switches you over to Caracal. Alternatively, install a Fedora Atomic image first, then switch."
 command = "sudo bootc switch ghcr.io/caracal-dev/caracal:latest"
 
 [[installsteps]]
