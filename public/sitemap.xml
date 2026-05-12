@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://caracal-os.org/faq/</loc>
+    <loc>http://localhost:1313/faq/</loc>
   </url><url>
-    <loc>https://caracal-os.org/</loc>
+    <loc>http://localhost:1313/</loc>
   </url><url>
-    <loc>https://caracal-os.org/wiki/</loc>
+    <loc>http://localhost:1313/wiki/</loc>
   </url>
 </urlset>

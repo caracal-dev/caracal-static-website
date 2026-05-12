@@ -39,8 +39,8 @@ This page tracks common DAWs and plugins people are likely to ask about. Individ
 | [[EZdrummer 3]] | Instrument | No | 🟡 Partial | No | [[Hydrogen]] | Similar caveats to Superior Drummer, with content-management overhead. |
 | [[Valhalla VintageVerb]] | Plugin | No | 🟢 Works | No | [[Dragonfly Reverb]] | A strong candidate for yabridge use because it is comparatively simple and lightweight. |
 | [[Valhalla Delay]] | Plugin | No | 🟢 Works | No | [[Dragonfly Reverb]] | Expected to be one of the safer proprietary effects under Wine/yabridge. |
-| [[iZotope Ozone]] | Plugin | No | 🔴 No | No | [[LSP Plugins]] | Heavy DRM, installer complexity, and UI acceleration make the Ozone suite a poor Linux target. |
-| [[iZotope RX]] | Plugin / Suite | No | 🔴 No | No | [[Tenacity]] | RX standalone and plugin flows are not a realistic Caracal target at the moment. |
+| [[iZotope Ozone]] | Plugin | Yes | 🔴 No | No | [[LSP Plugins]] | Heavy DRM, installer complexity, and iLok authorization make the Ozone suite a poor Linux target. |
+| [[iZotope RX]] | Plugin / Suite | Yes | 🔴 No | No | [[Tenacity]] | RX standalone, plugin flows, and iLok authorization are not a realistic Caracal target at the moment. |
 | [[Native Instruments Massive]] | Instrument | No | 🟡 Partial | No | [[Surge XT]] | Older NI plugins can be more realistic than Kontakt, but Native Access remains a limitation. |
 | [[Native Instruments Reaktor]] | Instrument | No | 🔴 No | No | [[VCV Rack]] | Activation and runtime complexity make it a weak Wine candidate. |
 | [[Omnisphere]] | Instrument | No | 🔴 No | No | [[Surge XT]] | Large libraries and authorization complexity make this an unrealistic Caracal target. |
@@ -52,12 +52,38 @@ This page tracks common DAWs and plugins people are likely to ask about. Individ
 | [[Waves Plugins]] | Plugin Suite | No | 🔴 No | No | [[LSP Plugins]] | Waves Central is the main blocker; may work but not a practical target for a curated Caracal workflow. |
 | [[OTT (Xfer)]] | Plugin | No | 🟢 Works | No | [[LSP Plugins]] | Small, simple effects like OTT are usually much more realistic than complex suites. |
 | [[SPAN]] | Plugin | No | 🟢 Works | No | [[x42 Plugins]] | Utility plugins tend to be among the safest Windows-plugin bridge candidates. |
+| [[STL Tones Emissary]] | Amp Plugin | Yes | 🟢 Works | No | [[Guitarix]], [[AIDA-X]] | Confirmed working as a Windows VST on Caracal. |
+| [[STL Tones NadIR]] | Cabinet / IR Plugin | Yes | 🟢 Works | No | [[Guitarix]], [[AIDA-X]] | Confirmed working as a Windows VST on Caracal. |
+| [[Cherry Audio Stardust Tape Echo]] | Delay Plugin | Yes | 🟢 Works | No | [[Dragonfly Reverb]] | Confirmed working as a Windows VST on Caracal. |
+| [[Cherry Audio Surrealistic MG Plus 1]] | Instrument | Yes | 🟢 Works | No | [[Surge XT]] | Confirmed working as a Windows VST on Caracal. |
+| [[Softube Suite]] | Plugin Suite | Yes | 🔴 No | No | [[LSP Plugins]] | Recent testing could not get the suite working. |
+| [[Nembrini Suite]] | Amp / Effects Suite | Yes | 🔴 No | No | [[Guitarix]], [[AIDA-X]] | Recent testing could not get the suite working. |
+| [[iZotope Products]] | Plugin Suite | Yes | 🔴 No | No | [[LSP Plugins]], [[Tenacity]] | Recent testing found iLok authorization to be the blocker. |
+| [[Brainworx Oberhausen]] | Instrument | Yes | 🟢 Works | No | [[Surge XT]] | Confirmed working as a Windows VST on Caracal. |
+| [[MNTRA2]] | Instrument | Yes | 🔴 No | No | [[Surge XT]], [[Decent Sampler]] | Packs can install and the instrument may be recoverable with more effort, but recent testing could not get it working. |
+| [[Brainworx Chandler GAV19T]] | Amp Plugin | Yes | 🟢 Works | No | [[Guitarix]], [[AIDA-X]] | Confirmed working as a Windows VST on Caracal. |
+| [[Shadow Hills Mastering Compressor]] | Dynamics Plugin | Yes | 🟢 Works | No | [[LSP Plugins]] | Confirmed working as a Windows VST on Caracal. |
+| [[Black Box Analog Design HD-2]] | Saturation Plugin | Yes | 🟢 Works | No | [[LSP Plugins]] | Confirmed working as a Windows VST on Caracal. |
+| [[SPL Free Ranger]] | EQ Plugin | Yes | 🟢 Works | No | [[LSP Plugins]] | Confirmed working as a Windows VST on Caracal. |
+| [[Brainworx Rockrack V3]] | Amp Plugin | Yes | 🟢 Works | No | [[Guitarix]], [[AIDA-X]] | Confirmed working as a Windows VST on Caracal. |
+| [[Elysia Niveau Filter]] | EQ / Filter Plugin | Yes | 🟢 Works | No | [[LSP Plugins]] | Confirmed working as a Windows VST on Caracal. |
+| [[Brainworx Subfilter]] | Filter Plugin | Yes | 🟢 Works | No | [[LSP Plugins]] | Confirmed working as a Windows VST on Caracal. |
+| [[Denise Noize Retro]] | Noise / Lo-Fi Plugin | Yes | 🟢 Works | No | [[LSP Plugins]] | Confirmed working as a Windows VST on Caracal. |
+| [[DJ Swivel Spread]] | Stereo Plugin | Yes | 🟡 Partial | No | [[LSP Plugins]] | The plugin appears to run, but account authorization still needs a working path. |
+| [[Soundspot Oracle]] | Reverb Plugin | Yes | 🟢 Works | No | [[Dragonfly Reverb]] | Confirmed working as a Windows VST on Caracal. |
+| [[Audiority Polycomp]] | Dynamics Plugin | Yes | 🟡 Partial | No | [[LSP Plugins]] | Audio signal works, but the GUI was unresponsive in recent testing. |
 
 ## Suggested Next Pages
 
 - [[Studio One]]
 - [[Vital]]
 - [[Hardware Compatibility]]
+- [[STL Tones Emissary]]
+- [[Cherry Audio Surrealistic MG Plus 1]]
+- [[Softube Suite]]
+- [[Nembrini Suite]]
+- [[Brainworx Oberhausen]]
+- [[MNTRA2]]
 
 - [[REAPER]]
 - [[Bitwig Studio]]

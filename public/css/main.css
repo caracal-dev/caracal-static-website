@@ -17,7 +17,7 @@
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 18px;
-  --content-width: min(1240px, calc(100vw - 2.5rem));
+  --content-width: min(1320px, calc(100vw - 2.5rem));
 }
 
 * {
@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -546,6 +547,114 @@ code {
   padding: 1.5rem;
 }
 
+.download-selector {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.2rem;
+  align-items: start;
+  margin-bottom: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(24, 30, 47, 0.92), rgba(12, 17, 29, 0.9)),
+    linear-gradient(145deg, rgba(127, 180, 202, 0.08), transparent 42%);
+  box-shadow: var(--shadow);
+}
+
+.download-selector-copy h3,
+.download-selector-copy p,
+.download-selector-panel {
+  margin: 0;
+}
+
+.download-selector-copy p + p {
+  margin-top: 0.9rem;
+}
+
+.image-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.image-choice {
+  appearance: none;
+  min-height: 3rem;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.image-choice:hover,
+.image-choice:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--kanagawa-blue);
+}
+
+.image-choice.is-active {
+  border-color: rgba(246, 193, 119, 0.55);
+  background: linear-gradient(135deg, rgba(246, 193, 119, 0.18), rgba(196, 167, 231, 0.16));
+}
+
+.download-output {
+  margin-top: 1rem;
+  padding: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 22px;
+  background: rgba(6, 9, 17, 0.5);
+}
+
+.download-target {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.download-status,
+.download-note,
+.install-path-note {
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.download-status,
+.download-unavailable,
+.download-note {
+  margin: 0.75rem 0 0;
+}
+
+.download-output .button {
+  margin-top: 1rem;
+}
+
+.download-checksum-link {
+  display: inline-flex;
+  margin-top: 0.85rem;
+  color: var(--kanagawa-gold);
+  font-weight: 700;
+}
+
+.download-unavailable {
+  color: var(--kanagawa-gold);
+  font-weight: 700;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.install-path-note {
+  margin: 0 0 1rem;
+}
+
 .setup-wizard-callout {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
@@ -820,6 +929,7 @@ code {
 @media (max-width: 1100px) {
   .hero,
   .catalog-layout,
+  .download-selector,
   .setup-wizard-callout {
     grid-template-columns: 1fr;
   }
@@ -956,5 +1066,98 @@ code {
   .info-article {
     padding: 1.25rem;
     border-radius: 20px;
+  }
+
+  .wiki-article {
+    font-size: 1rem;
+  }
+
+  .wiki-article h1 {
+    font-size: clamp(2.1rem, 10vw, 3rem);
+  }
+
+  .wiki-article h2 {
+    font-size: clamp(1.65rem, 8vw, 2.3rem);
+  }
+
+  .wiki-article > table {
+    display: block;
+    width: 100%;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .wiki-article table {
+    min-width: 0;
+    border-collapse: separate;
+    border-spacing: 0 0.85rem;
+  }
+
+  .wiki-article thead {
+    display: none;
+  }
+
+  .wiki-article tbody,
+  .wiki-article tr,
+  .wiki-article td {
+    display: block;
+    width: 100%;
+  }
+
+  .wiki-article tr {
+    padding: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    background: rgba(7, 10, 18, 0.55);
+  }
+
+  .wiki-article td {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, 36%) minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    line-height: 1.5;
+  }
+
+  .wiki-article td:last-child {
+    border-bottom: 0;
+  }
+
+  .wiki-article td::before {
+    color: var(--cat-teal);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .wiki-article td:nth-child(1)::before {
+    content: "Item";
+  }
+
+  .wiki-article td:nth-child(2)::before {
+    content: "Type";
+  }
+
+  .wiki-article td:nth-child(3)::before {
+    content: "Tested";
+  }
+
+  .wiki-article td:nth-child(4)::before {
+    content: "Status";
+  }
+
+  .wiki-article td:nth-child(5)::before {
+    content: "Native";
+  }
+
+  .wiki-article td:nth-child(6)::before {
+    content: "Alternative";
+  }
+
+  .wiki-article td:nth-child(7)::before {
+    content: "Notes";
   }
 }
