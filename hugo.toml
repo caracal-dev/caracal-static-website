@@ -1,5 +1,5 @@
 baseURL = 'https://caracal-os.org/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = 'Caracal OS'
 theme = 'caracal-os'
 disableKinds = ['rss', 'section', 'taxonomy', 'term']

@@ -1,7 +1,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
-<meta name="description" content="{{ .Description | default site.Params.description }}">
+{{ $title := cond .IsHome site.Title (printf "%s | %s" .Title site.Title) }}
+{{ $description := .Description | default site.Params.description }}
+{{ $ogImage := "/assets/images/backdrops/caracal-sunset.png" | absURL }}
+{{ $logo := "/assets/images/logos/icon-grey.svg" | absURL }}
+{{ $schema := dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.BaseURL "description" $description "image" $ogImage "publisher" (dict "@type" "Organization" "name" "Caracal OS" "url" site.BaseURL "logo" $logo "sameAs" (slice "https://github.com/caracal-dev/caracal")) }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b0f19">
+<meta name="application-name" content="{{ site.Title }}">
+<link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $ogImage }}">
+<meta property="og:image:width" content="1216">
+<meta property="og:image:height" content="832">
+<meta property="og:image:alt" content="Caracal at sunset">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
+<meta name="twitter:image:alt" content="Caracal at sunset">
+<script type="application/ld+json">
+{{ $schema | jsonify (dict "indent" "  ") | safeJS }}
+</script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}

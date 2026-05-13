@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $siteData := site.Data.site }}
+  {{ $siteData := hugo.Data.site }}
   {{ $downloads := $siteData.downloads }}
   <div id="top"></div>
 
@@ -19,6 +19,10 @@
       <div class="hero-actions">
         <a class="button button-primary" href="#install">Install Caracal</a>
         <a class="button button-secondary" href="#workflow">See the workflow</a>
+        <a class="button button-github" href="https://github.com/caracal-dev/caracal" aria-label="Star Caracal on GitHub">
+          <img src="/assets/images/logos/github.png" alt="">
+          <span>Star on GitHub</span>
+        </a>
       </div>
 
       <div class="command-strip" aria-label="Install command">

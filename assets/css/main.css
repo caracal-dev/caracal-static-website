@@ -105,11 +105,20 @@ code {
   opacity: 0.92;
 }
 
+.header-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .site-nav a {
@@ -125,6 +134,33 @@ code {
   color: var(--text);
   border-color: var(--line);
   background: rgba(255, 255, 255, 0.03);
+}
+
+.source-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.source-link:hover,
+.source-link:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--line-strong);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.source-link img {
+  width: 1.35rem;
+  height: 1.35rem;
+  filter: invert(1);
+  opacity: 0.86;
 }
 
 .prerelease-banner {
@@ -253,6 +289,19 @@ code {
 .button-secondary {
   border: 1px solid var(--line-strong);
   background: rgba(255, 255, 255, 0.03);
+}
+
+.button-github {
+  gap: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #f6f8fa;
+  color: #24292f;
+  box-shadow: 0 12px 36px rgba(246, 248, 250, 0.12);
+}
+
+.button-github img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .command-strip {
@@ -726,8 +775,20 @@ code {
   border-top: 1px solid var(--line);
 }
 
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer p + p {
+  margin-top: 0.55rem;
+}
+
 .site-footer a {
   color: var(--kanagawa-gold);
+}
+
+.contact-note {
+  max-width: 78ch;
 }
 
 .wiki-page .page-shell,
@@ -978,6 +1039,12 @@ code {
   .site-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .header-links {
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
   }
 
   .site-nav {

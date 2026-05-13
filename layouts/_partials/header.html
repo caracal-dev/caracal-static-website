@@ -3,20 +3,25 @@
   <a class="brand" href="{{ if $isHome }}#top{{ else }}/{{ end }}" aria-label="Caracal OS home">
     <img src="/assets/images/logos/icon-grey-with-text.svg" alt="Caracal OS">
   </a>
-  <nav class="site-nav" aria-label="Primary">
-    {{ if $isHome }}
-      <a href="#why">Why Caracal</a>
-      <a href="#workflow">Workflow</a>
-      <a href="#catalog">Stack</a>
-      <a href="#install">Install</a>
-      <a href="/faq/">FAQ</a>
-      <a href="/wiki/">Wiki</a>
-    {{ else }}
-      <a href="/">Home</a>
-      <a href="/#workflow">Workflow</a>
-      <a href="/#catalog">Stack</a>
-      <a href="/faq/">FAQ</a>
-      <a href="/wiki/">Wiki</a>
-    {{ end }}
-  </nav>
+  <div class="header-links">
+    <nav class="site-nav" aria-label="Primary">
+      {{- if $isHome }}
+        <a href="#why">Why Caracal</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#catalog">Stack</a>
+        <a href="#install">Install</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/wiki/">Wiki</a>
+      {{- else }}
+        <a href="/">Home</a>
+        <a href="/#workflow">Workflow</a>
+        <a href="/#catalog">Stack</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/wiki/">Wiki</a>
+      {{- end }}
+    </nav>
+    <a class="source-link" href="https://github.com/caracal-dev/caracal" aria-label="View Caracal source code on GitHub">
+      <img src="/assets/images/logos/github.png" alt="">
+    </a>
+  </div>
 </header>

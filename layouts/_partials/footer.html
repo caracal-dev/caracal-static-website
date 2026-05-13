@@ -1,12 +1,28 @@
 <footer class="site-footer">
-  {{ if .IsHome }}
-    <p>Caracal OS blends an immutable desktop base with a workflow that actually respects music production.</p>
+  <div>
+    {{- if .IsHome }}
+      <p>Caracal OS blends an immutable desktop base with a workflow that actually respects music production.</p>
+    {{- else if eq .RelPermalink "/faq/" }}
+      <p>The FAQ covers the common setup questions. Use the wiki when you need compatibility notes for specific DAWs, plugins, or hardware.</p>
+    {{- else }}
+      <p>The website serves a local snapshot so this page still works even if the cloned wiki folder is removed.</p>
+    {{- end }}
+    <p class="contact-note">
+      Marketing enquiries:
+      <span
+        class="encoded-contact"
+        data-contact-user="team"
+        data-contact-domain="caracal-os"
+        data-contact-tld="org">enable JavaScript to reveal the address</span>.
+      Issues and support should go through
+      <a href="https://github.com/caracal-dev/caracal/issues">GitHub issues</a>.
+    </p>
+  </div>
+  {{- if .IsHome }}
     <a href="#top">Back to top</a>
-  {{ else if eq .RelPermalink "/faq/" }}
-    <p>The FAQ covers the common setup questions. Use the wiki when you need compatibility notes for specific DAWs, plugins, or hardware.</p>
+  {{- else if eq .RelPermalink "/faq/" }}
     <a href="/wiki/">Open wiki</a>
-  {{ else }}
-    <p>The website serves a local snapshot so this page still works even if the cloned wiki folder is removed.</p>
+  {{- else }}
     <a href="/faq/">Read FAQ</a>
-  {{ end }}
+  {{- end }}
 </footer>
