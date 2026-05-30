@@ -3,6 +3,31 @@ languageCode = 'en-us'
 title = 'Caracal OS'
 theme = 'caracal-os'
 disableKinds = ['rss', 'section', 'taxonomy', 'term']
+enableRobotsTXT = true
 
 [params]
   description = 'A studio-ready Linux workstation for music producers and sound engineers, built on Fedora Kinoite and tuned for audio from first boot.'
+  keywords = 'Caracal OS, Linux for audio, music production Linux, Fedora Kinoite, professional audio Linux, low-latency audio, Windows VST on Linux'
+  googleSiteVerification = "Dov6Z_o2iGZOfGGHklA9dyHjLc8AmXP5pYkzB4mmDj0" # Add your Google Search Console verification code here
+  twitterSite = "@caracal_os" 
+  twitterCreator = "@caracal_os"
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "FAQ"
+  url = "/faq/"
+  weight = 2
+
+[[menu.main]]
+  name = "Wiki"
+  url = "/wiki/"
+  weight = 3

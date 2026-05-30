@@ -1,6 +1,6 @@
 quickfacts = [
   "Your Windows VST plugins still work — bring your whole library",
-  "Audio is ready the moment you boot up, no setup required",
+  "Audio is ready the moment you boot up, with a lean base image",
   "Updates can't break your system — roll back if anything goes wrong",
 ]
 
@@ -18,14 +18,14 @@ title = "Plug in and record. No configuration rabbit holes."
 body = "On Windows, getting low-latency audio often means fighting ASIO drivers, buffer settings, and background processes. Caracal arrives already configured for music production — your audio interface works, your latency is low, and you can start a session without touching a single setting."
 
 [[features]]
-eyebrow = "A real studio toolkit, included"
-title = "Professional DAWs and plugins are already installed."
-body = "Ardour and Qtractor are included out of the box and ready to open. REAPER, Renoise, and Bitwig — popular with producers coming from Windows — are one click away in the bundled software installer."
+eyebrow = "Lean studio base"
+title = "The essentials are installed. The bigger catalog is one click away."
+body = "Ardour, Qtractor, Carla, Hydrogen, Wine/Yabridge, and a focused plugin set are included out of the box. REAPER, Renoise, Bitwig, Mixbus, extra synths, and larger plugin collections live in the bundled Caracal Software Installer so the base system stays lean."
 
 [[features]]
-eyebrow = "Plugins included"
-title = "A full set of production-quality effects and instruments, ready to use."
-body = "Reverbs, EQs, compressors, a guitar amp modeler, synths, and more come pre-installed and organized. You get a working signal chain from day one without hunting down free plugins across the web."
+eyebrow = "Focused plugin base"
+title = "Start with a practical plugin set, then add exactly what you need."
+body = "Caracal preinstalls LSP, Calf, Guitarix, Vitalium, DISTRHO DrumSynth/EQuinox, and Carla integration. The installer expands that into Dragonfly Reverb, Surge XT, Cardinal, Decent Sampler, BYOD, AIDA-X, Neural Amp Modeler, TAL plugins, Zam, DPF, and more."
 
 [[features]]
 eyebrow = "Your Windows plugins come with you"
@@ -44,7 +44,7 @@ image = "/assets/images/screenshots/Ardour-Project-Mixer.png"
 
 [[workflow]]
 title = "Record, arrange, and produce natively"
-caption = "Everything you need to write and record is included from day one — no chasing downloads, no driver setup, no compatibility headaches."
+caption = "The core tools you need to write and record are included from day one, and the installer handles the larger DAW and plugin catalog when you are ready."
 image = "/assets/images/screenshots/Ardour-Project.png"
 
 [[workflow]]
@@ -65,15 +65,15 @@ items = ["Ardour 9", "Qtractor", "Carla (plugin host)"]
 
 [[stackgroups]]
 title = "Included plugins and instruments"
-items = ["LSP Plugins", "Dragonfly Reverb", "Calf", "BYOD (guitar amp sim)", "Dexed", "Odin2", "OB-Xf", "AIDA-X", "Neural Amp Modeler", "x42", "SWH LV2"]
+items = ["LSP Plugins", "Calf", "Guitarix", "Vitalium", "DISTRHO DrumSynth", "DISTRHO EQuinox", "Hydrogen", "Carla LV2 integration"]
 
 [[stackgroups]]
-title = "One-click installs"
-items = ["REAPER", "Renoise", "Bitwig Studio", "Cardinal", "Surge XT", "Decent Sampler", "Loopino", "SunVox", "Virtual ANS", "RTCQS"]
+title = "Software installer catalog"
+items = ["REAPER", "Renoise", "Bitwig Studio", "Mixbus", "Zrythm", "Cardinal", "VCV Rack 2", "Surge XT", "Decent Sampler", "Loopino", "Dragonfly Reverb", "BYOD", "AIDA-X", "RTCQS"]
 
 [[stackgroups]]
 title = "Audio system"
-items = ["JACK", "PipeWire", "QSynth", "FluidSynth", "VMPK", "QMidiArp", "Zsh", "oh-my-posh", "ripgrep", "fzf", "Neovim"]
+items = ["PipeWire", "JACK compatibility", "QjackCtl", "Helvum", "EasyEffects", "Realtime limits", "Performance CPU governor", "Wine TKG", "Yabridge", "Ghostty", "Zsh", "Neovim"]
 
 [[installsteps]]
 number = "01"
@@ -90,5 +90,5 @@ command = "ujust first-run"
 [[installsteps]]
 number = "03"
 title = "Add your software"
-detail = "Open the bundled software installer to browse and install DAWs, instruments, and effects. Or install individual apps with the focused helpers."
+detail = "Open the bundled software installer to browse, queue, install, and uninstall DAWs, instruments, effects, and utilities. Or install individual apps with the focused helpers."
 command = "ujust software-installer"

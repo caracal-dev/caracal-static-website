@@ -105,6 +105,51 @@ code {
   opacity: 0.92;
 }
 
+.menu-toggle {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  position: absolute;
+  width: 1.15rem;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.menu-toggle span:nth-child(1) {
+  transform: translateY(-0.38rem);
+}
+
+.menu-toggle span:nth-child(3) {
+  transform: translateY(0.38rem);
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.is-menu-open .menu-toggle span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
 .header-links {
   display: flex;
   flex-wrap: wrap;
@@ -1037,18 +1082,67 @@ code {
   }
 
   .site-header {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
+    min-height: 4.25rem;
+    padding: 0.65rem 0;
   }
 
-  .header-links {
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
+  .site-header::before {
+    inset: 0 -0.65rem;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .brand {
+    width: clamp(150px, 52vw, 185px);
+  }
+
+  .js .menu-toggle {
+    display: inline-flex;
+  }
+
+  .js .header-links {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    right: 0;
+    display: grid;
+    width: min(18rem, 100%);
+    padding: 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(12, 17, 29, 0.96);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.35rem);
+    transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+    visibility: hidden;
+  }
+
+  .js .site-header.is-menu-open .header-links {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
   }
 
   .site-nav {
-    justify-content: flex-start;
+    display: grid;
+    gap: 0.2rem;
+    justify-content: stretch;
+    width: 100%;
+  }
+
+  .site-nav a {
+    padding: 0.8rem 0.95rem;
+    border-radius: 12px;
+  }
+
+  .source-link {
+    justify-self: start;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-top: 0.4rem;
   }
 
   .hero {

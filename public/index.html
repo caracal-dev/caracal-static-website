@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.161.1">
+	<meta name="generator" content="Hugo 0.150.1">
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,7 +10,7 @@
 
 
 <title>Caracal OS</title>
-<meta name="description" content="A music production system for Linux — your audio interface, DAWs, plugins, and Windows VSTs all working from the moment you boot up, on a system that stays stable over time.">
+<meta name="description" content="A music production system for Linux with a lean audio-ready base, a curated software installer for DAWs and plugins, and Windows VST support on a system that stays stable over time.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0b0f19">
 <meta name="application-name" content="Caracal OS">
@@ -18,7 +18,7 @@
 <link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
 <meta property="og:site_name" content="Caracal OS">
 <meta property="og:title" content="Caracal OS">
-<meta property="og:description" content="A music production system for Linux — your audio interface, DAWs, plugins, and Windows VSTs all working from the moment you boot up, on a system that stays stable over time.">
+<meta property="og:description" content="A music production system for Linux with a lean audio-ready base, a curated software installer for DAWs and plugins, and Windows VST support on a system that stays stable over time.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://caracal-os.org/">
 <meta property="og:image" content="https://caracal-os.org/assets/images/backdrops/caracal-sunset.png">
@@ -28,14 +28,14 @@
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Caracal OS">
-<meta name="twitter:description" content="A music production system for Linux — your audio interface, DAWs, plugins, and Windows VSTs all working from the moment you boot up, on a system that stays stable over time.">
+<meta name="twitter:description" content="A music production system for Linux with a lean audio-ready base, a curated software installer for DAWs and plugins, and Windows VST support on a system that stays stable over time.">
 <meta name="twitter:image" content="https://caracal-os.org/assets/images/backdrops/caracal-sunset.png">
 <meta name="twitter:image:alt" content="Caracal at sunset">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "description": "A music production system for Linux — your audio interface, DAWs, plugins, and Windows VSTs all working from the moment you boot up, on a system that stays stable over time.",
+  "description": "A music production system for Linux with a lean audio-ready base, a curated software installer for DAWs and plugins, and Windows VST support on a system that stays stable over time.",
   "image": "https://caracal-os.org/assets/images/backdrops/caracal-sunset.png",
   "name": "Caracal OS",
   "publisher": {
@@ -51,10 +51,10 @@
 }
 </script>
 
-      <link rel="stylesheet" href="/css/main.min.7ccd4a9117b849e75de8f26dc4b1809245136bd4f61d929e88f5e4d6fa5c20ea.css" integrity="sha256-fM1KkRe4Sedd6PJtxLGAkkUTa9T2HZKeiPXk1vpcIOo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.97e6646f7f1d1a0ea6cce4d7e7083447450109ca481f5c5ef8e11c0f53ac9b67.css" integrity="sha256-l&#43;Zkb38dGg6mzOTX5wg0R0UBCcpIH1xe&#43;OEcD1Osm2c=" crossorigin="anonymous">
 
 
-      <script src="/js/main.min.93a13f8172ac8993bf0410a929e12412a9e6ab75084885dda298d42681339f6e.js" integrity="sha256-k6E/gXKsiZO/BBCpKeEkEqnmq3UISIXdopjUJoEzn24=" crossorigin="anonymous" defer></script>
+      <script src="/js/main.min.c5321470af3ffc8a0164d8c24172f1147c3a935dec3013400b5ae37c000bc9c7.js" integrity="sha256-xTIUcK8//IoBZNjCQXLxFHw6k13sMBNAC1rjfAALycc=" crossorigin="anonymous" defer></script>
 
 
 </head>
@@ -65,8 +65,13 @@
   <a class="brand" href="#top" aria-label="Caracal OS home">
     <img src="/assets/images/logos/icon-grey-with-text.svg" alt="Caracal OS">
   </a>
+  <button class="menu-toggle" type="button" aria-controls="primary-menu" aria-expanded="false" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <div class="header-links">
-    <nav class="site-nav" aria-label="Primary">
+    <nav class="site-nav" id="primary-menu" aria-label="Primary">
         <a href="#why">Why Caracal</a>
         <a href="#workflow">Workflow</a>
         <a href="#catalog">Stack</a>
@@ -96,7 +101,7 @@
       <p class="eyebrow">For producers, beatmakers, composers, and mix engineers</p>
       <h1>A music production system that works from the moment you boot it.</h1>
       <p class="hero-lede">
-        A music production system for Linux — your audio interface, DAWs, plugins, and Windows VSTs all working from the moment you boot up, on a system that stays stable over time.
+        A music production system for Linux with a lean audio-ready base, a curated software installer for DAWs and plugins, and Windows VST support on a system that stays stable over time.
       </p>
 
       <div class="hero-actions">
@@ -117,7 +122,7 @@
         
           <li>Your Windows VST plugins still work — bring your whole library</li>
         
-          <li>Audio is ready the moment you boot up, no setup required</li>
+          <li>Audio is ready the moment you boot up, with a lean base image</li>
         
           <li>Updates can&#39;t break your system — roll back if anything goes wrong</li>
         
@@ -129,12 +134,12 @@
         <img src="/assets/images/backdrops/caracal-sunset.png" alt="">
       </div>
       <div class="hero-panel hero-panel-glass">
-        <p class="panel-kicker">Included in the box</p>
+        <p class="panel-kicker">Ready on Caracal</p>
         <h2>Stable system. Professional workflow.</h2>
         <div class="signal-grid">
           <span>Ardour</span>
-          <span>REAPER</span>
-          <span>Bitwig</span>
+          <span>Qtractor</span>
+          <span>Installer</span>
           <span>PipeWire</span>
           <span>Carla</span>
           <span>Windows VSTs</span>
@@ -177,15 +182,15 @@
         </article>
       
         <article class="feature-card reveal reveal-3">
-          <p class="card-eyebrow">A real studio toolkit, included</p>
-          <h3>Professional DAWs and plugins are already installed.</h3>
-          <p>Ardour and Qtractor are included out of the box and ready to open. REAPER, Renoise, and Bitwig — popular with producers coming from Windows — are one click away in the bundled software installer.</p>
+          <p class="card-eyebrow">Lean studio base</p>
+          <h3>The essentials are installed. The bigger catalog is one click away.</h3>
+          <p>Ardour, Qtractor, Carla, Hydrogen, Wine/Yabridge, and a focused plugin set are included out of the box. REAPER, Renoise, Bitwig, Mixbus, extra synths, and larger plugin collections live in the bundled Caracal Software Installer so the base system stays lean.</p>
         </article>
       
         <article class="feature-card reveal reveal-3">
-          <p class="card-eyebrow">Plugins included</p>
-          <h3>A full set of production-quality effects and instruments, ready to use.</h3>
-          <p>Reverbs, EQs, compressors, a guitar amp modeler, synths, and more come pre-installed and organized. You get a working signal chain from day one without hunting down free plugins across the web.</p>
+          <p class="card-eyebrow">Focused plugin base</p>
+          <h3>Start with a practical plugin set, then add exactly what you need.</h3>
+          <p>Caracal preinstalls LSP, Calf, Guitarix, Vitalium, DISTRHO DrumSynth/EQuinox, and Carla integration. The installer expands that into Dragonfly Reverb, Surge XT, Cardinal, Decent Sampler, BYOD, AIDA-X, Neural Amp Modeler, TAL plugins, Zam, DPF, and more.</p>
         </article>
       
         <article class="feature-card reveal reveal-3">
@@ -227,7 +232,7 @@
           <img src="/assets/images/screenshots/Ardour-Project.png" alt="Record, arrange, and produce natively">
           <figcaption>
             <h3>Record, arrange, and produce natively</h3>
-            <p>Everything you need to write and record is included from day one — no chasing downloads, no driver setup, no compatibility headaches.</p>
+            <p>The core tools you need to write and record are included from day one, and the installer handles the larger DAW and plugin catalog when you are ready.</p>
             
           </figcaption>
         </figure>
@@ -258,9 +263,9 @@
   <section class="section section-catalog" id="catalog">
     <div class="section-heading">
       <p class="eyebrow">What's included</p>
-      <h2>A full production toolkit out of the box, with room to add more.</h2>
+      <h2>A lean production base out of the box, with a much larger catalog ready to install.</h2>
       <p>
-        Caracal comes with a real set of DAWs, instruments, and effects — not just a base system with a browser. Keep the included tools, add the commercial DAWs you already use, or bring in your Windows plugins when a project calls for them.
+        Caracal now keeps the base image focused: the audio system, core DAWs, compatibility tools, and a practical plugin set are ready immediately. The larger DAW, synth, effect, and utility catalog is delivered through the custom software installer so you can add what you actually use.
       </p>
     </div>
 
@@ -269,7 +274,7 @@
         <p class="card-eyebrow">Software installer</p>
         <h3>Add more software without hunting the internet for it.</h3>
         <p>
-          The Caracal Software Installer gives you a curated catalog of DAWs, instruments, effects, and utilities — all verified to work. No digging through forums to figure out what's compatible.
+          The Caracal Software Installer gives you a curated catalog of DAWs, instruments, effects, and utilities. It has a desktop GUI, a terminal UI, install/uninstall actions, installed-state detection, and queueing so you can set up multiple tools in one pass.
         </p>
         <img src="/assets/images/screenshots/caracal-installer.png" alt="Caracal Software Installer catalog">
       </aside>
@@ -295,31 +300,25 @@
               
                 <li>LSP Plugins</li>
               
-                <li>Dragonfly Reverb</li>
-              
                 <li>Calf</li>
               
-                <li>BYOD (guitar amp sim)</li>
+                <li>Guitarix</li>
               
-                <li>Dexed</li>
+                <li>Vitalium</li>
               
-                <li>Odin2</li>
+                <li>DISTRHO DrumSynth</li>
               
-                <li>OB-Xf</li>
+                <li>DISTRHO EQuinox</li>
               
-                <li>AIDA-X</li>
+                <li>Hydrogen</li>
               
-                <li>Neural Amp Modeler</li>
-              
-                <li>x42</li>
-              
-                <li>SWH LV2</li>
+                <li>Carla LV2 integration</li>
               
             </ul>
           </article>
         
           <article class="stack-card reveal reveal-3">
-            <h3>One-click installs</h3>
+            <h3>Software installer catalog</h3>
             <ul>
               
                 <li>REAPER</li>
@@ -328,7 +327,13 @@
               
                 <li>Bitwig Studio</li>
               
+                <li>Mixbus</li>
+              
+                <li>Zrythm</li>
+              
                 <li>Cardinal</li>
+              
+                <li>VCV Rack 2</li>
               
                 <li>Surge XT</li>
               
@@ -336,9 +341,11 @@
               
                 <li>Loopino</li>
               
-                <li>SunVox</li>
+                <li>Dragonfly Reverb</li>
               
-                <li>Virtual ANS</li>
+                <li>BYOD</li>
+              
+                <li>AIDA-X</li>
               
                 <li>RTCQS</li>
               
@@ -349,25 +356,27 @@
             <h3>Audio system</h3>
             <ul>
               
-                <li>JACK</li>
-              
                 <li>PipeWire</li>
               
-                <li>QSynth</li>
+                <li>JACK compatibility</li>
               
-                <li>FluidSynth</li>
+                <li>QjackCtl</li>
               
-                <li>VMPK</li>
+                <li>Helvum</li>
               
-                <li>QMidiArp</li>
+                <li>EasyEffects</li>
+              
+                <li>Realtime limits</li>
+              
+                <li>Performance CPU governor</li>
+              
+                <li>Wine TKG</li>
+              
+                <li>Yabridge</li>
+              
+                <li>Ghostty</li>
               
                 <li>Zsh</li>
-              
-                <li>oh-my-posh</li>
-              
-                <li>ripgrep</li>
-              
-                <li>fzf</li>
               
                 <li>Neovim</li>
               
@@ -454,7 +463,7 @@
         <article class="step-card reveal reveal-4">
           <span class="step-number">03</span>
           <h3>Add your software</h3>
-          <p>Open the bundled software installer to browse and install DAWs, instruments, and effects. Or install individual apps with the focused helpers.</p>
+          <p>Open the bundled software installer to browse, queue, install, and uninstall DAWs, instruments, effects, and utilities. Or install individual apps with the focused helpers.</p>
           <code>ujust software-installer</code>
         </article>
       
@@ -465,7 +474,7 @@
         <p class="card-eyebrow">What You’ll See</p>
         <h3 id="setup-wizard-title">Our custom setup wizard.</h3>
         <p>
-          When you log into Caracal for the first time, you will be greeted with our custom setup wizard. First you can update your username and password if you choose or leave them as they are, then you get a straightforward first-run window that automatically configures the handful of things Caracal needs to configure for audio work as well as some quality of life features.
+          When you log into Caracal for the first time, you will be greeted with our custom setup wizard. First you can update your username and password if you choose or leave them as they are, then you get a straightforward first-run window that automatically configures the handful of things Caracal needs for audio work and points you toward the software installer for optional DAWs, instruments, effects, and utilities.
         </p>
         <p>
           If you are coming from Microsoft Windows, this is the part that replaces the usual round of driver installers, permission dialogs, and utility apps.

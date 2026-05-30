@@ -50,10 +50,10 @@
 }
 </script>
 
-      <link rel="stylesheet" href="/css/main.min.7ccd4a9117b849e75de8f26dc4b1809245136bd4f61d929e88f5e4d6fa5c20ea.css" integrity="sha256-fM1KkRe4Sedd6PJtxLGAkkUTa9T2HZKeiPXk1vpcIOo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.97e6646f7f1d1a0ea6cce4d7e7083447450109ca481f5c5ef8e11c0f53ac9b67.css" integrity="sha256-l&#43;Zkb38dGg6mzOTX5wg0R0UBCcpIH1xe&#43;OEcD1Osm2c=" crossorigin="anonymous">
 
 
-      <script src="/js/main.min.93a13f8172ac8993bf0410a929e12412a9e6ab75084885dda298d42681339f6e.js" integrity="sha256-k6E/gXKsiZO/BBCpKeEkEqnmq3UISIXdopjUJoEzn24=" crossorigin="anonymous" defer></script>
+      <script src="/js/main.min.c5321470af3ffc8a0164d8c24172f1147c3a935dec3013400b5ae37c000bc9c7.js" integrity="sha256-xTIUcK8//IoBZNjCQXLxFHw6k13sMBNAC1rjfAALycc=" crossorigin="anonymous" defer></script>
 
 
 </head>
@@ -64,8 +64,13 @@
   <a class="brand" href="/" aria-label="Caracal OS home">
     <img src="/assets/images/logos/icon-grey-with-text.svg" alt="Caracal OS">
   </a>
+  <button class="menu-toggle" type="button" aria-controls="primary-menu" aria-expanded="false" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <div class="header-links">
-    <nav class="site-nav" aria-label="Primary">
+    <nav class="site-nav" id="primary-menu" aria-label="Primary">
         <a href="/">Home</a>
         <a href="/#workflow">Workflow</a>
         <a href="/#catalog">Stack</a>
@@ -95,7 +100,7 @@
 
     <article class="info-article reveal reveal-2">
       <h2 id="what-is-caracal">What is Caracal?</h2>
-<p>Caracal is a version of Linux built specifically for music production. Where a standard Linux system leaves you to figure out audio configuration, drivers, and which software to install, Caracal arrives with all of that already sorted. You get a working studio — DAW, plugins, and audio routing — from the first boot.</p>
+<p>Caracal is a version of Linux built specifically for music production. Where a standard Linux system leaves you to figure out audio configuration, drivers, and which software to install, Caracal arrives with the audio base already sorted: low-latency settings, routing, core DAWs, Windows VST support, and a curated software installer for adding the larger DAW and plugin catalog.</p>
 <h2 id="is-this-linux-ive-heard-linux-audio-is-a-nightmare">Is this Linux? I&rsquo;ve heard Linux audio is a nightmare.</h2>
 <p>That reputation was earned, and for most Linux systems it&rsquo;s still fair. Caracal exists to fix that specific problem. The audio system is pre-configured, your audio interface should work immediately, and low-latency settings are already in place. You shouldn&rsquo;t need to follow a forum guide just to get a signal going.</p>
 <h2 id="who-is-caracal-for">Who is Caracal for?</h2>
@@ -111,13 +116,19 @@
 <p>Plugin compatibility does vary. Some plugins work perfectly, some have minor quirks, and a small number don&rsquo;t load at all. The <a href="/wiki/">compatibility wiki</a> has notes on specific plugins so you can check before you commit.</p>
 <h2 id="can-i-use-reaper-bitwig-or-renoise">Can I use REAPER, Bitwig, or Renoise?</h2>
 <p>Yes. These are popular with producers coming from Windows and they all install cleanly on Caracal. They aren&rsquo;t included in the base system to keep things lean, but the bundled software installer puts them one click away. You can also install them individually:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ujust install-reaper
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ujust install-reaper
 </span></span><span style="display:flex;"><span>ujust install-renoise
 </span></span><span style="display:flex;"><span>ujust install-bitwig
 </span></span></code></pre></div><h2 id="whats-included-out-of-the-box">What&rsquo;s included out of the box?</h2>
 <p><strong>DAWs:</strong> Ardour 9 and Qtractor are ready to open on first boot. Carla is also included as a standalone plugin host if you want to run instruments or effects outside a full session.</p>
-<p><strong>Effects and instruments:</strong> a full working set including reverbs, EQs, compressors, a guitar amp modeler (AIDA-X and Neural Amp Modeler), and synths including Dexed, Odin2, and OB-Xf.</p>
+<p><strong>Effects and instruments:</strong> a focused base set including LSP Plugins, Calf, Guitarix, Vitalium, DISTRHO DrumSynth, DISTRHO EQuinox, Hydrogen, and Carla LV2 integration.</p>
 <p><strong>Audio system:</strong> PipeWire and JACK are already configured and routing audio correctly — you don&rsquo;t need to set them up.</p>
+<p><strong>Compatibility and workflow tools:</strong> Wine TKG, Yabridge, Winetricks, QjackCtl, Helvum, EasyEffects, Ghostty, Zsh, Neovim, Distrobox, AppImageLauncher, and virtualization support are included.</p>
+<p>The larger catalog lives in the Caracal Software Installer instead of being preloaded into every image.</p>
+<h2 id="what-is-the-caracal-software-installer">What is the Caracal Software Installer?</h2>
+<p>It&rsquo;s Caracal&rsquo;s curated post-install catalog for music software. It includes a desktop app, a terminal UI, and CLI helpers for installing and uninstalling optional DAWs, instruments, effects, and utilities.</p>
+<p>The installer can queue multiple selections, detect software that is already installed, and use package-specific install paths. System apps can go into <code>/opt</code> or <code>/usr/local</code> when they need integration, while many plugin archives install into user-local folders like <code>~/.vst3</code>, <code>~/.clap</code>, and <code>~/.lv2</code> so they work cleanly with Caracal&rsquo;s image-based updates.</p>
+<p>Current catalog highlights include REAPER, Renoise, Bitwig Studio, Mixbus, Zrythm, Cardinal, VCV Rack 2, Surge XT, Decent Sampler, SunVox, Virtual ANS, Dragonfly Reverb, BYOD, AIDA-X, Neural Amp Modeler, TAL plugins, Zam Plugin Suite, DPF plugins, MuseScore Studio, and RTCQS.</p>
 <h2 id="does-it-work-with-my-audio-interface">Does it work with my audio interface?</h2>
 <p>Probably. Most USB and Thunderbolt audio interfaces that work on Linux will work on Caracal. Class-compliant interfaces (ones that don&rsquo;t require a custom driver) work without any setup at all. Interfaces that need proprietary drivers — which is relatively rare on Linux — may need extra steps or may not be supported.</p>
 <p>If your interface has worked on other Linux systems, it will work here. If you&rsquo;re not sure, the <a href="/wiki/">compatibility wiki</a> is a good starting point, and the project community can help with specific hardware questions.</p>
@@ -127,7 +138,7 @@
 <h2 id="is-there-an-iso-i-can-just-download-and-install">Is there an ISO I can just download and install?</h2>
 <p>Yes, for AMD and Intel systems. Caracal now has an early access ISO you can download from the homepage. A dedicated NVIDIA image is not currently available yet.</p>
 <p>If you&rsquo;re already on a compatible Fedora Atomic desktop, the in-place switch path is still fully supported:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc switch ghcr.io/caracal-dev/caracal:latest
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc switch ghcr.io/caracal-dev/caracal:latest
 </span></span></code></pre></div><h2 id="can-i-try-it-in-a-virtual-machine-first">Can I try it in a virtual machine first?</h2>
 <p>Yes, and it&rsquo;s a sensible way to get a feel for it before switching your main machine. The project supports local VM builds for testing. Alternatively, you can install Fedora Kinoite in a VM and switch it to Caracal using the same <code>bootc switch</code> command you&rsquo;d use on a real machine — the process is identical.</p>
 <h2 id="which-linux-systems-can-i-switch-from">Which Linux systems can I switch from?</h2>
@@ -136,16 +147,16 @@
 <p>No. The <code>bootc switch</code> command replaces the system image, not your home directory. Your documents, projects, and personal files stay in place. That said, it&rsquo;s always good practice to back up anything important before making major system changes.</p>
 <h2 id="how-do-i-get-started-right-now">How do I get started right now?</h2>
 <p>Switch to Caracal from a compatible Fedora Atomic desktop:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc switch ghcr.io/caracal-dev/caracal:latest
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc switch ghcr.io/caracal-dev/caracal:latest
 </span></span></code></pre></div><p>After rebooting, run the one-time setup:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ujust first-run
-</span></span></code></pre></div><p>That adds your user account to the groups needed for low-latency audio, sets up Windows plugin compatibility, and applies the first-boot configuration. Then open the software installer to add any extra DAWs or tools you want.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ujust first-run
+</span></span></code></pre></div><p>That adds your user account to the groups needed for low-latency audio, sets up Windows plugin compatibility, and applies the first-boot configuration. Then open the software installer to add any extra DAWs, plugins, instruments, or tools you want.</p>
 <h2 id="what-does-ujust-first-run-do">What does <code>ujust first-run</code> do?</h2>
 <p>It handles the guided post-install setup in one step: adds your user to the <code>audio</code> and <code>realtime</code> groups (needed for low-latency audio access), installs shell extras, and sets up Yabridge for Windows plugin compatibility. You only need to run it once, and you&rsquo;ll need to log out and back in afterward for the group changes to take effect.</p>
 <h2 id="how-do-i-roll-back-if-an-update-causes-problems">How do I roll back if an update causes problems?</h2>
 <p>Reboot and select the previous deployment from the boot menu (it appears as an older entry in the GRUB bootloader list). Your previous working system is kept alongside the new one and is always available to boot into. Once you&rsquo;ve confirmed an update is working correctly, the old deployment is cleaned up automatically over time.</p>
 <p>If you want to roll back from within the running system:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc rollback
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc rollback
 </span></span></code></pre></div><p>Then reboot.</p>
 <h2 id="do-i-need-to-configure-low-latency-audio-settings-manually">Do I need to configure low-latency audio settings manually?</h2>
 <p>No. The settings that reduce audio delay are already configured — CPU performance mode, priority access to audio hardware, the works. Plug in your interface, open your DAW, and record. You shouldn&rsquo;t need to touch any system settings to get a clean, low-latency signal.</p>
@@ -160,14 +171,14 @@
 </ul>
 <p>One thing to be aware of: because Caracal uses a <code>bootc</code>-managed image, packages layered with <code>rpm-ostree</code> will be wiped when the system image updates. Stick to Flatpak and Homebrew for anything you want to keep long-term.</p>
 <h2 id="what-kernel-does-caracal-use">What kernel does Caracal use?</h2>
-<p>Caracal ships with a real-time (RT) patched kernel tuned for low-latency audio. The RT kernel gives audio applications more reliable, consistent access to the CPU, which directly reduces the chance of audio glitches under load. This is the kernel configuration professional audio Linux setups have traditionally required a lot of manual work to achieve — Caracal ships it by default.</p>
+<p>Caracal replaces Fedora&rsquo;s stock kernel with the Bazzite kernel and layers audio-focused realtime configuration on top: performance CPU governor defaults, realtime/memlock limits for audio users, <code>realtime-setup</code>, and realtime tuned profiles. The goal is low-latency audio without asking users to assemble those pieces manually.</p>
 <h2 id="how-do-i-verify-the-iso-download">How do I verify the ISO download?</h2>
 <p>Download the ISO and its checksum file from the homepage into the same folder, then run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sha256sum -c caracal-latest-amd64.iso-CHECKSUM
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sha256sum -c caracal-latest-amd64.iso-CHECKSUM
 </span></span></code></pre></div><p>If the checksum matches, your ISO download is intact.</p>
 <h2 id="how-do-i-verify-the-caracal-image-with-cosign">How do I verify the Caracal image with Cosign?</h2>
 <p>Published Caracal container images are signed with Cosign, which lets you confirm the image you&rsquo;re switching to is genuine and hasn&rsquo;t been tampered with. If you want to verify before switching:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest
 </span></span></code></pre></div><p>The public key (<code>cosign.pub</code>) is available in the project&rsquo;s GitHub repository. This is optional — most users won&rsquo;t need it — but it&rsquo;s there if you want a verifiable chain of trust before deploying on a machine you care about.</p>
 <h2 id="can-i-use-caracal-alongside-windows-as-a-dual-boot">Can I use Caracal alongside Windows as a dual boot?</h2>
 <p>Yes, dual booting is possible. Linux and Windows can coexist on the same machine with each system on its own partition. If you&rsquo;re setting this up from scratch, install Windows first, then install your Fedora Atomic base system alongside it, and switch to Caracal from there. Most modern machines handle dual booting without issues, though the exact steps depend on your hardware and whether you have Secure Boot enabled.</p>

@@ -6,7 +6,7 @@ eyebrow = "Common Questions"
 
 ## What is Caracal?
 
-Caracal is a version of Linux built specifically for music production. Where a standard Linux system leaves you to figure out audio configuration, drivers, and which software to install, Caracal arrives with all of that already sorted. You get a working studio — DAW, plugins, and audio routing — from the first boot.
+Caracal is a version of Linux built specifically for music production. Where a standard Linux system leaves you to figure out audio configuration, drivers, and which software to install, Caracal arrives with the audio base already sorted: low-latency settings, routing, core DAWs, Windows VST support, and a curated software installer for adding the larger DAW and plugin catalog.
 
 ## Is this Linux? I've heard Linux audio is a nightmare.
 
@@ -48,9 +48,21 @@ ujust install-bitwig
 
 **DAWs:** Ardour 9 and Qtractor are ready to open on first boot. Carla is also included as a standalone plugin host if you want to run instruments or effects outside a full session.
 
-**Effects and instruments:** a full working set including reverbs, EQs, compressors, a guitar amp modeler (AIDA-X and Neural Amp Modeler), and synths including Dexed, Odin2, and OB-Xf.
+**Effects and instruments:** a focused base set including LSP Plugins, Calf, Guitarix, Vitalium, DISTRHO DrumSynth, DISTRHO EQuinox, Hydrogen, and Carla LV2 integration.
 
 **Audio system:** PipeWire and JACK are already configured and routing audio correctly — you don't need to set them up.
+
+**Compatibility and workflow tools:** Wine TKG, Yabridge, Winetricks, QjackCtl, Helvum, EasyEffects, Ghostty, Zsh, Neovim, Distrobox, AppImageLauncher, and virtualization support are included.
+
+The larger catalog lives in the Caracal Software Installer instead of being preloaded into every image.
+
+## What is the Caracal Software Installer?
+
+It's Caracal's curated post-install catalog for music software. It includes a desktop app, a terminal UI, and CLI helpers for installing and uninstalling optional DAWs, instruments, effects, and utilities.
+
+The installer can queue multiple selections, detect software that is already installed, and use package-specific install paths. System apps can go into `/opt` or `/usr/local` when they need integration, while many plugin archives install into user-local folders like `~/.vst3`, `~/.clap`, and `~/.lv2` so they work cleanly with Caracal's image-based updates.
+
+Current catalog highlights include REAPER, Renoise, Bitwig Studio, Mixbus, Zrythm, Cardinal, VCV Rack 2, Surge XT, Decent Sampler, SunVox, Virtual ANS, Dragonfly Reverb, BYOD, AIDA-X, Neural Amp Modeler, TAL plugins, Zam Plugin Suite, DPF plugins, MuseScore Studio, and RTCQS.
 
 ## Does it work with my audio interface?
 
@@ -100,7 +112,7 @@ After rebooting, run the one-time setup:
 ujust first-run
 ```
 
-That adds your user account to the groups needed for low-latency audio, sets up Windows plugin compatibility, and applies the first-boot configuration. Then open the software installer to add any extra DAWs or tools you want.
+That adds your user account to the groups needed for low-latency audio, sets up Windows plugin compatibility, and applies the first-boot configuration. Then open the software installer to add any extra DAWs, plugins, instruments, or tools you want.
 
 ## What does `ujust first-run` do?
 
@@ -139,7 +151,7 @@ One thing to be aware of: because Caracal uses a `bootc`-managed image, packages
 
 ## What kernel does Caracal use?
 
-Caracal ships with a real-time (RT) patched kernel tuned for low-latency audio. The RT kernel gives audio applications more reliable, consistent access to the CPU, which directly reduces the chance of audio glitches under load. This is the kernel configuration professional audio Linux setups have traditionally required a lot of manual work to achieve — Caracal ships it by default.
+Caracal replaces Fedora's stock kernel with the Bazzite kernel and layers audio-focused realtime configuration on top: performance CPU governor defaults, realtime/memlock limits for audio users, `realtime-setup`, and realtime tuned profiles. The goal is low-latency audio without asking users to assemble those pieces manually.
 
 ## How do I verify the ISO download?
 

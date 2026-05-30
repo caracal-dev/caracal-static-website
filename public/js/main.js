@@ -1,3 +1,53 @@
+document.documentElement.classList.add("js");
+
+document.querySelectorAll(".site-header").forEach((header) => {
+  const toggle = header.querySelector(".menu-toggle");
+  const links = header.querySelectorAll(".header-links a");
+  const desktopQuery = window.matchMedia("(min-width: 721px)");
+
+  if (!toggle) {
+    return;
+  }
+
+  const setOpen = (isOpen) => {
+    header.classList.toggle("is-menu-open", isOpen);
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(!header.classList.contains("is-menu-open"));
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  const handleDesktopChange = (event) => {
+    if (event.matches) {
+      setOpen(false);
+    }
+  };
+
+  if (desktopQuery.addEventListener) {
+    desktopQuery.addEventListener("change", handleDesktopChange);
+  } else {
+    desktopQuery.addListener(handleDesktopChange);
+  }
+
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+    }
+  });
+});
+
 document.querySelectorAll("[data-download-selector]").forEach((selector) => {
   const buttons = selector.querySelectorAll("[data-image-choice]");
   const title = selector.querySelector("[data-download-title-output]");

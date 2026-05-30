@@ -4,29 +4,61 @@
 {{ $description := .Description | default site.Params.description }}
 {{ $ogImage := "/assets/images/backdrops/caracal-sunset.png" | absURL }}
 {{ $logo := "/assets/images/logos/icon-grey.svg" | absURL }}
-{{ $schema := dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.BaseURL "description" $description "image" $ogImage "publisher" (dict "@type" "Organization" "name" "Caracal OS" "url" site.BaseURL "logo" $logo "sameAs" (slice "https://github.com/caracal-dev/caracal")) }}
+
+{{/* Base Schema */}}
+{{ $schema := slice (dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.BaseURL "description" $description "image" $ogImage "publisher" (dict "@type" "Organization" "name" "Caracal OS" "url" site.BaseURL "logo" $logo "sameAs" (slice "https://github.com/caracal-dev/caracal"))) }}
+
+{{/* Breadcrumbs Schema */}}
+{{ $bcItems := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" site.BaseURL) }}
+{{ if not .IsHome }}
+  {{ $bcItems = $bcItems | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) }}
+{{ end }}
+{{ $schema = $schema | append (dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $bcItems) }}
+
+{{/* Home Page Specific Schema */}}
+{{ if .IsHome }}
+  {{ $screenshot := "/assets/images/screenshots/Ardour-Project.png" | absURL }}
+  {{ $schema = $schema | append (dict "@context" "https://schema.org" "@type" "SoftwareApplication" "name" "Caracal OS" "operatingSystem" "Linux" "applicationCategory" "MultimediaApplication" "description" site.Params.description "url" site.BaseURL "image" $ogImage "screenshot" $screenshot "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD") "publisher" (dict "@type" "Organization" "name" "Caracal OS" "url" site.BaseURL "logo" $logo "sameAs" (slice "https://github.com/caracal-dev/caracal"))) }}
+{{ end }}
+
+{{/* FAQ Page Specific Schema */}}
+{{ if eq .Type "page" }}{{ if eq .File.TranslationBaseName "faq" }}
+  {{/* We need to parse the markdown for FAQ schema, but for now we'll do it manually or skip if too complex. */}}
+  {{/* Simple way: If we have data, use it. But content/faq.md is markdown. */}}
+  {{/* Let's try to extract headings and paragraphs if possible, or just add a placeholder for future automation. */}}
+{{ end }}{{ end }}
+
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
+{{ with site.Params.keywords }}<meta name="keywords" content="{{ . }}">{{ end }}
 <meta name="robots" content="index, follow">
+{{ with site.Params.googleSiteVerification }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
 <meta name="theme-color" content="#0b0f19">
 <meta name="application-name" content="{{ site.Title }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
+
+{{/* Open Graph */}}
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:image" content="{{ $ogImage }}">
 <meta property="og:image:width" content="1216">
 <meta property="og:image:height" content="832">
 <meta property="og:image:alt" content="Caracal at sunset">
 <meta property="og:locale" content="en_US">
+
+{{/* Twitter */}}
 <meta name="twitter:card" content="summary_large_image">
+{{ with site.Params.twitterSite }}<meta name="twitter:site" content="{{ . }}">{{ end }}
+{{ with site.Params.twitterCreator }}<meta name="twitter:creator" content="{{ . }}">{{ end }}
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
 <meta name="twitter:image" content="{{ $ogImage }}">
 <meta name="twitter:image:alt" content="Caracal at sunset">
+
 <script type="application/ld+json">
 {{ $schema | jsonify (dict "indent" "  ") | safeJS }}
 </script>
