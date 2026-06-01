@@ -16,6 +16,7 @@ document.querySelectorAll("[data-download-selector]").forEach((selector) => {
     const downloadDescription = button.dataset.downloadDescription || "";
     const downloadUrl = button.dataset.downloadUrl || "";
     const checksumUrl = button.dataset.downloadChecksumUrl || "";
+    const downloadLabel = button.dataset.downloadLabel || "Download ISO";
 
     buttons.forEach((item) => {
       const isActive = item === button;
@@ -28,7 +29,7 @@ document.querySelectorAll("[data-download-selector]").forEach((selector) => {
 
     if (available && downloadUrl) {
       link.href = downloadUrl;
-      link.textContent = "Download AMD / Intel ISO";
+      link.textContent = downloadLabel;
       link.classList.remove("is-hidden");
       if (checksumUrl) {
         checksumLink.href = checksumUrl;

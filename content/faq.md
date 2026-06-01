@@ -78,7 +78,7 @@ On Caracal, PipeWire runs JACK compatibility underneath, so applications that ex
 
 ## Is there an ISO I can just download and install?
 
-Yes, for AMD and Intel systems. Caracal now has an early access ISO you can download from the homepage. A dedicated NVIDIA image is not currently available yet.
+Yes. Caracal has early access installer images for AMD / Intel and NVIDIA systems, and you can download the matching ISO from the homepage.
 
 If you're already on a compatible Fedora Atomic desktop, the in-place switch path is still fully supported:
 
@@ -155,10 +155,14 @@ Caracal replaces Fedora's stock kernel with the Bazzite kernel and layers audio-
 
 ## How do I verify the ISO download?
 
-Download the ISO and its checksum file from the homepage into the same folder, then run:
+Download the ISO and its matching checksum file from the homepage into the same folder, then run the command for the image you downloaded:
 
 ```bash
 sha256sum -c caracal-latest-amd64.iso-CHECKSUM
+```
+
+```bash
+sha256sum -c caracal-nvidia-latest-amd64.iso-CHECKSUM
 ```
 
 If the checksum matches, your ISO download is intact.

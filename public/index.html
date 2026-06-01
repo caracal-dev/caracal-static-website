@@ -54,7 +54,7 @@
       <link rel="stylesheet" href="/css/main.min.97e6646f7f1d1a0ea6cce4d7e7083447450109ca481f5c5ef8e11c0f53ac9b67.css" integrity="sha256-l&#43;Zkb38dGg6mzOTX5wg0R0UBCcpIH1xe&#43;OEcD1Osm2c=" crossorigin="anonymous">
 
 
-      <script src="/js/main.min.c5321470af3ffc8a0164d8c24172f1147c3a935dec3013400b5ae37c000bc9c7.js" integrity="sha256-xTIUcK8//IoBZNjCQXLxFHw6k13sMBNAC1rjfAALycc=" crossorigin="anonymous" defer></script>
+      <script src="/js/main.min.2b6e2c77270ba74f2bc69f2316c345f85a70a9fee8b701e14e1cbc752a17cff6.js" integrity="sha256-K24sdycLp08rxp8jFsNF+Fpwqf7otwHhThy8dSoXz/Y=" crossorigin="anonymous" defer></script>
 
 
 </head>
@@ -93,7 +93,7 @@
 
   <div class="prerelease-banner">
     <span class="prerelease-badge">Early access</span>
-    Caracal is currently in early access. The AMD / Intel installer image is available now, and a dedicated NVIDIA image is still on the way.
+    Caracal is currently in early access. Installer images are available for AMD / Intel and NVIDIA systems.
   </div>
 
   <section class="hero">
@@ -392,7 +392,7 @@
       <p class="eyebrow">Get started — early access</p>
       <h2>Download the ISO, or switch from an existing Fedora Atomic desktop.</h2>
       <p>
-        If your system uses AMD or Intel graphics, you can install Caracal directly with the early access ISO below. If you're already on a compatible Fedora Atomic desktop, you can still switch in place with the three-step path that follows.
+        Choose the early access ISO that matches your graphics hardware. If you're already on a compatible Fedora Atomic desktop, you can still switch in place with the three-step path that follows.
       </p>
     </div>
 
@@ -401,7 +401,7 @@
         <p class="card-eyebrow">Choose your image</p>
         <h3>Pick the installer that matches your graphics hardware.</h3>
         <p>
-          AMD and Intel systems use the same image. NVIDIA will get its own installer image later, but it is not published yet.
+          AMD and Intel systems use the same image. NVIDIA systems have a dedicated image with NVIDIA support included.
         </p>
       </div>
 
@@ -416,7 +416,8 @@
             data-download-title="AMD / Intel installer image"
             data-download-description="Use this early access ISO on systems with AMD or Intel graphics."
             data-download-url="https://downloads.caracal-os.org/caracal-latest-amd64.iso"
-            data-download-checksum-url="https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM">
+            data-download-checksum-url="https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM"
+            data-download-label="Download AMD / Intel ISO">
             AMD / Intel
           </button>
           <button
@@ -424,9 +425,12 @@
             type="button"
             aria-pressed="false"
             data-image-choice
-            data-download-available="false"
+            data-download-available="true"
             data-download-title="NVIDIA installer image"
-            data-download-description="A dedicated NVIDIA image is not currently available.">
+            data-download-description="Use this early access ISO on systems with NVIDIA graphics."
+            data-download-url="https://downloads.caracal-os.org/caracal-nvidia-latest-amd64.iso"
+            data-download-checksum-url="https://downloads.caracal-os.org/caracal-nvidia-latest-amd64.iso-CHECKSUM"
+            data-download-label="Download NVIDIA ISO">
             NVIDIA
           </button>
         </div>
@@ -436,7 +440,7 @@
           <p class="download-status" data-download-description-output>Use this early access ISO on systems with AMD or Intel graphics.</p>
           <a class="button button-primary" data-download-link href="https://downloads.caracal-os.org/caracal-latest-amd64.iso">Download AMD / Intel ISO</a>
           <a class="download-checksum-link" data-download-checksum-link href="https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM">Download checksum file</a>
-          <p class="download-unavailable is-hidden" data-download-unavailable>NVIDIA image isn't currently available. For now, use the Fedora Atomic switch path below if you're setting up a NVIDIA system.</p>
+          <p class="download-unavailable is-hidden" data-download-unavailable>This image is not currently available.</p>
           <p class="download-note">If you're already on Fedora Atomic, you can skip the ISO and switch directly.</p>
         </div>
       </div>
@@ -488,8 +492,9 @@
     <div class="verification-card reveal reveal-2">
       <p class="card-eyebrow">Verification</p>
       <h3>Verify the ISO before you install it.</h3>
-      <p>Download the ISO and the checksum file into the same folder, then run this command to confirm the file you downloaded matches the published checksum.</p>
+      <p>Download the ISO and the matching checksum file into the same folder, then run the command for the image you downloaded.</p>
       <code>sha256sum -c caracal-latest-amd64.iso-CHECKSUM</code>
+      <code>sha256sum -c caracal-nvidia-latest-amd64.iso-CHECKSUM</code>
       <p>If you're switching with `bootc` instead of using the ISO, advanced users can still verify the published container image with Cosign.</p>
       <code>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest</code>
     </div>

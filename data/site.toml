@@ -9,8 +9,10 @@ amdintel_url = "https://downloads.caracal-os.org/caracal-latest-amd64.iso"
 amdintel_checksum_url = "https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM"
 amdintel_title = "AMD / Intel installer image"
 amdintel_description = "Use this early access ISO on systems with AMD or Intel graphics."
+nvidia_url = "https://downloads.caracal-os.org/caracal-nvidia-latest-amd64.iso"
+nvidia_checksum_url = "https://downloads.caracal-os.org/caracal-nvidia-latest-amd64.iso-CHECKSUM"
 nvidia_title = "NVIDIA installer image"
-nvidia_description = "A dedicated NVIDIA image is not currently available."
+nvidia_description = "Use this early access ISO on systems with NVIDIA graphics."
 
 [[features]]
 eyebrow = "Ready on day one"

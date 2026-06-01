@@ -53,7 +53,7 @@
       <link rel="stylesheet" href="/css/main.min.97e6646f7f1d1a0ea6cce4d7e7083447450109ca481f5c5ef8e11c0f53ac9b67.css" integrity="sha256-l&#43;Zkb38dGg6mzOTX5wg0R0UBCcpIH1xe&#43;OEcD1Osm2c=" crossorigin="anonymous">
 
 
-      <script src="/js/main.min.c5321470af3ffc8a0164d8c24172f1147c3a935dec3013400b5ae37c000bc9c7.js" integrity="sha256-xTIUcK8//IoBZNjCQXLxFHw6k13sMBNAC1rjfAALycc=" crossorigin="anonymous" defer></script>
+      <script src="/js/main.min.2b6e2c77270ba74f2bc69f2316c345f85a70a9fee8b701e14e1cbc752a17cff6.js" integrity="sha256-K24sdycLp08rxp8jFsNF+Fpwqf7otwHhThy8dSoXz/Y=" crossorigin="anonymous" defer></script>
 
 
 </head>
@@ -136,7 +136,7 @@
 <p>PipeWire is the main audio system on modern Linux — it handles everything from system sounds to music applications. JACK is an older professional audio protocol that many DAWs and audio tools use for low-latency routing between applications.</p>
 <p>On Caracal, PipeWire runs JACK compatibility underneath, so applications that expect JACK will work without you needing to run a separate JACK server. In practice this means you can open Ardour, connect your hardware, and record — the routing just works.</p>
 <h2 id="is-there-an-iso-i-can-just-download-and-install">Is there an ISO I can just download and install?</h2>
-<p>Yes, for AMD and Intel systems. Caracal now has an early access ISO you can download from the homepage. A dedicated NVIDIA image is not currently available yet.</p>
+<p>Yes. Caracal has early access installer images for AMD / Intel and NVIDIA systems, and you can download the matching ISO from the homepage.</p>
 <p>If you&rsquo;re already on a compatible Fedora Atomic desktop, the in-place switch path is still fully supported:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo bootc switch ghcr.io/caracal-dev/caracal:latest
 </span></span></code></pre></div><h2 id="can-i-try-it-in-a-virtual-machine-first">Can I try it in a virtual machine first?</h2>
@@ -173,8 +173,9 @@
 <h2 id="what-kernel-does-caracal-use">What kernel does Caracal use?</h2>
 <p>Caracal replaces Fedora&rsquo;s stock kernel with the Bazzite kernel and layers audio-focused realtime configuration on top: performance CPU governor defaults, realtime/memlock limits for audio users, <code>realtime-setup</code>, and realtime tuned profiles. The goal is low-latency audio without asking users to assemble those pieces manually.</p>
 <h2 id="how-do-i-verify-the-iso-download">How do I verify the ISO download?</h2>
-<p>Download the ISO and its checksum file from the homepage into the same folder, then run:</p>
+<p>Download the ISO and its matching checksum file from the homepage into the same folder, then run the command for the image you downloaded:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sha256sum -c caracal-latest-amd64.iso-CHECKSUM
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sha256sum -c caracal-nvidia-latest-amd64.iso-CHECKSUM
 </span></span></code></pre></div><p>If the checksum matches, your ISO download is intact.</p>
 <h2 id="how-do-i-verify-the-caracal-image-with-cosign">How do I verify the Caracal image with Cosign?</h2>
 <p>Published Caracal container images are signed with Cosign, which lets you confirm the image you&rsquo;re switching to is genuine and hasn&rsquo;t been tampered with. If you want to verify before switching:</p>
