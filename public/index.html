@@ -115,7 +115,7 @@
 
       <div class="command-strip" aria-label="Install command">
         <span class="command-label">switch</span>
-        <code>sudo bootc switch ghcr.io/caracal-dev/caracal:latest</code>
+        <code>rpm-ostree rebase ostree-unverified-registry:ghcr.io/caracal-dev/caracal:latest</code>
       </div>
 
       <ul class="fact-list" aria-label="Key highlights">
@@ -454,7 +454,7 @@
           <span class="step-number">01</span>
           <h3>Switch to Caracal</h3>
           <p>If you&#39;re already on a compatible Fedora Atomic desktop, one command switches you over to Caracal. Alternatively, install a Fedora Atomic image first, then switch.</p>
-          <code>sudo bootc switch ghcr.io/caracal-dev/caracal:latest</code>
+          <code>rpm-ostree rebase ostree-unverified-registry:ghcr.io/caracal-dev/caracal:latest</code>
         </article>
       
         <article class="step-card reveal reveal-4">
@@ -495,7 +495,7 @@
       <p>Download the ISO and the matching checksum file into the same folder, then run the command for the image you downloaded.</p>
       <code>sha256sum -c caracal-latest-amd64.iso-CHECKSUM</code>
       <code>sha256sum -c caracal-nvidia-latest-amd64.iso-CHECKSUM</code>
-      <p>If you're switching with `bootc` instead of using the ISO, advanced users can still verify the published container image with Cosign.</p>
+      <p>If you're switching with `rpm-ostree` instead of using the ISO, advanced users can still verify the published container image with Cosign.</p>
       <code>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest</code>
     </div>
   </section>

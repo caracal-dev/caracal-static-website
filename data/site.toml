@@ -81,7 +81,7 @@ items = ["PipeWire", "JACK compatibility", "QjackCtl", "Helvum", "EasyEffects", 
 number = "01"
 title = "Switch to Caracal"
 detail = "If you're already on a compatible Fedora Atomic desktop, one command switches you over to Caracal. Alternatively, install a Fedora Atomic image first, then switch."
-command = "sudo bootc switch ghcr.io/caracal-dev/caracal:latest"
+command = "rpm-ostree rebase ostree-unverified-registry:ghcr.io/caracal-dev/caracal:latest"
 
 [[installsteps]]
 number = "02"
