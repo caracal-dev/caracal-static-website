@@ -1,3 +1,4 @@
+{{ $social := site.Data.site.social }}
 <footer class="site-footer">
   <div>
     {{- if .IsHome }}
@@ -17,6 +18,12 @@
       Issues and support should go through
       <a href="https://github.com/caracal-dev/caracal/issues">GitHub issues</a>.
     </p>
+    <div class="footer-social-links" aria-label="Social links">
+      <a rel="me" href="{{ $social.mastodon_url }}">Mastodon</a>
+      <a href="{{ $social.bluesky_url }}">Bluesky</a>
+      <a href="{{ $social.discord_url }}">Discord</a>
+      <a href="{{ $social.github_url }}">GitHub</a>
+    </div>
   </div>
   {{- if .IsHome }}
     <a href="#top">Back to top</a>

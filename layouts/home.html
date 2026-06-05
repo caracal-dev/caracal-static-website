@@ -104,7 +104,7 @@
     <div class="workflow-grid">
       {{ range $item := $siteData.workflow }}
         <figure class="shot-card reveal reveal-4">
-          <img src="{{ $item.image }}" alt="{{ $item.title }}">
+          <img{{ with $item.imagefit }} class="image-fit-{{ . }}"{{ end }} src="{{ $item.image }}" alt="{{ $item.title }}">
           <figcaption>
             <h3>{{ $item.title }}</h3>
             <p>{{ $item.caption }}</p>

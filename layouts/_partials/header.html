@@ -1,4 +1,5 @@
 {{ $isHome := .IsHome }}
+{{ $social := site.Data.site.social }}
 <header class="site-header">
   <a class="brand" href="{{ if $isHome }}#top{{ else }}/{{ end }}" aria-label="Caracal OS home">
     <img src="/assets/images/logos/icon-grey-with-text.svg" alt="Caracal OS">
@@ -25,8 +26,19 @@
         <a href="/wiki/">Wiki</a>
       {{- end }}
     </nav>
-    <a class="source-link" href="https://github.com/caracal-dev/caracal" aria-label="View Caracal source code on GitHub">
-      <img src="/assets/images/logos/github.png" alt="">
-    </a>
+    <div class="social-links" aria-label="Social links">
+      <a class="social-link social-link-github" href="{{ $social.github_url }}" aria-label="View Caracal source code on GitHub">
+        <img src="/assets/images/logos/github.png" alt="">
+      </a>
+      <a class="social-link" rel="me" href="{{ $social.mastodon_url }}" aria-label="Follow Caracal on Mastodon">
+        <img src="/assets/images/logos/mastodon-icon.svg" alt="">
+      </a>
+      <a class="social-link" href="{{ $social.bluesky_url }}" aria-label="Follow Caracal on Bluesky">
+        <img src="/assets/images/logos/bluesky-icon.svg" alt="">
+      </a>
+      <a class="social-link" href="{{ $social.discord_url }}" aria-label="Join the Caracal Discord server">
+        <img src="/assets/images/logos/discord-icon.svg" alt="">
+      </a>
+    </div>
   </div>
 </header>

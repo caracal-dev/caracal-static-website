@@ -4,6 +4,12 @@ quickfacts = [
   "Updates can't break your system — roll back if anything goes wrong",
 ]
 
+[social]
+github_url = "https://github.com/caracal-dev/caracal"
+mastodon_url = "https://mastodon.social/@caracal_os"
+bluesky_url = "https://bsky.app/profile/caracal-os.org"
+discord_url = "https://discord.com/channels/1512388646735712306/1512388648295731242"
+
 [downloads]
 amdintel_url = "https://downloads.caracal-os.org/caracal-latest-amd64.iso"
 amdintel_checksum_url = "https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM"
@@ -60,6 +66,27 @@ caption = "Caracal includes built-in tools to run most Windows VST plugins. Your
 image = "/assets/images/screenshots/Arturia-Pigments-in-Bitwig.png"
 linkurl = "/wiki/"
 linkcta = "Check plugin compatibility"
+
+[[workflow]]
+title = "Control your audio from one place"
+caption = "The Caracal Audio Controller keeps common audio settings close at hand, so you can tune your setup without digging through system panels."
+image = "/assets/images/screenshots/caracal-audio-controller.png"
+imagefit = "contain"
+
+[[workflow]]
+title = "Browse with a modern desktop setup"
+caption = "Everyday desktop apps fit naturally into the system, from web browsing to documentation, downloads, and project research."
+image = "/assets/images/screenshots/zen-browser-with-ublue-webpage.png"
+
+[[workflow]]
+title = "Install apps from other Linux distributions"
+caption = "Distrobox lets you run apps from other Linux distributions, including .deb-based tools, when something you need is not available in the Caracal Software Installer yet."
+image = "/assets/images/screenshots/distrobox-fastfetch-arch-terminal.png"
+
+[[workflow]]
+title = "Install Flatpaks from a visual store"
+caption = "Bazaar gives you a straightforward way to browse and install Flatpak apps without leaving the desktop."
+image = "/assets/images/screenshots/bazaar-flatpak-app-store.png"
 
 [[stackgroups]]
 title = "Included DAWs"

@@ -4,9 +4,11 @@
 {{ $description := .Description | default site.Params.description }}
 {{ $ogImage := "/assets/images/backdrops/caracal-sunset.png" | absURL }}
 {{ $logo := "/assets/images/logos/icon-grey.svg" | absURL }}
+{{ $social := site.Data.site.social }}
+{{ $sameAs := slice $social.github_url $social.mastodon_url $social.bluesky_url $social.discord_url }}
 
 {{/* Base Schema */}}
-{{ $schema := slice (dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.BaseURL "description" $description "image" $ogImage "publisher" (dict "@type" "Organization" "name" "Caracal OS" "url" site.BaseURL "logo" $logo "sameAs" (slice "https://github.com/caracal-dev/caracal"))) }}
+{{ $schema := slice (dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.BaseURL "description" $description "image" $ogImage "publisher" (dict "@type" "Organization" "name" "Caracal OS" "url" site.BaseURL "logo" $logo "sameAs" $sameAs)) }}
 
 {{/* Breadcrumbs Schema */}}
 {{ $bcItems := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" site.BaseURL) }}
@@ -18,7 +20,7 @@
 {{/* Home Page Specific Schema */}}
 {{ if .IsHome }}
   {{ $screenshot := "/assets/images/screenshots/Ardour-Project.png" | absURL }}
-  {{ $schema = $schema | append (dict "@context" "https://schema.org" "@type" "SoftwareApplication" "name" "Caracal OS" "operatingSystem" "Linux" "applicationCategory" "MultimediaApplication" "description" site.Params.description "url" site.BaseURL "image" $ogImage "screenshot" $screenshot "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD") "publisher" (dict "@type" "Organization" "name" "Caracal OS" "url" site.BaseURL "logo" $logo "sameAs" (slice "https://github.com/caracal-dev/caracal"))) }}
+  {{ $schema = $schema | append (dict "@context" "https://schema.org" "@type" "SoftwareApplication" "name" "Caracal OS" "operatingSystem" "Linux" "applicationCategory" "MultimediaApplication" "description" site.Params.description "url" site.BaseURL "image" $ogImage "screenshot" $screenshot "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD") "publisher" (dict "@type" "Organization" "name" "Caracal OS" "url" site.BaseURL "logo" $logo "sameAs" $sameAs)) }}
 {{ end }}
 
 {{/* FAQ Page Specific Schema */}}
@@ -37,6 +39,7 @@
 <meta name="application-name" content="{{ site.Title }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" href="/assets/images/logos/icon-grey.svg" type="image/svg+xml">
+<link rel="me" href="{{ $social.mastodon_url }}">
 
 {{/* Open Graph */}}
 <meta property="og:site_name" content="{{ site.Title }}">
