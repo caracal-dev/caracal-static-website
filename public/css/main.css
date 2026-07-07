@@ -559,7 +559,6 @@ code {
 
 .shot-card {
   display: grid;
-  grid-column: span 6;
   grid-template-rows: auto auto;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -568,15 +567,21 @@ code {
   box-shadow: var(--shadow);
 }
 
-.shot-card:nth-child(1),
-.shot-card:nth-child(4) {
-  grid-column: span 7;
-}
+@media (min-width: 901px) {
+  .shot-card {
+    grid-column: span 6;
+  }
 
-.shot-card:nth-child(2),
-.shot-card:nth-child(3),
-.shot-card:nth-child(5) {
-  grid-column: span 5;
+  .shot-card:nth-child(1),
+  .shot-card:nth-child(4) {
+    grid-column: span 7;
+  }
+
+  .shot-card:nth-child(2),
+  .shot-card:nth-child(3),
+  .shot-card:nth-child(5) {
+    grid-column: span 5;
+  }
 }
 
 .shot-card img {
@@ -1089,10 +1094,6 @@ code {
 
   .workflow-grid {
     grid-template-columns: 1fr;
-  }
-
-  .shot-card {
-    grid-column: auto;
   }
 
   .site-footer {

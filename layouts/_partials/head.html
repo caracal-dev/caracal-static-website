@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 {{ $title := cond .IsHome site.Title (printf "%s | %s" .Title site.Title) }}
 {{ $description := .Description | default site.Params.description }}
 {{ $ogImage := "/assets/images/backdrops/caracal-sunset.png" | absURL }}
@@ -25,9 +26,36 @@
 
 {{/* FAQ Page Specific Schema */}}
 {{ if eq .Type "page" }}{{ if eq .File.TranslationBaseName "faq" }}
-  {{/* We need to parse the markdown for FAQ schema, but for now we'll do it manually or skip if too complex. */}}
-  {{/* Simple way: If we have data, use it. But content/faq.md is markdown. */}}
-  {{/* Let's try to extract headings and paragraphs if possible, or just add a placeholder for future automation. */}}
+  {{ $faqSchema := dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" (slice
+    (dict "@type" "Question" "name" "What is Caracal?" "acceptedAnswer" (dict "@type" "Answer" "text" "Caracal is a version of Linux built specifically for music production. It arrives with the audio base already sorted: low-latency settings, routing, core DAWs, Windows VST support, and a curated software installer for adding the larger DAW and plugin catalog."))
+    (dict "@type" "Question" "name" "Is this Linux? I've heard Linux audio is a nightmare." "acceptedAnswer" (dict "@type" "Answer" "text" "That reputation was earned, and for most Linux systems it's still fair. Caracal exists to fix that specific problem. The audio system is pre-configured, your audio interface should work immediately, and low-latency settings are already in place."))
+    (dict "@type" "Question" "name" "Who is Caracal for?" "acceptedAnswer" (dict "@type" "Answer" "text" "Anyone making music on a computer who wants a system that just works. It's especially relevant if you're moving away from Windows and want a clean, stable alternative without having to abandon your DAWs or plugin library."))
+    (dict "@type" "Question" "name" "What desktop environment does it use?" "acceptedAnswer" (dict "@type" "Answer" "text" "KDE Plasma. Caracal is built on Fedora Kinoite, which uses KDE as its desktop. If you're coming from Windows, KDE will feel reasonably familiar with a taskbar, a start-menu-style launcher, and a windowed app layout."))
+    (dict "@type" "Question" "name" "What is Fedora Kinoite? What's the base system?" "acceptedAnswer" (dict "@type" "Answer" "text" "Fedora Kinoite is an official Fedora variant that uses KDE Plasma and an immutable image-based system model. Caracal is built on top of it using bootc, a tool for managing and updating image-based Linux systems."))
+    (dict "@type" "Question" "name" "What is ujust?" "acceptedAnswer" (dict "@type" "Answer" "text" "ujust is a command runner that comes with Fedora Atomic systems — a collection of shortcut commands for common tasks like installing software and running setup steps. When you see ujust something, it's running a pre-written script the Caracal team has set up for that task."))
+    (dict "@type" "Question" "name" "Will my Windows VST plugins work?" "acceptedAnswer" (dict "@type" "Answer" "text" "Most of them, yes. Caracal includes built-in support for running Windows VST2 and VST3 plugins on Linux. The first-time setup handles the compatibility layer automatically. Plugin compatibility does vary — some plugins work perfectly, some have minor quirks, and a small number don't load at all."))
+    (dict "@type" "Question" "name" "Can I use REAPER, Bitwig, or Renoise?" "acceptedAnswer" (dict "@type" "Answer" "text" "Yes. These are popular with producers coming from Windows and they all install cleanly on Caracal. They aren't included in the base system to keep things lean, but the bundled software installer puts them one click away."))
+    (dict "@type" "Question" "name" "What's included out of the box?" "acceptedAnswer" (dict "@type" "Answer" "text" "DAWs: Ardour 9, Qtractor, and Carla as a standalone plugin host. Effects and instruments: LSP Plugins, Calf, Guitarix, Vitalium, and more. Audio system: PipeWire and JACK are already configured and routing correctly. Compatibility tools: Wine TKG, Yabridge, Winetricks, QjackCtl, Helvum, EasyEffects, and more."))
+    (dict "@type" "Question" "name" "What is the Caracal Software Installer?" "acceptedAnswer" (dict "@type" "Answer" "text" "Caracal's curated post-install catalog for music software. It includes a desktop app, a terminal UI, and CLI helpers for installing and uninstalling optional DAWs, instruments, effects, and utilities. The installer can queue multiple selections and detect installed software."))
+    (dict "@type" "Question" "name" "Does it work with my audio interface?" "acceptedAnswer" (dict "@type" "Answer" "text" "Probably. Most USB and Thunderbolt audio interfaces that work on Linux will work on Caracal. Class-compliant interfaces work without any setup. Interfaces that need proprietary drivers may need extra steps or may not be supported."))
+    (dict "@type" "Question" "name" "What about PipeWire and JACK — what's the difference?" "acceptedAnswer" (dict "@type" "Answer" "text" "PipeWire is the main audio system on modern Linux. JACK is an older professional audio protocol for low-latency routing between applications. On Caracal, PipeWire runs JACK compatibility underneath, so applications that expect JACK work without a separate server."))
+    (dict "@type" "Question" "name" "Is there an ISO I can just download and install?" "acceptedAnswer" (dict "@type" "Answer" "text" "Yes. Caracal has early access installer images for AMD / Intel and NVIDIA systems, and you can download the matching ISO from the homepage. Stage images (pre-release) are also available for testing."))
+    (dict "@type" "Question" "name" "Can I try it in a virtual machine first?" "acceptedAnswer" (dict "@type" "Answer" "text" "Yes. Pre-built VM images save you the setup. Latest release qcow2, stage pre-release ISO, and stage pre-release qcow2 images are available for download. Alternatively, install Fedora Kinoite in a VM and switch it to Caracal with the same bootc switch command."))
+    (dict "@type" "Question" "name" "Which Linux systems can I switch from?" "acceptedAnswer" (dict "@type" "Answer" "text" "Any bootc-compatible Fedora Atomic system. That includes Fedora Kinoite, Bazzite, Bluefin, Aurora, and similar Fedora Atomic variants."))
+    (dict "@type" "Question" "name" "Will switching to Caracal erase my files?" "acceptedAnswer" (dict "@type" "Answer" "text" "No. The bootc switch command replaces the system image, not your home directory. Your documents, projects, and personal files stay in place."))
+    (dict "@type" "Question" "name" "How do I get started right now?" "acceptedAnswer" (dict "@type" "Answer" "text" "Switch to Caracal from a compatible Fedora Atomic desktop using sudo bootc switch. After rebooting, run ujust first-run to set up low-latency audio, Windows plugin compatibility, and first-boot configuration."))
+    (dict "@type" "Question" "name" "What does ujust first-run do?" "acceptedAnswer" (dict "@type" "Answer" "text" "It handles the guided post-install setup in one step: adds your user to the audio and realtime groups needed for low-latency audio access, installs shell extras, and sets up Yabridge for Windows plugin compatibility."))
+    (dict "@type" "Question" "name" "How do I roll back if an update causes problems?" "acceptedAnswer" (dict "@type" "Answer" "text" "Reboot and select the previous deployment from the boot menu. Your previous working system is kept alongside the new one. You can also run sudo bootc rollback from within the running system, then reboot."))
+    (dict "@type" "Question" "name" "Do I need to configure low-latency audio settings manually?" "acceptedAnswer" (dict "@type" "Answer" "text" "No. The settings that reduce audio delay are already configured — CPU performance mode, priority access to audio hardware, and more. Plug in your interface, open your DAW, and record."))
+    (dict "@type" "Question" "name" "Why does the site say updates can't break my system?" "acceptedAnswer" (dict "@type" "Answer" "text" "On a traditional system, updates modify the running system in place. Caracal uses an image-based model. Updates are applied as a complete new system snapshot alongside your current setup. If an update causes a problem, you can boot back into the previous version in seconds."))
+    (dict "@type" "Question" "name" "Can I install software that isn't in the bundled installer?" "acceptedAnswer" (dict "@type" "Answer" "text" "Yes. Two main paths: Flatpak for GUI apps, and Homebrew for command-line tools. One caveat: packages layered with rpm-ostree will be wiped when the system image updates. Stick to Flatpak and Homebrew for anything you want to keep long-term."))
+    (dict "@type" "Question" "name" "What kernel does Caracal use?" "acceptedAnswer" (dict "@type" "Answer" "text" "Caracal replaces Fedora's stock kernel with the Bazzite kernel and layers audio-focused realtime configuration on top: performance CPU governor defaults, realtime/memlock limits for audio users, and realtime tuned profiles."))
+    (dict "@type" "Question" "name" "How do I verify the ISO download?" "acceptedAnswer" (dict "@type" "Answer" "text" "Download the ISO and its matching checksum file from the homepage into the same folder, then run sha256sum against the checksum file. If the checksum matches, your ISO download is intact."))
+    (dict "@type" "Question" "name" "How do I verify the Caracal image with Cosign?" "acceptedAnswer" (dict "@type" "Answer" "text" "Published Caracal container images are signed with Cosign. Run cosign verify --key cosign.pub against the image. The public key is in the project's GitHub repository. This step is optional."))
+    (dict "@type" "Question" "name" "Can I use Caracal alongside Windows as a dual boot?" "acceptedAnswer" (dict "@type" "Answer" "text" "Yes, dual booting is possible. Linux and Windows can coexist on the same machine with each system on its own partition. Install Windows first, then install your Fedora Atomic base system alongside it, and switch to Caracal from there."))
+    (dict "@type" "Question" "name" "Where do I find compatibility notes for specific plugins or hardware?" "acceptedAnswer" (dict "@type" "Answer" "text" "The compatibility wiki covers DAWs, specific plugins, and hardware. The FAQ is for general orientation. For anything not covered there, the project has a community space where you can ask."))
+  ) }}
+  {{ $schema = $schema | append $faqSchema }}
 {{ end }}{{ end }}
 
 <title>{{ $title }}</title>
@@ -51,7 +79,10 @@
 <meta property="og:image:width" content="1216">
 <meta property="og:image:height" content="832">
 <meta property="og:image:alt" content="Caracal at sunset">
+<meta property="og:image:type" content="image/png">
 <meta property="og:locale" content="en_US">
+{{ if .IsPage }}<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{ if .IsPage }}<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
 
 {{/* Twitter */}}
 <meta name="twitter:card" content="summary_large_image">

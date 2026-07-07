@@ -3,11 +3,6 @@
   {{ $downloads := $siteData.downloads }}
   <div id="top"></div>
 
-  <div class="prerelease-banner">
-    <span class="prerelease-badge">Early access</span>
-    Caracal is currently in early access. Installer images are available for AMD / Intel and NVIDIA systems.
-  </div>
-
   <section class="hero">
     <div class="hero-copy reveal reveal-1">
       <p class="eyebrow">For producers, beatmakers, composers, and mix engineers</p>
@@ -39,7 +34,10 @@
 
     <div class="hero-stage reveal reveal-2" aria-hidden="true">
       <div class="hero-backdrop">
-        <img src="/assets/images/backdrops/caracal-sunset.png" alt="Caracal at sunset">
+        <picture>
+          <source srcset="/assets/images/backdrops/caracal-sunset.webp" type="image/webp">
+          <img src="/assets/images/backdrops/caracal-sunset.png" alt="Caracal at sunset">
+        </picture>
       </div>
       <div class="hero-panel hero-panel-glass">
         <p class="panel-kicker">Ready on Caracal</p>
@@ -56,16 +54,14 @@
         </div>
       </div>
       <div class="hero-panel hero-panel-screen">
-        <img src="/assets/images/screenshots/Reaper-MesaBoogie-Plugin.png" alt="Caracal Software Installer screenshot">
+        <img src="/assets/images/screenshots/Reaper-MesaBoogie-Plugin.png" alt="Caracal Software Installer screenshot" loading="lazy" width="1320" height="765">
       </div>
     </div>
   </section>
 
   <section class="tape">
     <div class="tape-track">
-      <span>Works out of the box</span>
       <span>Low-latency audio ready on boot</span>
-      <span>Run your Windows VST plugins</span>
       <span>DAWs, synths, effects, utilities</span>
       <span>Updates that can't break your setup</span>
       <span>Built on Fedora — stable and secure</span>
@@ -77,7 +73,7 @@
       <p class="eyebrow">Why Caracal</p>
       <h2>Linux audio that actually works, without a week of configuration.</h2>
       <p>
-        Moving from Windows shouldn't mean trading one set of headaches for another. Caracal is built so your audio interface, plugins, and DAW are ready on day one — and the system itself stays reliable over time.
+        Caracal is built so your audio interface, plugins, and DAW are ready on day one — and stays reliable over time.
       </p>
     </div>
 
@@ -97,14 +93,14 @@
       <p class="eyebrow">Workflow</p>
       <h2>From a blank session to a finished mix, without leaving Linux.</h2>
       <p>
-        Whether you're building tracks, recording live instruments, or running a plugin-heavy mix, Caracal covers the whole workflow — including the Windows VST plugins you already own.
+        Caracal covers the whole workflow — tracking, mixing, and the Windows VST plugins you already own.
       </p>
     </div>
 
     <div class="workflow-grid">
       {{ range $item := $siteData.workflow }}
         <figure class="shot-card reveal reveal-4">
-          <img{{ with $item.imagefit }} class="image-fit-{{ . }}"{{ end }} src="{{ $item.image }}" alt="{{ $item.title }}">
+          <img{{ with $item.imagefit }} class="image-fit-{{ . }}"{{ end }} src="{{ $item.image }}" alt="{{ $item.title }}" loading="lazy" width="{{ $item.width }}" height="{{ $item.height }}">
           <figcaption>
             <h3>{{ $item.title }}</h3>
             <p>{{ $item.caption }}</p>
@@ -122,7 +118,7 @@
       <p class="eyebrow">What's included</p>
       <h2>A lean production base out of the box, with a much larger catalog ready to install.</h2>
       <p>
-        Caracal now keeps the base image focused: the audio system, core DAWs, compatibility tools, and a practical plugin set are ready immediately. The larger DAW, synth, effect, and utility catalog is delivered through the custom software installer so you can add what you actually use.
+        Caracal keeps the base image focused: the audio system, core DAWs, compatibility tools, and a practical plugin set are ready immediately. The larger catalog is delivered through the software installer so you can add what you use.
       </p>
     </div>
 
@@ -131,9 +127,9 @@
         <p class="card-eyebrow">Software installer</p>
         <h3>Add more software without hunting the internet for it.</h3>
         <p>
-          The Caracal Software Installer gives you a curated catalog of DAWs, instruments, effects, and utilities. It has a desktop GUI, a terminal UI, install/uninstall actions, installed-state detection, and queueing so you can set up multiple tools in one pass. <a href="https://github.com/caracal-dev/caracal-software-installer/wiki" class="caption-link">See the full catalog list on our wiki.</a>
+          The Caracal Software Installer gives you a curated catalog of DAWs, instruments, effects, and utilities — with a desktop GUI, queueing, and installed-state detection so you can set up multiple tools in one pass. <a href="https://github.com/caracal-dev/caracal-software-installer/wiki" class="caption-link">See the full catalog list on our wiki.</a>
         </p>
-        <img src="/assets/images/screenshots/caracal-installer.png" alt="Caracal Software Installer catalog">
+        <img src="/assets/images/screenshots/caracal-installer.png" alt="Caracal Software Installer catalog" loading="lazy" width="1920" height="1080">
       </aside>
 
       <div class="stack-grid">
@@ -156,16 +152,16 @@
       <p class="eyebrow">Get started — early access</p>
       <h2>Download the ISO, or switch from an existing Fedora Atomic desktop.</h2>
       <p>
-        Choose the early access ISO that matches your graphics hardware. If you're already on a compatible Fedora Atomic desktop, you can still switch in place with the three-step path that follows.
+        Choose the ISO that matches your graphics hardware. If you're already on a compatible Fedora Atomic desktop, switch in place with the three-step path below.
       </p>
     </div>
 
     <article class="download-selector reveal reveal-3" data-download-selector>
       <div class="download-selector-copy">
         <p class="card-eyebrow">Choose your image</p>
-        <h3>Pick the installer that matches your graphics hardware.</h3>
+        <h3>Pick the installer and format that fits your workflow.</h3>
         <p>
-          AMD and Intel systems use the same image. NVIDIA systems have a dedicated image with NVIDIA support included.
+          Pick your format and channel: installer ISOs for real hardware, or pre-built VM images for testing. Stage images include pre-release changes.
         </p>
       </div>
 
@@ -196,6 +192,33 @@
             data-download-checksum-url="{{ $downloads.nvidia_checksum_url }}"
             data-download-label="Download NVIDIA ISO">
             NVIDIA
+          </button>
+          <button class="image-choice" type="button" aria-pressed="false" data-image-choice
+            data-download-available="true"
+            data-download-title="{{ $downloads.stage_amdintel_title }}"
+            data-download-description="{{ $downloads.stage_amdintel_description }}"
+            data-download-url="{{ $downloads.stage_amdintel_url }}"
+            data-download-checksum-url="{{ $downloads.stage_amdintel_checksum_url }}"
+            data-download-label="Download stage ISO">
+            Stage ISO
+          </button>
+          <button class="image-choice" type="button" aria-pressed="false" data-image-choice
+            data-download-available="true"
+            data-download-title="{{ $downloads.amdintel_qcow2_title }}"
+            data-download-description="{{ $downloads.amdintel_qcow2_description }}"
+            data-download-url="{{ $downloads.amdintel_qcow2_url }}"
+            data-download-checksum-url=""
+            data-download-label="Download VM image (qcow2)">
+            VM (qcow2)
+          </button>
+          <button class="image-choice" type="button" aria-pressed="false" data-image-choice
+            data-download-available="true"
+            data-download-title="{{ $downloads.stage_amdintel_qcow2_title }}"
+            data-download-description="{{ $downloads.stage_amdintel_qcow2_description }}"
+            data-download-url="{{ $downloads.stage_amdintel_qcow2_url }}"
+            data-download-checksum-url=""
+            data-download-label="Download stage VM image">
+            Stage VM
           </button>
         </div>
 
@@ -228,24 +251,24 @@
         <p class="card-eyebrow">What You’ll See</p>
         <h3 id="setup-wizard-title">Our custom setup wizard.</h3>
         <p>
-          When you log into Caracal for the first time, you will be greeted with our custom setup wizard. First you can update your username and password if you choose or leave them as they are, then you get a straightforward first-run window that automatically configures the handful of things Caracal needs for audio work and points you toward the software installer for optional DAWs, instruments, effects, and utilities.
+          On first login, Caracal's setup wizard offers to update your username and password, then auto-configures audio settings and points you to the software installer.
         </p>
         <p>
-          If you are coming from Microsoft Windows, this is the part that replaces the usual round of driver installers, permission dialogs, and utility apps.
+          It replaces the usual round of driver installers, permission dialogs, and utility apps.
         </p>
       </div>
       <figure class="setup-wizard-shot">
-        <img src="/assets/images/screenshots/screenshot-caracal-setup-ui.png" alt="Caracal first-run setup wizard window">
+        <img src="/assets/images/screenshots/screenshot-caracal-setup-ui.png" alt="Caracal first-run setup wizard window" loading="lazy" width="1920" height="1080">
       </figure>
     </article>
 
     <div class="verification-card reveal reveal-2">
       <p class="card-eyebrow">Verification</p>
       <h3>Verify the ISO before you install it.</h3>
-      <p>Download the ISO and the matching checksum file into the same folder, then run the command for the image you downloaded.</p>
+      <p>Download the ISO and the matching checksum into the same folder, then run the command for your image.</p>
       <code>sha256sum -c caracal-latest-amd64.iso-CHECKSUM</code>
       <code>sha256sum -c caracal-nvidia-latest-amd64.iso-CHECKSUM</code>
-      <p>If you're switching with `rpm-ostree rebase` instead of using the ISO, advanced users can still verify the published container image with Cosign.</p>
+      <p>If switching with `rpm-ostree rebase` instead of using the ISO, verify the container image with Cosign.</p>
       <code>cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest</code>
     </div>
   </section>

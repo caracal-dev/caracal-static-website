@@ -2,6 +2,9 @@
 title = "Caracal FAQ"
 description = "Common questions about Caracal — what it is, whether your existing plugins and DAWs will work, and how to get started."
 eyebrow = "Common Questions"
+date = 2025-02-08T00:00:00Z
+[sitemap]
+  priority = 0.8
 +++
 
 ## What is Caracal?
@@ -26,7 +29,7 @@ Fedora Kinoite is an official Fedora variant that uses KDE Plasma and an immutab
 
 ## What is `ujust`?
 
-`ujust` is a command runner that comes with Fedora Atomic systems. Think of it as a collection of shortcut commands the project has defined for common tasks — installing specific software, running setup steps, and so on. When you see `ujust something`, it's running a pre-written script that the Caracal team has set up for that task. You don't need to know how it works internally; it's just a convenient way to run complex operations with a short command.
+`ujust` is a command runner that comes with Fedora Atomic systems — a collection of shortcut commands for common tasks like installing software and running setup steps. When you see `ujust something`, it's running a pre-written script the Caracal team has set up for that task.
 
 ## Will my Windows VST plugins work?
 
@@ -46,39 +49,33 @@ ujust install-bitwig
 
 ## What's included out of the box?
 
-**DAWs:** Ardour 9 and Qtractor are ready to open on first boot. Carla is also included as a standalone plugin host if you want to run instruments or effects outside a full session.
+**DAWs:** Ardour 9, Qtractor, and Carla as a standalone plugin host.
 
-**Effects and instruments:** a focused base set including LSP Plugins, Calf, Guitarix, Vitalium, DISTRHO DrumSynth, DISTRHO EQuinox, Hydrogen, and Carla LV2 integration.
+**Effects and instruments:** LSP Plugins, Calf, Guitarix, Vitalium, DISTRHO DrumSynth, DISTRHO EQuinox, Hydrogen, and Carla LV2 integration.
 
-**Audio system:** PipeWire and JACK are already configured and routing audio correctly — you don't need to set them up.
+**Audio system:** PipeWire and JACK are already configured and routing correctly.
 
-**Compatibility and workflow tools:** Wine TKG, Yabridge, Winetricks, QjackCtl, Helvum, EasyEffects, Ghostty, Zsh, Neovim, Distrobox, AppImageLauncher, and virtualization support are included.
+**Compatibility and workflow tools:** Wine TKG, Yabridge, Winetricks, QjackCtl, Helvum, EasyEffects, Ghostty, Zsh, Neovim, Distrobox, AppImageLauncher.
 
-The larger catalog lives in the Caracal Software Installer instead of being preloaded into every image.
+The larger catalog lives in the Caracal Software Installer.
 
 ## What is the Caracal Software Installer?
 
-It's Caracal's curated post-install catalog for music software. It includes a desktop app, a terminal UI, and CLI helpers for installing and uninstalling optional DAWs, instruments, effects, and utilities.
+Caracal's curated post-install catalog for music software. It includes a desktop app, a terminal UI, and CLI helpers for installing and uninstalling optional DAWs, instruments, effects, and utilities. The installer can queue multiple selections and detect installed software.
 
-The installer can queue multiple selections, detect software that is already installed, and use package-specific install paths. System apps can go into `/opt` or `/usr/local` when they need integration, while many plugin archives install into user-local folders like `~/.vst3`, `~/.clap`, and `~/.lv2` so they work cleanly with Caracal's image-based updates.
-
-Current catalog highlights include REAPER, Renoise, Bitwig Studio, Mixbus, Zrythm, Cardinal, VCV Rack 2, Surge XT, Decent Sampler, SunVox, Virtual ANS, Dragonfly Reverb, BYOD, AIDA-X, Neural Amp Modeler, TAL plugins, Zam Plugin Suite, DPF plugins, MuseScore Studio, and RTCQS.
+Current catalog highlights include REAPER, Renoise, Bitwig Studio, Mixbus, Zrythm, Cardinal, VCV Rack 2, Surge XT, Decent Sampler, Dragonfly Reverb, BYOD, AIDA-X, Neural Amp Modeler, and more.
 
 ## Does it work with my audio interface?
 
-Probably. Most USB and Thunderbolt audio interfaces that work on Linux will work on Caracal. Class-compliant interfaces (ones that don't require a custom driver) work without any setup at all. Interfaces that need proprietary drivers — which is relatively rare on Linux — may need extra steps or may not be supported.
-
-If your interface has worked on other Linux systems, it will work here. If you're not sure, the [compatibility wiki](/wiki/) is a good starting point, and the project community can help with specific hardware questions.
+Probably. Most USB and Thunderbolt audio interfaces that work on Linux will work on Caracal. Class-compliant interfaces work without any setup. Interfaces that need proprietary drivers — which is rare on Linux — may need extra steps or may not be supported. If you're not sure, the [compatibility wiki](/wiki/) is a good starting point.
 
 ## What about PipeWire and JACK — what's the difference?
 
-PipeWire is the main audio system on modern Linux — it handles everything from system sounds to music applications. JACK is an older professional audio protocol that many DAWs and audio tools use for low-latency routing between applications.
-
-On Caracal, PipeWire runs JACK compatibility underneath, so applications that expect JACK will work without you needing to run a separate JACK server. In practice this means you can open Ardour, connect your hardware, and record — the routing just works.
+PipeWire is the main audio system on modern Linux. JACK is an older professional audio protocol for low-latency routing between applications. On Caracal, PipeWire runs JACK compatibility underneath, so applications that expect JACK work without a separate server. Open Ardour, connect your hardware, and record — the routing just works.
 
 ## Is there an ISO I can just download and install?
 
-Yes. Caracal has early access installer images for AMD / Intel and NVIDIA systems, and you can download the matching ISO from the homepage.
+Yes. Caracal has early access installer images for AMD / Intel and NVIDIA systems, and you can download the matching ISO from the homepage. Stage images (pre-release) are also available for testing.
 
 If you're already on a compatible Fedora Atomic desktop, the in-place switch path is still fully supported:
 
@@ -88,7 +85,13 @@ sudo bootc switch ghcr.io/caracal-dev/caracal:latest
 
 ## Can I try it in a virtual machine first?
 
-Yes, and it's a sensible way to get a feel for it before switching your main machine. The project supports local VM builds for testing. Alternatively, you can install Fedora Kinoite in a VM and switch it to Caracal using the same `bootc switch` command you'd use on a real machine — the process is identical.
+Yes. Pre-built VM images save you the setup:
+
+- **Latest release (qcow2):** [caracal-latest-amd64.qcow2](https://downloads.caracal-os.org/caracal-latest-amd64.qcow2)
+- **Stage/pre-release (ISO):** [caracal-stage-latest-amd64.iso](https://downloads.caracal-os.org/caracal-stage-latest-amd64.iso)
+- **Stage/pre-release (qcow2):** [caracal-stage-latest-amd64.qcow2](https://downloads.caracal-os.org/caracal-stage-latest-amd64.qcow2)
+
+Alternatively, install Fedora Kinoite in a VM and switch it to Caracal with the same `bootc switch` command you'd use on real hardware.
 
 ## Which Linux systems can I switch from?
 
@@ -136,18 +139,18 @@ No. The settings that reduce audio delay are already configured — CPU performa
 
 ## Why does the site say updates can't break my system?
 
-On a traditional system — Windows or Linux — updates modify the running system in place. A bad update can silently break things that were working fine, and rolling back is painful or impossible.
+On a traditional system, updates modify the running system in place. A bad update can silently break things, and rolling back is painful or impossible.
 
-Caracal uses an image-based model. Updates are applied as a complete new system snapshot alongside your current setup. If an update causes a problem, you can boot back into the previous version in seconds. Your home directory and personal files are always separate from the system image and are never touched by a system update.
+Caracal uses an image-based model. Updates are applied as a complete new system snapshot alongside your current setup. If an update causes a problem, you can boot back into the previous version in seconds. Your home directory sits separate from the system image.
 
 ## Can I install software that isn't in the bundled installer?
 
-Yes. The two main paths are:
+Yes. Two main paths:
 
-- **Flatpak** for GUI apps — it's already set up and most major desktop applications are available this way.
-- **Homebrew** for command-line tools and utilities — the same package manager many macOS users already know, and it works well on Linux. Everything Homebrew installs goes into your home directory, so it's completely unaffected by system updates.
+- **Flatpak** for GUI apps — most major desktop applications are available this way.
+- **Homebrew** for command-line tools — everything installs into your home directory, unaffected by system updates.
 
-One thing to be aware of: because Caracal uses a `bootc`-managed image, packages layered with `rpm-ostree` will be wiped when the system image updates. Stick to Flatpak and Homebrew for anything you want to keep long-term.
+One caveat: because Caracal uses a `bootc`-managed image, packages layered with `rpm-ostree` will be wiped when the system image updates. Stick to Flatpak and Homebrew for anything you want to keep long-term.
 
 ## What kernel does Caracal use?
 
@@ -169,13 +172,13 @@ If the checksum matches, your ISO download is intact.
 
 ## How do I verify the Caracal image with Cosign?
 
-Published Caracal container images are signed with Cosign, which lets you confirm the image you're switching to is genuine and hasn't been tampered with. If you want to verify before switching:
+Published Caracal container images are signed with Cosign to verify the image is genuine and hasn't been tampered with.
 
 ```bash
 cosign verify --key cosign.pub ghcr.io/caracal-dev/caracal:latest
 ```
 
-The public key (`cosign.pub`) is available in the project's GitHub repository. This is optional — most users won't need it — but it's there if you want a verifiable chain of trust before deploying on a machine you care about.
+The public key (`cosign.pub`) is in the project's GitHub repository. Optional — most users won't need it.
 
 ## Can I use Caracal alongside Windows as a dual boot?
 

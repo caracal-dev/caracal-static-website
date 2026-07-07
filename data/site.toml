@@ -1,6 +1,5 @@
 quickfacts = [
-  "Your Windows VST plugins still work — bring your whole library",
-  "Audio is ready the moment you boot up, with a lean base image",
+  "Audio is ready the moment you boot up — low-latency, pre-configured, no tweaking.",
   "Updates can't break your system — roll back if anything goes wrong",
 ]
 
@@ -14,56 +13,76 @@ discord_url = "https://discord.com/channels/1512388646735712306/1512388648295731
 amdintel_url = "https://downloads.caracal-os.org/caracal-latest-amd64.iso"
 amdintel_checksum_url = "https://downloads.caracal-os.org/caracal-latest-amd64.iso-CHECKSUM"
 amdintel_title = "AMD / Intel installer image"
-amdintel_description = "Use this early access ISO on systems with AMD or Intel graphics."
+amdintel_description = "Use this ISO on systems with AMD or Intel graphics."
 nvidia_url = "https://downloads.caracal-os.org/caracal-nvidia-latest-amd64.iso"
 nvidia_checksum_url = "https://downloads.caracal-os.org/caracal-nvidia-latest-amd64.iso-CHECKSUM"
 nvidia_title = "NVIDIA installer image"
-nvidia_description = "Use this early access ISO on systems with NVIDIA graphics."
+nvidia_description = "Use this ISO on systems with NVIDIA graphics."
+
+# VM disk images and stage builds
+amdintel_qcow2_url = "https://downloads.caracal-os.org/caracal-latest-amd64.qcow2"
+amdintel_qcow2_title = "AMD / Intel VM disk image (qcow2)"
+amdintel_qcow2_description = "Pre-built VM disk image for AMD or Intel systems. Boot it directly in a virtual machine."
+stage_amdintel_url = "https://downloads.caracal-os.org/caracal-stage-latest-amd64.iso"
+stage_amdintel_checksum_url = "https://downloads.caracal-os.org/caracal-stage-latest-amd64.iso-CHECKSUM"
+stage_amdintel_title = "AMD / Intel stage installer image"
+stage_amdintel_description = "Pre-release stage ISO for AMD or Intel systems. Test upcoming changes before they reach stable."
+stage_amdintel_qcow2_url = "https://downloads.caracal-os.org/caracal-stage-latest-amd64.qcow2"
+stage_amdintel_qcow2_title = "AMD / Intel stage VM disk image (qcow2)"
+stage_amdintel_qcow2_description = "Pre-release VM disk image for testing upcoming changes in a virtual machine."
 
 [[features]]
 eyebrow = "Ready on day one"
 title = "Plug in and record. No configuration rabbit holes."
-body = "On Windows, getting low-latency audio often means fighting ASIO drivers, buffer settings, and background processes. Caracal arrives already configured for music production — your audio interface works, your latency is low, and you can start a session without touching a single setting."
+body = "Caracal arrives already configured for music production — your audio interface works, your latency is low, and you can start a session without touching a single setting."
 
 [[features]]
 eyebrow = "Lean studio base"
 title = "The essentials are installed. The bigger catalog is one click away."
-body = "Ardour, Qtractor, Carla, Hydrogen, Wine/Yabridge, and a focused plugin set are included out of the box. REAPER, Renoise, Bitwig, Mixbus, extra synths, and larger plugin collections live in the bundled Caracal Software Installer so the base system stays lean."
+body = "Ardour, Qtractor, Carla, Hydrogen, Wine/Yabridge, and a focused plugin set are included out of the box. Bigger DAWs like REAPER and Bitwig live in the bundled Caracal Software Installer."
 
 [[features]]
 eyebrow = "Focused plugin base"
 title = "Start with a practical plugin set, then add exactly what you need."
-body = "Caracal preinstalls LSP, Calf, Guitarix, Vitalium, DISTRHO DrumSynth/EQuinox, and Carla integration. The installer expands that into Dragonfly Reverb, Surge XT, Cardinal, Decent Sampler, BYOD, AIDA-X, Neural Amp Modeler, TAL plugins, Zam, DPF, and more."
+body = "Caracal preinstalls LSP, Calf, Guitarix, Vitalium, DISTRHO DrumSynth/EQuinox, and more. The installer expands that into Dragonfly Reverb, Surge XT, Cardinal, Decent Sampler, BYOD, AIDA-X, Neural Amp Modeler, and more."
 
 [[features]]
 eyebrow = "Your Windows plugins come with you"
 title = "Run your existing VST library, not just Linux alternatives."
-body = "Caracal includes built-in support for running Windows VST plugins on Linux. If you have a plugin library from your Windows setup, you don't have to leave it behind — most plugins load and run without any extra steps."
+body = "Caracal includes built-in support for Windows VST plugins — most load and run without extra steps."
 
 [[features]]
 eyebrow = "A system that stays stable"
 title = "Updates can't break your studio setup."
-body = "Unlike a traditional Windows or Linux install, Caracal's system files are locked — apps and updates can't quietly corrupt the foundation your studio runs on. Every system update is applied as a clean snapshot, and if an update causes problems, you can boot back into the previous version in seconds."
+body = "Caracal's system files are locked — apps and updates can't quietly corrupt your studio. Every system update is applied as a clean snapshot, and you can boot back into the previous version in seconds."
 
 [[workflow]]
 title = "Mix in Ardour without fighting the software"
 caption = "Ardour's mixer handles large sessions cleanly — all your channels, sends, and plugins in one view, without the clutter."
 image = "/assets/images/screenshots/Ardour-Project-Mixer.png"
+width = 2050
+height = 1164
 
 [[workflow]]
 title = "Record, arrange, and produce natively"
 caption = "The core tools you need to write and record are included from day one, and the installer handles the larger DAW and plugin catalog when you are ready."
 image = "/assets/images/screenshots/Ardour-Project.png"
+width = 1916
+height = 1080
 
 [[workflow]]
 title = "Use the DAW you already know"
 caption = "If you're coming from REAPER or Bitwig on Windows, they install cleanly and work exactly as you'd expect."
 image = "/assets/images/screenshots/Reaper-Project.png"
+width = 2050
+height = 1164
 
 [[workflow]]
 title = "Your Windows plugins, running on Linux"
 caption = "Caracal includes built-in tools to run most Windows VST plugins. Your existing library doesn't have to collect dust."
 image = "/assets/images/screenshots/Arturia-Pigments-in-Bitwig.png"
+width = 1920
+height = 1080
 linkurl = "/wiki/"
 linkcta = "Check plugin compatibility"
 
@@ -71,22 +90,30 @@ linkcta = "Check plugin compatibility"
 title = "Control your audio from one place"
 caption = "The Caracal Audio Controller keeps common audio settings close at hand, so you can tune your setup without digging through system panels."
 image = "/assets/images/screenshots/caracal-audio-controller.png"
+width = 568
+height = 440
 imagefit = "contain"
 
 [[workflow]]
 title = "Browse with a modern desktop setup"
 caption = "Everyday desktop apps fit naturally into the system, from web browsing to documentation, downloads, and project research."
 image = "/assets/images/screenshots/zen-browser-with-ublue-webpage.png"
+width = 1920
+height = 1080
 
 [[workflow]]
 title = "Install apps from other Linux distributions"
 caption = "Distrobox lets you run apps from other Linux distributions, including .deb-based tools, when something you need is not available in the Caracal Software Installer yet."
 image = "/assets/images/screenshots/distrobox-fastfetch-arch-terminal.png"
+width = 1285
+height = 886
 
 [[workflow]]
 title = "Install Flatpaks from a visual store"
 caption = "Bazaar gives you a straightforward way to browse and install Flatpak apps without leaving the desktop."
 image = "/assets/images/screenshots/bazaar-flatpak-app-store.png"
+width = 1920
+height = 1080
 
 [[stackgroups]]
 title = "Included DAWs"
